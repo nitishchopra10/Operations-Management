@@ -1,0 +1,11 @@
+.menu-div{
+    height: auto;
+    font-size: 1.3vw;
+    padding:1vw;
+    cursor: pointer;
+}
+
+
+.menu-div:hover{
+    font-weight: bold;
+}

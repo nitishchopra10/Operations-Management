@@ -1,0 +1,18 @@
+<!--header start -->
+
+<div class="header">
+  <span class="header-anim">
+   <span>
+   <img src="../../../assets/icon/logo.png" class="logo" />
+ </span>
+   <span>
+     <label class="heading">Operations Management</label>
+   </span>
+ </span>
+   <span class="menu">
+     <label (click)="menuFlag()" style="cursor: pointer;">Menu =</label>
+     <div class="menu-block" *ngIf="flag">
+       <app-menu></app-menu>
+       </div>
+   </span>
+ </div>
