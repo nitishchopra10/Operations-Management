@@ -1,0 +1,36 @@
+.tile-container{
+    margin: 5vw;
+    padding: 0 auto;
+    display: inline-table;
+    text-align: center;
+}
+/*{  
+    animation-name: tiles;
+    animation-duration: 2s;
+}
+@keyframes tiles {
+    from {height:0%;
+    }
+    to {height:100%;}
+}
+*/
+.tiles{
+    height:20vw;
+    width:15vw;
+    margin: 1vw;
+    font-size: 1.3vw;
+    display: inline-table;
+    border-top: 0.2vw solid teal;
+    border-bottom: 0.2vw solid teal;
+    background: rgba(255, 255, 255,0.5);
+    color:black;
+    border-radius: 0.5vw;
+}
+
+
+.tile-icon{
+    margin-top:2vw;
+    height:7vw;
+    width :auto;
+      
+}
