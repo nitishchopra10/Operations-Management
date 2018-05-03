@@ -20,8 +20,8 @@
     margin: 1vw;
     font-size: 1.3vw;
     display: inline-table;
-    border-top: 0.2vw solid teal;
-    border-bottom: 0.2vw solid teal;
+    border-top: 0.2vw solid black;
+    border-bottom: 0.2vw solid black;
     background: rgba(255, 255, 255,0.5);
     color:black;
     border-radius: 0.5vw;
@@ -32,5 +32,6 @@
     margin-top:2vw;
     height:7vw;
     width :auto;
+    margin-bottom: 4vw;
       
 }

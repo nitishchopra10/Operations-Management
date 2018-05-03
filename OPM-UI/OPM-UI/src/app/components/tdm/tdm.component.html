@@ -1,7 +1,3 @@
-<br/>
-<br/>
-
-<br/>
 <div class="heading">
   <label>Team Data Management</label>
 </div>
@@ -12,13 +8,14 @@
   <div class="menu-link"  [routerLink]="['./tdm-add-members']" (click)="colorFlagChanger(2)" [ngStyle]="getMyStyles(2)">
     Add Team Members
   </div>
-  <div class="menu-link"  (click)="colorFlagChanger(3)" [ngStyle]="getMyStyles(3)">
+  <div class="menu-link"  [routerLink]="['./tdm-update-details']" (click)="colorFlagChanger(3)" [ngStyle]="getMyStyles(3)">
     Update Details
   </div>
-  <div class="menu-link"  (click)="colorFlagChanger(4)" [ngStyle]="getMyStyles(4)">
+  <div class="menu-link" [routerLink]="['./tdm-search']" (click)="colorFlagChanger(4)" [ngStyle]="getMyStyles(4)">
     Search
   </div>
 
 </div>
+<br/>
 
 <router-outlet></router-outlet>

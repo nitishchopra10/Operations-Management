@@ -5,7 +5,7 @@
     background: rgba(0, 0, 0, 0.3);
     color: black;
     font-size: 1.3vw;
-    height: 35vw;
+    height: 32vw;
     text-align: center;
     padding: 1vw;
 }
@@ -55,5 +55,6 @@ button{
     text-align: center;
     border-radius: 0.3vw;
     color: white;
+    font-size: 1vw;
 
 }

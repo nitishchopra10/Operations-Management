@@ -1,0 +1,102 @@
+/*view all css file start */
+
+.table-header{
+    position: relative;
+    text-align: center;
+    background: black;
+    margin-right:1.2%;
+}
+.table-body{
+    position: relative;
+    text-align: center;
+     overflow-y: scroll;
+    height: 13vw;;
+   background: sandybrown;
+}
+.data-row{
+    line-height:200%;    
+    border-bottom: 0.1vw solid red;
+}
+.data-row:hover{
+    background: salmon;
+
+}
+.header-row{
+    line-height:200%;
+    border-bottom: black;
+}
+
+th{
+    margin:0.2vw;
+    text-align: center;
+   
+    color:white;
+    width:5%;
+    font-weight: lighter;
+}
+
+td{
+    text-align: center;
+    margin:0.2vw;
+    width:5%;
+    font-weight: lighter;
+}
+
+/*view all css file end */
+
+/*update all css file start */
+.parent-div{
+    margin-top:0.5%;
+    background: rgba(0, 0, 0, 0.3);
+    color: black;
+    font-size: 1.3vw;
+    height:19vw;
+    text-align: center;
+    padding: 1vw;
+}
+
+.div-style{
+    width:15vw;
+    text-align: left;   
+    display: inline-block;
+    
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 30vw;
+    padding-top:1%;
+     /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+
+input{
+    border: none;
+    height:1.5vw;   
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+}
+.button-column {
+    float: left;
+    width: 70vw;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+     /* Should be removed. Only for demonstration */
+}
+
+button{
+    margin-top: 1.5vw;
+    height:2.5vw;
+    width: 5vw;
+    text-align: center;
+    border-radius: 0.3vw;
+    color: white;
+    font-size: 1vw;
+
+}
+
+/*update all css file end */

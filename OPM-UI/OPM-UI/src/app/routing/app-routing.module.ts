@@ -7,6 +7,8 @@ import { DeliveryPortfolioComponent } from '../components/delivery-portfolio/del
 import { ViewComponent } from '../components/delivery-portfolio/view/view.component';
 import { TdmViewAllComponent } from '../components/tdm/tdm-view-all/tdm-view-all.component';
 import { TdmAddTeamMembersComponent } from '../components/tdm/tdm-add-team-members/tdm-add-team-members.component';
+import { TdmUpdateDetailsComponent } from '../components/tdm/tdm-update-details/tdm-update-details.component';
+import { TdmSearchComponent } from '../components/tdm/tdm-search/tdm-search.component';
 
 const appRoutes: Routes = [
   /* {path:'admin',component:AdminComponent,
@@ -24,6 +26,9 @@ const appRoutes: Routes = [
     children: [
       {path: '', component: TdmViewAllComponent},
       { path: 'tdm-view-members', component: TdmViewAllComponent },
+      { path: 'tdm-update-details', component: TdmUpdateDetailsComponent },
+      { path: 'tdm-search', component: TdmSearchComponent },
+     
       { path: 'tdm-add-members', component: TdmAddTeamMembersComponent }
     ]},
   { path: 'delivery-portfolio', component: DeliveryPortfolioComponent },

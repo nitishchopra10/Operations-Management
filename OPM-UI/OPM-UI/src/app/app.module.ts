@@ -14,6 +14,8 @@ import { DeliveryPortfolioComponent } from './components/delivery-portfolio/deli
 import { ViewComponent } from './components/delivery-portfolio/view/view.component';
 import { TdmViewAllComponent } from './components/tdm/tdm-view-all/tdm-view-all.component';
 import { TdmAddTeamMembersComponent } from './components/tdm/tdm-add-team-members/tdm-add-team-members.component';
+import { TdmUpdateDetailsComponent } from './components/tdm/tdm-update-details/tdm-update-details.component';
+import { TdmSearchComponent } from './components/tdm/tdm-search/tdm-search.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { TdmAddTeamMembersComponent } from './components/tdm/tdm-add-team-member
     DeliveryPortfolioComponent,
     ViewComponent,
     TdmViewAllComponent,
-    TdmAddTeamMembersComponent
+    TdmAddTeamMembersComponent,
+    TdmUpdateDetailsComponent,
+    TdmSearchComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,HttpModule
