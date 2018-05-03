@@ -11,7 +11,12 @@ spring:
     show-sql: true    
   application:
     name: team-data-management
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    default-schema: SOPRA
+    enabled: true
+    
     
 server:
   port: 9000
- 
+  
