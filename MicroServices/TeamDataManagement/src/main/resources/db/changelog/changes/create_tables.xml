@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="tsharma (generated)" id="1525340144199-1">
+        <createTable tableName="employee">
+            <column autoIncrement="true" name="empid" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="employee_pkey"/>
+            </column>
+            <column name="address" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="m_code" type="INT"/>
+            <column name="n_1" type="VARCHAR(255)"/>
+            <column name="n_2" type="VARCHAR(255)"/>
+            <column name="employee_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project" type="VARCHAR(255)"/>
+            <column name="sub_level" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
