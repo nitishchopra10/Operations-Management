@@ -1,6 +1,7 @@
 <div class="tile-container">
-   <div *ngFor="let data of data" class="tiles">
-      <img src="../../../assets/icon/{{data.heading}}.png" class="tile-icon"  onerror="this.src='../../../assets/icon/../../../assets/icon/Alt.png'" /> <br/>
+   <div *ngFor="let data of data" class="tiles" [routerLink]="[data.url]">
+      <img src="../../../assets/icon/{{data.heading}}.png" class="tile-icon" 
+        onerror="this.src='../../../assets/icon/../../../assets/icon/Alt.png'" /> <br/>
     
          {{data.heading}}
 
