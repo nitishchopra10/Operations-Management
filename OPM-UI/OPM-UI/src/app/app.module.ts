@@ -12,6 +12,8 @@ import { TdmComponent } from './components/tdm/tdm.component';
 import { RouterLink,RouterOutlet } from '@angular/router';
 import { DeliveryPortfolioComponent } from './components/delivery-portfolio/delivery-portfolio.component';
 import { ViewComponent } from './components/delivery-portfolio/view/view.component';
+import { TdmViewAllComponent } from './components/tdm/tdm-view-all/tdm-view-all.component';
+import { TdmAddTeamMembersComponent } from './components/tdm/tdm-add-team-members/tdm-add-team-members.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { ViewComponent } from './components/delivery-portfolio/view/view.compone
     HeaderComponent,
     TdmComponent,
     DeliveryPortfolioComponent,
-    ViewComponent
+    ViewComponent,
+    TdmViewAllComponent,
+    TdmAddTeamMembersComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,HttpModule
