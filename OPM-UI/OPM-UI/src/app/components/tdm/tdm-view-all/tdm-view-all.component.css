@@ -11,11 +11,10 @@
     text-align: center;
      overflow-y: scroll;
     height: 30vw;;
-   background: sandybrown;
+     background: rgba(0,0,0,0.2);
 }
 .data-row{
     line-height:200%;    
-    border-bottom: 0.1vw solid red;
 }
 .data-row:hover{
     background: salmon;
