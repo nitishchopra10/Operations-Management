@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: tsharma
+Build-Jdk: 9.0.4
+Implementation-Title: TeamDataManagement
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.sopra
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/TeamDataManagement
+Created-By: Maven Integration for Eclipse
+
