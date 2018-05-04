@@ -3,16 +3,22 @@ spring:
     url: jdbc:postgresql://localhost:5432/opr_mgmt
     username: postgres
     password: admin
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQL9Dialect 
-    show-sql: true    
+    driver-class-name: org.postgresql.Driver  
   application:
     name: team-data-management
   liquibase:
     enabled: true
+  jpa:
+   properties:
+     hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation : true  
+   hibernate:
+      ddl-auto: update      
+   database-platform: org.hibernate.dialect.PostgreSQL9Dialect 
+   show-sql: true  
+   
     
     
 server:
