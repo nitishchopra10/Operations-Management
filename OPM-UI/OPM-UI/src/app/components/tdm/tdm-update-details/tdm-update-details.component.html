@@ -12,7 +12,7 @@
           <th class="">N+2</th>
           <th class="">Contact Number</th>
           <th class="">Address</th>
-          <th class=""> Assest</th>
+          <th class=""> Assets</th>
 
         </tr>
       </thead>
@@ -20,322 +20,27 @@
   </div>
 
   <div class="table-body">
+
+      
+    
     <table>
       <tbody>
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
+        <tr class="data-row" *ngFor="let data of employeeData" (click)="setData(data)">
+          <td class="">{{data.empId}}</td>
+          <td class="">{{data.name}}</td>
+          <td class="">{{data.mCode}}</td>
+          <td class="">{{data.subLevel}}</td>
+          <td class="">{{data.project}}</td>
+          <td class="">{{data.n1}}</td>
+          <td class="">{{data.n2}}</td>
+          <td class="">{{data.contactNumber}}</td>
+          <td class="">{{data.address}}</td>
+          <td class="">Assets</td>
+          
+         
         </tr>
 
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
+      
       </tbody>
     </table>
   </div>
@@ -349,49 +54,49 @@
    <b><i>Update Team Member Details</i></b>
   </div>
 
-<form [formGroup]="updateTeamMemberForm"  (ngSubmit)="onSubmit(updateTeamMemberForm.value)">
+<form [formGroup]="updateTeamMemberForm"  (ngSubmit)="onSubmit(updateTeamMemberForm.value);">
   <div class="column">
     <div class="div-style">
       Employee Id :
     </div>
-    <input type="text"  formControlName="employeeId"/>
+    <input type="text" disabled formControlName="employeeId"/>
   </div>
 
   <div class="column ">
     <div class="div-style">
       Employee Name :
     </div>
-    <input type="text" formControlName="employeeName" />
+    <input type="text" required formControlName="employeeName" />
   </div>
   <div class="column">
     <div class="div-style">
      M Code :
     </div>
-    <input type="text"  formControlName="mCode"/>
+    <input type="text" required formControlName="mCode"/>
   </div>
 
   <div class="column ">
     <div class="div-style">
       Sub Level :
     </div>
-    <input type="text"  formControlName="subLevel" />
+    <input type="text"  required formControlName="subLevel" />
   </div>
   <div class="column">
     <div class="div-style">
       Project :
     </div>
-    <input type="text"  formControlName="project"/>
+    <input type="text" required  formControlName="project"/>
   </div>
 
   <div class="column">
     <div class="div-style">
-      N + 1
+      N+1:
     </div>
-    <input type="text"  formControlName="n1"/>
+    <input type="text" required formControlName="n1"/>
   </div>
   <div class="column">
     <div class="div-style">
-      N + 2:
+      N+2:
     </div>
     <input type="text"  formControlName="n2" />
   </div>
@@ -400,18 +105,18 @@
     <div class="div-style">
       Contact Number :
     </div>
-    <input type="text" formControlName="contactNumber" />
+    <input type="text" required formControlName="contactNumber" />
   </div>
   <div class="column">
     <div class="div-style">
       Address :
     </div>
-    <input type="text" formControlName="address"/>
+    <input type="text" required formControlName="address"/>
   </div>
 
   <div class="column">
     <div class="div-style">
-     Assest :
+     Assets :
     </div>
     <input type="text" formControlName="assest" />
   </div>
@@ -419,7 +124,7 @@
   <div class="button-column">
       <div >
       <button type="reset" style="background: rgba(0,0,0,0.6)">Reset</button>
-      <button  type="submit"  style="background: rgba(0,0,0,0.6)">Submit</button>
+      <button  type="submit"  [disabled]="updateTeamMemberForm.invalid" style="background: rgba(0,0,0,0.6)">Submit</button>
       </div>
       
     </div>
