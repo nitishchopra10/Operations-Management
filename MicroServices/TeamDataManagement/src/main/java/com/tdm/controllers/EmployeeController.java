@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tdm.dto.EmployeeDTO;
 import com.tdm.serviceImpl.EmployeeServiceImpl;
 
-@RequestMapping("/tdm")
-@RestController()
+
+@RestController("/tdm")
 public class EmployeeController {
 
 	@Autowired

@@ -7,7 +7,7 @@ spring:
   application:
     name: team-data-management
   liquibase:
-    enabled: true
+    enabled: false
   jpa:
    properties:
      hibernate:
@@ -23,4 +23,9 @@ spring:
     
 server:
   port: 9000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
   
