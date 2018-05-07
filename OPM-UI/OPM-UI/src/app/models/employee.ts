@@ -1,3 +1,5 @@
+import { Assets } from "./assets";
+
 export class Employee{
     private  empId;
     private name;
@@ -8,4 +10,5 @@ export class Employee{
     private subLevel;
     private n1;
     private n2;
+    private assets:Assets[]; 
 }

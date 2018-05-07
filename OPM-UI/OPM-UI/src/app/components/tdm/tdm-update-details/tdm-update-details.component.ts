@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
 import { Employee } from '../../../models/employee';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-tdm-update-details',
@@ -18,7 +19,7 @@ export class TdmUpdateDetailsComponent implements OnInit {
 
     this.setTable();
     this.updateTeamMemberForm = new FormGroup({
-      empId: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
+      empId: new FormControl({value:'',disabled:true }, [Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
       name: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       mCode: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[1-9]\d*)?$/)]),
       subLevel: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
