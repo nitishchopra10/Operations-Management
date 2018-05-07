@@ -44,3 +44,52 @@ td{
     display: inline-block;
     
 }
+
+.modal-parent{
+  
+    height:92%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    left:0;
+    top:8%;
+    padding: 0 auto;
+    background: rgba(0,0,0,0.5);
+}
+
+
+.modal-child{
+    background-color: #fefefe;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+
+.close-icon{
+    float: right;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.close-icon:hover{
+    color:red;
+    font-weight: bolder;
+    cursor: pointer;
+}
+span{
+
+    background: deeppink;
+    margin-left: 20%;
+    font-size: 1.7vw;
+
+
+}
+.label-style{
+    background: dodgerblue;
+    margin-left: 10%;
+    
+}

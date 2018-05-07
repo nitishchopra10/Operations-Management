@@ -10,6 +10,8 @@ export class TdmViewAllComponent implements OnInit {
 
   constructor(private http:Http) { }
   employeeData;
+  flag;
+  modalData;
   ngOnInit() {
     this.setTable();
   }
@@ -24,5 +26,11 @@ export class TdmViewAllComponent implements OnInit {
 
   }
 
+  
+  flagValue(flag,data)
+  {
+        this.flag=flag;
+        this.modalData=data;
+  }
 
 }

@@ -19,7 +19,7 @@ export class TdmUpdateDetailsComponent implements OnInit {
 
     this.setTable();
     this.updateTeamMemberForm = new FormGroup({
-      empId: new FormControl({value:'',disabled:true }, [Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
+      empId: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
       name: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       mCode: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[1-9]\d*)?$/)]),
       subLevel: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
@@ -67,8 +67,30 @@ export class TdmUpdateDetailsComponent implements OnInit {
     this.updateTeamMemberForm.controls['contactNumber'].setValue(data.contactNumber);
     this.updateTeamMemberForm.controls['address'].setValue(data.address);
 
-    console.log("hello")
-
+ 
   }
 
+  
+  private fieldArray: Array<any> = [];
+  private newAttribute: any = {};
+  private flag=false;
+  flagValue(flag)
+  {
+        this.flag=flag;
+        this.updateTeamMemberForm.controls['assest'].setValue(this.fieldArray);  
+  }
+
+
+
+  addFieldValue() {
+      this.fieldArray.push(this.newAttribute)
+     
+      this.newAttribute = {};
+     
+  }
+
+  deleteFieldValue(index) {
+      this.fieldArray.splice(index, 1);
+      
+  }
 }
