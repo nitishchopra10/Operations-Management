@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Http } from '@angular/http';
+import { Employee } from '../../../models/employee';
 @Component({
   selector: 'app-tdm-add-team-members',
   templateUrl: './tdm-add-team-members.component.html',
@@ -14,32 +15,24 @@ export class TdmAddTeamMembersComponent implements OnInit {
 
   ngOnInit() {
     this.addTeamMemberForm = new FormGroup({
-      employeeId: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-      employeeName: new FormControl(null,Validators.required),
-      mCode: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-      subLevel: new FormControl(null,Validators.required),
+      empId: new FormControl(null,[Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
+      name: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
+      mCode: new FormControl(null,[Validators.required, Validators.pattern(/^(0|[1-9]\d*)?$/)]),
+      subLevel: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       project: new FormControl(null,Validators.required),
-      n1: new FormControl(null,Validators.required),
-      n2: new FormControl(null,Validators.required),
+      n1: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
+      n2: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       address: new FormControl(null,Validators.required),
       assest: new FormControl(null,Validators.required),
-      contactNumber: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+      contactNumber: new FormControl(null,[Validators.required, Validators.pattern(/^\+?(0|[1-9]\d*)?$/)])
     });
   }
 
   onSubmit(data) {
-   let  employee={
-      "empId": data.employeeId,
-       "name": data.employeeName,
-       "mCode": data.mCode,
-       "contactNumber": data.contactNumber,
-       "project": data.project,
-       "address": data.address,
-       "subLevel": data.subLevel,
-       "n1": data.n1,
-       "n2" : data.n2
-    }
-    this.http.post("http://localhost:9000/tdm/add",employee).subscribe(p => {
+   let  employee:Employee;
+   employee=data;
+   
+   this.http.post("http://localhost:9000/tdm/add",employee).subscribe(p => {
       alert(p.status + p.statusText);
     });
     console.log(employee);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
+import { Employee } from '../../../models/employee';
 
 @Component({
   selector: 'app-tdm-update-details',
@@ -17,16 +18,16 @@ export class TdmUpdateDetailsComponent implements OnInit {
 
     this.setTable();
     this.updateTeamMemberForm = new FormGroup({
-      employeeId: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-      employeeName: new FormControl(null,Validators.required),
-      mCode: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-      subLevel: new FormControl(null,Validators.required),
-      project: new FormControl(null,Validators.required),
-      n1: new FormControl(null,Validators.required),
-      n2: new FormControl(null,Validators.required),
-      address: new FormControl(null,Validators.required),
-      assest: new FormControl(null,Validators.required),
-      contactNumber: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
+      empId: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
+      name: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
+      mCode: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[1-9]\d*)?$/)]),
+      subLevel: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
+      project: new FormControl(null, Validators.required),
+      n1: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
+      n2: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
+      address: new FormControl(null, Validators.required),
+      assest: new FormControl(null, Validators.required),
+      contactNumber: new FormControl(null, [Validators.required, Validators.pattern(/^\+?(0|[1-9]\d*)?$/)])
     });
   }
 
@@ -40,19 +41,11 @@ export class TdmUpdateDetailsComponent implements OnInit {
   }
 
   onSubmit(data) {
-    let employee = {
-      "empId": data.employeeId,
-      "name": data.employeeName,
-      "mCode": data.mCode,
-      "contactNumber": data.contactNumber,
-      "project": data.project,
-      "address": data.address,
-      "subLevel": data.subLevel,
-      "n1": data.n1,
-      "n2": data.n2
-    }
-    console.log(employee);
-
+    let employee: Employee
+    employee = data;
+    /*
+   console.log(employee);
+*/
     this.http.post("http://localhost:9000/tdm/update", employee).subscribe(res => {
       alert(res.status + "  " + res.statusText);
       this.setTable();
@@ -63,8 +56,8 @@ export class TdmUpdateDetailsComponent implements OnInit {
 
   setData(data) {
 
-    this.updateTeamMemberForm.controls['employeeId'].setValue(data.empId);
-    this.updateTeamMemberForm.controls['employeeName'].setValue(data.name);
+    this.updateTeamMemberForm.controls['empId'].setValue(data.empId);
+    this.updateTeamMemberForm.controls['name'].setValue(data.name);
     this.updateTeamMemberForm.controls['mCode'].setValue(data.mCode);
     this.updateTeamMemberForm.controls['subLevel'].setValue(data.subLevel);
     this.updateTeamMemberForm.controls['project'].setValue(data.project);

@@ -1,3 +1,14 @@
+<div class="search-div">
+
+  <form [formGroup]="searchForm"  (ngSubmit)="onSubmit(searchForm.value)">
+    Search By :
+    <input type="radio" name="option" formControlName="option"   value="name" />Name
+    <input type="radio" name="option" formControlName="option"  value="id" />Id
+    <input type="text"  formControlName="keyword" name="keyword" />
+    <button type="submit" class="search-button">Search</button>
+  </form>
+</div>
+
 <div>
   <div class="table-header">
     <table>
@@ -22,7 +33,7 @@
   <div class="table-body">
     <table>
       <tbody>
-        <tr class="data-row" *ngFor="let data of employeeData" (click)="setData(data)">
+        <tr class="data-row" *ngFor="let data of employeeData">
           <td class="">{{data.empId}}</td>
           <td class="">{{data.name}}</td>
           <td class="">{{data.mCode}}</td>
@@ -33,10 +44,10 @@
           <td class="">{{data.contactNumber}}</td>
           <td class="">{{data.address}}</td>
           <td class="">Assets</td>
-          
-         
+
+
         </tr>
-        </tbody>
+      </tbody>
     </table>
   </div>
 

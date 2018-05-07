@@ -60,8 +60,8 @@
         Employee Id :
       </div>
       <span class="tooltip">
-        <input type="text" required formControlName="employeeId" />
-        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('employeeId').invalid &&(updateTeamMemberForm.get('employeeId').touched || updateTeamMemberForm.get('employeeId').dirty )">
+        <input type="text" required formControlName="empId" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('empId').invalid &&(updateTeamMemberForm.get('empId').touched || updateTeamMemberForm.get('empId').dirty )">
           Provide Valid Employee Id</span>
       </span>
     </div>
@@ -71,8 +71,8 @@
         Employee Name :
       </div>
       <span class="tooltip">
-        <input type="text" required formControlName="employeeName" />
-        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('employeeName').invalid && (updateTeamMemberForm.get('employeeName').touched || updateTeamMemberForm.get('employeeName').dirty )">
+        <input type="text" required formControlName="name" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('name').invalid && (updateTeamMemberForm.get('name').touched || updateTeamMemberForm.get('name').dirty )">
           Provide Valid Employee Name</span>
       </span>
     </div>

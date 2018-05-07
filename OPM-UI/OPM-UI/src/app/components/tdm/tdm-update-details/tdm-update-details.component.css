@@ -84,6 +84,9 @@ input{
     padding: 0.5vw;
 }
 
+input:focus{
+ outline: none;
+}
 
 .button-column {
     float: left;
@@ -110,6 +113,17 @@ button{
 
 input.ng-invalid.ng-touched{
     border: 0.1vw solid red;
+   
+}
+
+
+input.ng-dirty{
+    border: 0.1vw solid red;
+   
+}
+
+input.ng-valid{
+    border: 0.1vw solid greenyellow;
    
 }
 /*tooltip text*/
