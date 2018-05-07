@@ -1,5 +1,6 @@
 
-MicroServices/.metadata/.plugins/org.eclipse.jdt.core/index.db
-MicroServices/.metadata/.plugins/org.eclipse.rse.core/.log
-MicroServices/.metadata/.lock
-MicroServices/.metadata/.plugins/org.eclipse.rse.ui/.log
+MicroServices/.metadata/
+
+MicroServices/Servers/
+MicroServices/Servers2/
+MicroServices//RemoteSystemsTempFiles/
