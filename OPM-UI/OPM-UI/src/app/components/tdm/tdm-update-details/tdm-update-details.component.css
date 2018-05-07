@@ -9,16 +9,9 @@
 .table-body{
     position: relative;
     text-align: center;
-     overflow-y: scroll;
+    overflow-y: scroll;
     height: 13vw;;
-   background:  rgba(0,0,0,0.2);;
-}
-.data-row{
-    line-height:200%;    
-}
-.data-row:hover{
-    background: salmon;
-
+    background:  rgba(0,0,0,0.2);;
 }
 .header-row{
     line-height:200%;
@@ -28,17 +21,28 @@
 th{
     margin:0.2vw;
     text-align: center;
-   
     color:white;
-    width:5%;
+    width:9vw;
     font-weight: lighter;
 }
+.data-row{
+    width: 100vw;
+    line-height:150%;  
+}
 
+.data-row:hover{
+    background: salmon;
+}
 td{
     text-align: center;
-    margin:0.2vw;
-    width:4%;
+    margin:0.07vw;
+    width:9vw;
     font-weight: lighter;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    
 }
 
 /*view all css file end */
@@ -74,10 +78,13 @@ td{
 
 input{
     border: none;
-    height:1.5vw;   
+    height:1.3vw;  
+    border: 0.1vw solid transparent;
     border-radius: 0.3vw;
     padding: 0.5vw;
 }
+
+
 .button-column {
     float: left;
     width: 70vw;
@@ -99,3 +106,41 @@ button{
 }
 
 /*update all css file end */
+
+
+input.ng-invalid.ng-touched{
+    border: 0.1vw solid red;
+   
+}
+/*tooltip text*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+  
+}
+
+.tooltip .tooltiptext {
+    width: 10vw;
+    background-color: gainsboro;
+    font-size: 1vw;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    border-radius: 0.5vw;
+    padding: 0.5vw 0;
+    position: absolute;
+    z-index: 1;
+    top: -0.5vw;
+    left: 100%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -0.5vw;
+    border-width: 0.5vw;
+    border-style: solid;
+    border-color: transparent gainsboro transparent transparent;
+}

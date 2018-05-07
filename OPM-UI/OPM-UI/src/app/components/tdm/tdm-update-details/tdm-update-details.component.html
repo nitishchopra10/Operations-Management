@@ -20,9 +20,6 @@
   </div>
 
   <div class="table-body">
-
-      
-    
     <table>
       <tbody>
         <tr class="data-row" *ngFor="let data of employeeData" (click)="setData(data)">
@@ -36,11 +33,11 @@
           <td class="">{{data.contactNumber}}</td>
           <td class="">{{data.address}}</td>
           <td class="">Assets</td>
-          
-         
+
+
         </tr>
 
-      
+
       </tbody>
     </table>
   </div>
@@ -51,85 +48,128 @@
 
 <div class="parent-div">
   <div>
-   <b><i>Update Team Member Details</i></b>
+    <b>
+      <i>Update Team Member Details</i>
+    </b>
   </div>
 
-<form [formGroup]="updateTeamMemberForm"  (ngSubmit)="onSubmit(updateTeamMemberForm.value);">
-  <div class="column">
-    <div class="div-style">
-      Employee Id :
-    </div>
-    <input type="text" disabled formControlName="employeeId"/>
-  </div>
+  <form [formGroup]="updateTeamMemberForm" (ngSubmit)="onSubmit(updateTeamMemberForm.value);">
 
-  <div class="column ">
-    <div class="div-style">
-      Employee Name :
-    </div>
-    <input type="text" required formControlName="employeeName" />
-  </div>
-  <div class="column">
-    <div class="div-style">
-     M Code :
-    </div>
-    <input type="text" required formControlName="mCode"/>
-  </div>
-
-  <div class="column ">
-    <div class="div-style">
-      Sub Level :
-    </div>
-    <input type="text"  required formControlName="subLevel" />
-  </div>
-  <div class="column">
-    <div class="div-style">
-      Project :
-    </div>
-    <input type="text" required  formControlName="project"/>
-  </div>
-
-  <div class="column">
-    <div class="div-style">
-      N+1:
-    </div>
-    <input type="text" required formControlName="n1"/>
-  </div>
-  <div class="column">
-    <div class="div-style">
-      N+2:
-    </div>
-    <input type="text"  formControlName="n2" />
-  </div>
-
-  <div class="column">
-    <div class="div-style">
-      Contact Number :
-    </div>
-    <input type="text" required formControlName="contactNumber" />
-  </div>
-  <div class="column">
-    <div class="div-style">
-      Address :
-    </div>
-    <input type="text" required formControlName="address"/>
-  </div>
-
-  <div class="column">
-    <div class="div-style">
-     Assets :
-    </div>
-    <input type="text" formControlName="assest" />
-  </div>
-
-  <div class="button-column">
-      <div >
-      <button type="reset" style="background: rgba(0,0,0,0.6)">Reset</button>
-      <button  type="submit"  [disabled]="updateTeamMemberForm.invalid" style="background: rgba(0,0,0,0.6)">Submit</button>
+    <div class="column">
+      <div class="div-style">
+        Employee Id :
       </div>
-      
+      <span class="tooltip">
+        <input type="text" required formControlName="employeeId" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('employeeId').invalid &&(updateTeamMemberForm.get('employeeId').touched || updateTeamMemberForm.get('employeeId').dirty )">
+          Provide Valid Employee Id</span>
+      </span>
     </div>
-    
-  </form>   
-      
-    
+
+    <div class="column ">
+      <div class="div-style">
+        Employee Name :
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="employeeName" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('employeeName').invalid && (updateTeamMemberForm.get('employeeName').touched || updateTeamMemberForm.get('employeeName').dirty )">
+          Provide Valid Employee Name</span>
+      </span>
+    </div>
+
+    <div class="column">
+      <div class="div-style">
+        M Code :
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="mCode" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('mCode').invalid && (updateTeamMemberForm.get('mCode').touched || updateTeamMemberForm.get('mCode').dirty ) ">
+          Provide Valid M Code</span>
+      </span>
+    </div>
+
+    <div class="column ">
+      <div class="div-style">
+        Sub Level :
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="subLevel" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('subLevel').invalid && (updateTeamMemberForm.get('subLevel').touched || updateTeamMemberForm.get('subLevel').dirty )">
+          Provide Valid Sub Level</span>
+      </span>
+    </div>
+    <div class="column">
+      <div class="div-style">
+        Project :
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="project" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('project').invalid && (updateTeamMemberForm.get('project').touched || updateTeamMemberForm.get('project').dirty )">
+          Provide Valid Project</span>
+      </span>
+    </div>
+
+    <div class="column">
+      <div class="div-style">
+        N + 1
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="n1" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('n1').invalid &&  (updateTeamMemberForm.get('n1').touched || updateTeamMemberForm.get('n1').dirty )">
+          Provide Valid N+1</span>
+      </span>
+    </div>
+    <div class="column">
+      <div class="div-style">
+        N + 2:
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="n2" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('n2').invalid &&  (updateTeamMemberForm.get('n2').touched || updateTeamMemberForm.get('n2').dirty )">
+          Provide Valid N+2</span>
+      </span>
+    </div>
+
+    <div class="column">
+      <div class="div-style">
+        Contact Number :
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="contactNumber" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('contactNumber').invalid && (updateTeamMemberForm.get('contactNumber').touched || updateTeamMemberForm.get('contactNumber').dirty )">
+          Provide Valid Contact Number</span>
+      </span>
+    </div>
+    <div class="column">
+      <div class="div-style">
+        Address :
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="address" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('address').invalid && (updateTeamMemberForm.get('address').touched || updateTeamMemberForm.get('address').dirty)">
+          Provide Valid Address</span>
+      </span>
+    </div>
+
+    <div class="column">
+      <div class="div-style">
+        Assest :
+      </div>
+      <span class="tooltip">
+        <input type="text" required formControlName="assest" />
+        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('assest').invalid && (updateTeamMemberForm.get('assest').touched || updateTeamMemberForm.get('assest').dirty )">
+          Provide Valid Assest</span>
+      </span>
+    </div>
+    <div class="button-column">
+      <div>
+        <button type="reset" style="background: rgba(0,0,0,0.6)">Reset</button>
+        <button type="submit" style="background: rgba(0,0,0,0.6)" [disabled]="updateTeamMemberForm.invalid">Submit</button>
+      </div>
+
+    </div>
+
+  </form>
+
+
 </div>

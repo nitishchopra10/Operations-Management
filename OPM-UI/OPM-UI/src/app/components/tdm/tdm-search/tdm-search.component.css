@@ -1,5 +1,4 @@
 
-
 .table-header{
     position: relative;
     text-align: center;
@@ -9,34 +8,39 @@
 .table-body{
     position: relative;
     text-align: center;
-     overflow-y: scroll;
+    overflow-y: scroll;
     height: 30vw;;
     background:  rgba(0,0,0,0.2);;
 }
-.data-row{
-    line-height:200%;    
-}
-.data-row:hover{
-    background: salmon;
-
-}
 .header-row{
+    
     line-height:200%;
     border-bottom: black;
 }
-
 th{
     margin:0.2vw;
     text-align: center;
-   
     color:white;
-    width:5%;
+    width:9vw;
     font-weight: lighter;
+}
+.data-row{
+    width: 100vw;
+    line-height:150%;  
+}
+
+.data-row:hover{
+    background: salmon;
 }
 
 td{
     text-align: center;
-    margin:0.2vw;
-    width:5%;
+    margin:0.07vw;
+    width:9vw;
     font-weight: lighter;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    
 }

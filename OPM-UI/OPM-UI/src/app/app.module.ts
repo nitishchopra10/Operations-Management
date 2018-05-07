@@ -19,6 +19,9 @@ import { TdmAddTeamMembersComponent } from './components/tdm/tdm-add-team-member
 import { TdmUpdateDetailsComponent } from './components/tdm/tdm-update-details/tdm-update-details.component';
 import { TdmSearchComponent } from './components/tdm/tdm-search/tdm-search.component';
 import { HttpServiceService } from './service/http-service.service';
+import { CreateDpComponent } from './components/delivery-portfolio/create-dp/create-dp.component';
+import { UpdateDpComponent } from './components/delivery-portfolio/update-dp/update-dp.component';
+
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { HttpServiceService } from './service/http-service.service';
     TdmViewAllComponent,
     TdmAddTeamMembersComponent,
     TdmUpdateDetailsComponent,
-    TdmSearchComponent
+    TdmSearchComponent,
+    CreateDpComponent,
+    UpdateDpComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpModule, ReactiveFormsModule,FormsModule

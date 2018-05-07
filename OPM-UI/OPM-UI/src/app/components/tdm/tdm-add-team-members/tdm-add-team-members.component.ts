@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Http } from '@angular/http';
 @Component({
   selector: 'app-tdm-add-team-members',
@@ -14,16 +14,16 @@ export class TdmAddTeamMembersComponent implements OnInit {
 
   ngOnInit() {
     this.addTeamMemberForm = new FormGroup({
-      employeeId: new FormControl(),
-      employeeName: new FormControl(),
-      mCode: new FormControl(),
-      subLevel: new FormControl(),
-      project: new FormControl(),
-      n1: new FormControl(),
-      n2: new FormControl(),
-      address: new FormControl(),
-      assest: new FormControl(),
-      contactNumber: new FormControl()
+      employeeId: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+      employeeName: new FormControl(null,Validators.required),
+      mCode: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+      subLevel: new FormControl(null,Validators.required),
+      project: new FormControl(null,Validators.required),
+      n1: new FormControl(null,Validators.required),
+      n2: new FormControl(null,Validators.required),
+      address: new FormControl(null,Validators.required),
+      assest: new FormControl(null,Validators.required),
+      contactNumber: new FormControl(null,[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
     });
   }
 
