@@ -1,7 +1,8 @@
 .heading{
     text-align: center;
     font-size: 2vw;
-    margin-bottom: 0.5vw;
+    margin-bottom: 0.2vw;
+    margin-top:4vw;
 }
 
 .tdm-menu{
@@ -21,6 +22,7 @@
     border-radius: 0.5vw;
     border: 0.15vw solid black;
     width:10vw;
+    font-size: 1.2vw;
 }
 .menu-link:hover{
 

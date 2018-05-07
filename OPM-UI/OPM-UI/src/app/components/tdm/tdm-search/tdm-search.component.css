@@ -1,0 +1,70 @@
+
+.table-header{
+    position: relative;
+    text-align: center;
+    background: black;
+    margin-right:1.2%;
+}
+.table-body{
+    position: relative;
+    text-align: center;
+    overflow-y: scroll;
+    height: 30vw;;
+    background:  rgba(0,0,0,0.2);;
+}
+.header-row{
+    
+    line-height:200%;
+    border-bottom: black;
+}
+th{
+    margin:0.2vw;
+    text-align: center;
+    color:white;
+    width:9vw;
+    font-weight: lighter;
+}
+.data-row{
+    width: 100vw;
+    line-height:150%;  
+}
+
+.data-row:hover{
+    background: salmon;
+}
+
+td{
+    text-align: center;
+    margin:0.07vw;
+    width:9vw;
+    font-weight: lighter;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    
+}
+
+.search-div{
+    text-align: center;
+    height:4vw;
+    width: auto;
+    font-size: 1.3vw;
+}
+
+input[type="text"]{
+    height: 1.7vw;
+    padding: 0.2vw;
+    width: 15vw;
+    border-radius: 0.5vw;
+}
+
+.search-button{
+    height: auto;
+    padding: 0.6vw;
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    background: aliceblue;
+    border:0.1vw solid black;
+}
+

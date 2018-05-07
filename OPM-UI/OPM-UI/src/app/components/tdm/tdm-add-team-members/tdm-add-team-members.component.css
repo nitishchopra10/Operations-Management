@@ -1,0 +1,113 @@
+.parent-div{
+    margin-top:1%;
+    margin-right:8%;
+    margin-left:8%;
+    background: rgba(0, 0, 0, 0.2);
+    color: black;
+    font-size: 1.3vw;
+    height: 32vw;
+    text-align: center;
+    padding: 1vw;
+}
+
+.div-style{
+    width:35%;
+    text-align: left;
+    margin-right: 3vw;
+    display: inline-block;
+    
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 30vw;
+    padding-top:2%;
+    padding-left: 5%;
+    padding-right: 5%;
+     /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+
+input{
+    border: none;
+    height:1.3vw;
+    width:14.5vw;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+input:focus{
+    outline: none;
+}
+.button-column {
+    float: left;
+    width: 70vw;
+    padding-top:2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+     /* Should be removed. Only for demonstration */
+}
+
+button{
+    margin-top: 1.5vw;
+    height:2.5vw;
+    width: 5vw;
+    text-align: center;
+    border-radius: 0.3vw;
+    color: white;
+    font-size: 1vw;
+
+}
+
+input.ng-invalid.ng-touched{
+    border: 0.1vw solid red;
+   
+}
+
+
+input.ng-dirty{
+    border: 0.1vw solid red;
+   
+}
+
+input.ng-valid{
+    border: 0.1vw solid greenyellow;
+   
+}
+/*tooltip text*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+  
+}
+
+.tooltip .tooltiptext {
+    width: 10vw;
+    background-color: gainsboro;
+    font-size: 1vw;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    border-radius: 0.5vw;
+    padding: 0.5vw 0;
+    position: absolute;
+    z-index: 1;
+    top: -0.5vw;
+    left: 100%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -0.5vw;
+    border-width: 0.5vw;
+    border-style: solid;
+    border-color: transparent gainsboro transparent transparent;
+}

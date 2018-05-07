@@ -8,11 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="employee"/*,schema="sopra"*/)
+@Table(name="employee",schema="sopra")
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "EmpID")
 	private Long empId;
 	

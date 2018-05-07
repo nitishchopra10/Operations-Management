@@ -1,0 +1,101 @@
+<div class="parent-div row">
+  <div>
+    <b>
+      <i>Add Delivery Portfolio</i>
+    </b>
+  </div>
+
+  <form [formGroup]="addDeliveryPortfolio"  (ngSubmit)="onSubmit(addDeliveryPortfolio.value)">
+
+    <div class="column">
+      <div class="div-style">
+       Account :
+      </div>
+      <input type="text" required formControlName="account" />
+    </div>
+
+    <div class="column">
+      <div class="div-style">
+       Status :
+      </div>
+      <input type="text" required formControlName="status" />
+    </div>
+    
+    <div class="column">
+      <div class="div-style">
+       Technology Stacks:
+      </div>
+      <input type="text" required formControlName="technologyStacks" />
+    </div>
+    
+
+    <div class="column-radio">
+      <div class="div-style-radio-button">
+       Support Service :
+      </div>
+      <input type="radio" required name="supportService" formControlName="supportService" value="Yes" />Yes
+      <input type="radio" required name="supportService" formControlName="supportService"  value="No"/>No
+    </div>
+
+    <div class="column-radio">
+      <div class="div-style-radio-button">
+       DBA Support :
+      </div>
+      <input type="radio" required name="dbaSupport" formControlName="dbaSupport" value="Yes"/>Yes
+      <input type="radio" required name="dbaSupport" formControlName="dbaSupport" value="No"/>No
+    </div>
+
+    <div class="column-radio">
+      <div class="div-style-radio-button">
+       IAAS :
+      </div>
+      <input type="radio" required name="iaas" formControlName="iaas" value="Yes"/>Yes
+      <input type="radio" required name="iaas" formControlName="iaas" value="No"/>No
+    </div>
+
+   
+
+    <div class="column-radio">
+      <div class="div-style-radio-button">
+       Enhancements :
+      </div>
+      <input type="radio" required  name="enhancements" formControlName="enhancements" value="Yes"/>Yes
+      <input type="radio" required name="enhancements" formControlName="enhancements" value="No"/>No
+    </div>
+
+    <div class="column-radio">
+      <div class="div-style-radio-button">
+       Infra-Monitoring :
+      </div>
+      <input type="radio" required name="infra_monitoring" formControlName="infra_monitoring" value="Yes"/>Yes
+      <input type="radio" required name="infra_monitoring" formControlName="infra_monitoring" value="No"/>No
+    </div>
+
+    <div class="column-radio">
+      <div class="div-style-radio-button">
+       Testing Service :
+      </div>
+      <input type="radio" required name="testingService" formControlName="testingService" value="Yes"/>Yes
+      <input type="radio" required name="testingService" formControlName="testingService" value="No"/>No
+    </div>
+
+    <div class="column-radio">
+      <div class="div-style-radio-button">
+       Development Service :
+      </div>
+      <input type="radio" required name="developmentService" formControlName="developmentService" value="Yes" />Yes
+      <input type="radio" required name="developmentService" formControlName="developmentService" value="No"/>No
+    </div>
+    
+
+    <div class="button-column">
+      <div>
+        <button type="reset" style="background: rgba(0,0,0,0.6)">Reset</button>
+        <button  type="submit"style="background: rgba(0,0,0,0.6)"  [disabled]="addDeliveryPortfolio.invalid">Submit</button>
+      </div>
+
+    </div>
+
+  </form>
+
+  </div>

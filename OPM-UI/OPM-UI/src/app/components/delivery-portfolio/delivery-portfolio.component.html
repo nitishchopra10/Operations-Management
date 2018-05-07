@@ -6,20 +6,19 @@
   <label>Delivery PortFolio</label>
 </div>
 <div class="delivery-portfolio-menu">
-  <div class="menu-link" [routerLink]="['./view']">
+  <div class="menu-link" [routerLink]="['./view']" (click)="colorFlagChanger(1)" [ngStyle]="getMyStyles(1)">
     View
   </div>
-  <div class="menu-link">
+  <div class="menu-link"    [routerLink]="['./create-delivery-portfolio']" (click)="colorFlagChanger(2)" [ngStyle]="getMyStyles(2)">
+   Create
+  </div>
+  <div class="menu-link" [routerLink]="['./update-delivery-portfolio']" (click)="colorFlagChanger(3)" [ngStyle]="getMyStyles(3)">
     Update
   </div>
-  <div class="menu-link">
-    Create
-  </div>
-  <div class="menu-link">
+  <div class="menu-link"  (click)="colorFlagChanger(4)" [ngStyle]="getMyStyles(4)">
     Delete
   </div>
 
 </div>
-<p>
+
   <router-outlet></router-outlet>
-</p>

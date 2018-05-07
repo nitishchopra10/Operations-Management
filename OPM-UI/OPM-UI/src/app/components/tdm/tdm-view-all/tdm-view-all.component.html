@@ -1,0 +1,43 @@
+<div>
+    <div class="table-header">
+      <table>
+        <thead>
+          <tr class="header-row">
+            <th class="">Employee Id</th>
+            <th class="">Employee Name</th>
+            <th class="">mCode</th>
+            <th class="">Sub Level</th>
+            <th class="">Project</th>
+            <th class="">N+1</th>
+            <th class="">N+2</th>
+            <th class="">Contact Number</th>
+            <th class="">Address</th>
+            <th class=""> Assets</th>
+  
+          </tr>
+        </thead>
+      </table>
+    </div>
+  
+    <div class="table-body">
+      <table>
+        <tbody>
+          <tr class="data-row" *ngFor="let data of employeeData" (click)="setData(data)">
+            <td class="">{{data.empId}}</td>
+            <td class="">{{data.name}}</td>
+            <td class="">{{data.mCode}}</td>
+            <td class="">{{data.subLevel}}</td>
+            <td class="">{{data.project}}</td>
+            <td class="">{{data.n1}}</td>
+            <td class="">{{data.n2}}</td>
+            <td class="">{{data.contactNumber}}</td>
+            <td class="">{{data.address}}</td>
+            <td class="">Assets</td>
+            
+           
+          </tr>
+          </tbody>
+      </table>
+    </div>
+  
+  </div>

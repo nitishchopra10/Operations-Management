@@ -1,5 +1,6 @@
 package com.tdm.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,23 +50,20 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/search/id/{id}")
-	public ResponseEntity<EmployeeDTO> searchEmployee(@PathVariable Long id){
-		EmployeeDTO emp = service.searchById(id);
-		if(emp != null) {
-			return new ResponseEntity<EmployeeDTO>(emp,HttpStatus.FOUND);
-		}
-		else 
-			return new ResponseEntity<EmployeeDTO>(HttpStatus.NO_CONTENT);
+	public List<EmployeeDTO> searchEmployee(@PathVariable Long id){
+		List<EmployeeDTO> emp = new ArrayList<EmployeeDTO>();
+		emp.add(service.searchById(id));
+		return emp;
 	}
 	
 	@GetMapping("/search/name/{name}")
-	public ResponseEntity<List<EmployeeDTO>> searchEmployeeByName(@PathVariable String name){
+	public List<EmployeeDTO> searchEmployeeByName(@PathVariable String name){
 		List<EmployeeDTO> emp = service.searchByName(name);
 		if(emp != null) {
-			return new ResponseEntity<List<EmployeeDTO>>(emp,HttpStatus.FOUND);
+			return emp;
 		}
 		else 
-			return new ResponseEntity<List<EmployeeDTO>>(HttpStatus.NO_CONTENT);
+			return  null;
 	}
 	
 }
