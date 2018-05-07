@@ -9,6 +9,8 @@ import { TdmViewAllComponent } from '../components/tdm/tdm-view-all/tdm-view-all
 import { TdmAddTeamMembersComponent } from '../components/tdm/tdm-add-team-members/tdm-add-team-members.component';
 import { TdmUpdateDetailsComponent } from '../components/tdm/tdm-update-details/tdm-update-details.component';
 import { TdmSearchComponent } from '../components/tdm/tdm-search/tdm-search.component';
+import { CreateDpComponent } from '../components/delivery-portfolio/create-dp/create-dp.component';
+import { UpdateDpComponent } from '../components/delivery-portfolio/update-dp/update-dp.component';
 
 const appRoutes: Routes = [
   /* {path:'admin',component:AdminComponent,
@@ -36,8 +38,11 @@ const appRoutes: Routes = [
   {
     path: 'delivery-portfolio', component: DeliveryPortfolioComponent,
     children: [
-      { path: '', component: ViewComponent },
-      { path: 'view', component: ViewComponent }
+      { path:'', component: ViewComponent},
+      { path: 'view', component: ViewComponent },
+      { path: 'update-delivery-portfolio', component: UpdateDpComponent },
+      { path: 'create-delivery-portfolio', component: CreateDpComponent },
+    
     ]
   },
   { path: '**', component: HomeComponent }
