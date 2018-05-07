@@ -13,7 +13,7 @@
       </div>
       <span class="tooltip">
       <input type="text" required formControlName="employeeId" />
-      <span class="tooltiptext"  *ngIf="addTeamMemberForm.get('employeeId').invalid && addTeamMemberForm.get('employeeId').touched">
+      <span class="tooltiptext"  *ngIf="addTeamMemberForm.get('employeeId').invalid &&(addTeamMemberForm.get('employeeId').touched || addTeamMemberForm.get('employeeId').dirty )">
         Provide Valid Employee Id</span>
     </span>
     </div>
@@ -24,7 +24,7 @@
       </div>
       <span class="tooltip">
         <input type="text" required formControlName="employeeName" />
-        <span class="tooltiptext" *ngIf="addTeamMemberForm.get('employeeName').invalid && addTeamMemberForm.get('employeeName').touched">
+        <span class="tooltiptext" *ngIf="addTeamMemberForm.get('employeeName').invalid && (addTeamMemberForm.get('employeeName').touched|| addTeamMemberForm.get('employeeName').dirty )">
          Provide Valid Employee Name</span>
       </span>
     </div>
