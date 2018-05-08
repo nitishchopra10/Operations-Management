@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tdm.dto.EmployeeDTO;
 import com.tdm.serviceImpl.EmployeeServiceImpl;
 
-@RequestMapping("/tdm")
-@RestController()
+
+@RestController("/tdm")
 public class EmployeeController {
 
 	@Autowired
@@ -65,5 +65,15 @@ public class EmployeeController {
 		else 
 			return  null;
 	}
+	
+	@PostMapping("/delete")
+	public ResponseEntity<Boolean> deleteEmployees(@RequestBody Long id[]){
+		if(service.softDelete(id)) {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<Boolean>(false, HttpStatus.EXPECTATION_FAILED);
+	} 
+	
 	
 }
