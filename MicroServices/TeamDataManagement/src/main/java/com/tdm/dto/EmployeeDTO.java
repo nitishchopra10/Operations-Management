@@ -1,30 +1,37 @@
 package com.tdm.dto;
 
+import java.util.List;
+
+import com.tdm.models.Assets;
 
 public class EmployeeDTO {
 
-private Long empId;
-	
+	private Long empId;
+
 	private String name;
-	
+
 	private int mCode;
-	
+
 	private Long contactNumber;
-	
+
 	private String project;
-	
+
 	private String address;
-	
+
 	private String subLevel;
-	
+
 	private String n1;
-	
+
 	private String n2;
 
+	private List<Assets> assetList;
+
+	private boolean status;
+
 	public EmployeeDTO() {
-		
+
 	}
-	
+
 	public EmployeeDTO(Long empId, String name, int mCode, Long contactNumber, String project, String address,
 			String subLevel, String n1, String n2) {
 		super();
@@ -110,5 +117,21 @@ private Long empId;
 	public void setN2(String n2) {
 		this.n2 = n2;
 	}
-	
+
+	public List<Assets> getAssetList() {
+		return assetList;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setAssetList(List<Assets> assetList) {
+		this.assetList = assetList;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 }

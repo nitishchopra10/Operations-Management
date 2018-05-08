@@ -2,6 +2,7 @@ package com.tdm.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,6 +34,8 @@ public class Employee {
 	private String n2;
 
 	private List<Assets> assetList;
+	
+	private boolean status;
 
 	public Employee() {
 		
@@ -133,12 +136,19 @@ public class Employee {
 		this.n2 = n2;
 	}
 	
-	@OneToMany(mappedBy="employee",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="employee",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
 	public List<Assets> getAssetList() {
 		return assetList;
 	}
 	public void setAssetList(List<Assets> assetList) {
 		this.assetList = assetList;
+	}
+	@Column(name="status")
+	public boolean getStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	
 }
