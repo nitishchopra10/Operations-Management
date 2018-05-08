@@ -1,14 +1,24 @@
 import { Assets } from "./assets";
 
 export class Employee{
-    private  empId;
-    private name;
-    private mCode;
-    private contactNumber;
-    private project;
-    private address;
-    private subLevel;
-    private n1;
-    private n2;
-    private assets:Assets[]; 
+    public empId;
+    public name;
+    public mCode;
+    public contactNumber;
+    public project;
+    public address;
+    public subLevel;
+    public n1;
+    public n2;
+    public assetList:Assets[]; 
+    public status:boolean;
+
+
+    setStatus(value:boolean):void{
+            this.status=value;
+    }
+
+    getStatus(){
+        return this.status;
+    }
 }
