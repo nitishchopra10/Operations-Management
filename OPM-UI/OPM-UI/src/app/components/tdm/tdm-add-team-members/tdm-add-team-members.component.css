@@ -111,3 +111,99 @@ input.ng-valid{
     border-style: solid;
     border-color: transparent gainsboro transparent transparent;
 }
+.assetButton{
+    height:2.5vw;
+    width:15.5vw;
+    text-align: center;
+    border-radius: 0.3vw;
+    color: black;
+    background: white;
+    font-size: 1vw;
+ 
+}
+
+
+
+.modal-parent{
+  
+    height:92%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    left:0;
+    top:8%;
+    padding: 0 auto;
+    background: rgba(0,0,0,0.5);
+}
+
+
+.modal-child{
+    text-align: center;
+    background-color: lightskyblue;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    border: 0.1vw solid #888;
+    width: 70%;
+}
+
+
+.close-icon{
+    float: right;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.close-icon:hover{
+    color:red;
+    font-weight: bolder;
+    cursor: pointer;
+}
+select{
+    border: none;
+    background: white;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+.asset-input{
+    border: none;
+    height:1.3vw;
+    width:14.5vw;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+
+
+.asset-input-details{
+    border: none;
+    height:1.3vw;
+    width:25vw;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+
+
+
+
+.assetId-input.ng-invalid.ng-touched{
+    border: 0.1vw solid transparent ;
+   
+}
+
+
+.assetId-input.ng-dirty{
+    border: 0.1vw solid transparent;
+   
+}
+
+.assetId-input.ng-valid{
+    border: 0.1vw solid transparent;
+   
+}

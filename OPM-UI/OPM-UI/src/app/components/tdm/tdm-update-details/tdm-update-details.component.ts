@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Http } from '@angular/http';
 import { Employee } from '../../../models/employee';
+import { DataService } from '../../../service/data-service.service';
 
 @Component({
   selector: 'app-tdm-update-details',
@@ -10,10 +10,11 @@ import { Employee } from '../../../models/employee';
 })
 export class TdmUpdateDetailsComponent implements OnInit {
 
-  constructor(private http: Http) { }
+  constructor(private http: DataService) { }
 
   employeeData;
   updateTeamMemberForm;
+
   ngOnInit() {
 
     this.setTable();
@@ -32,7 +33,7 @@ export class TdmUpdateDetailsComponent implements OnInit {
   }
 
   setTable() {
-    this.http.get("http://localhost:9000/tdm/all").map(res => res.json()).subscribe(data => {
+    this.http.get("tdm/all").map(res => res.json()).subscribe(data => {
 
       this.employeeData = data;
       console.log(data);
@@ -46,7 +47,7 @@ export class TdmUpdateDetailsComponent implements OnInit {
     /*
    console.log(employee);
 */
-    this.http.post("http://localhost:9000/tdm/update", employee).subscribe(res => {
+    this.http.post("tdm/update", employee).subscribe(res => {
       alert(res.status + "  " + res.statusText);
       this.setTable();
       this.updateTeamMemberForm.reset();
@@ -66,7 +67,30 @@ export class TdmUpdateDetailsComponent implements OnInit {
     this.updateTeamMemberForm.controls['contactNumber'].setValue(data.contactNumber);
     this.updateTeamMemberForm.controls['address'].setValue(data.address);
 
-    console.log("hello")
+
+  }
+
+
+  private fieldArray: Array<any> = [];
+  private newAttribute: any = {};
+  private flag = false;
+
+  flagValue(flag) {
+    this.flag = flag;
+    this.updateTeamMemberForm.controls['assest'].setValue(this.fieldArray);
+  }
+
+
+
+  addFieldValue() {
+    this.fieldArray.push(this.newAttribute)
+
+    this.newAttribute = {};
+
+  }
+
+  deleteFieldValue(index) {
+    this.fieldArray.splice(index, 1);
 
   }
 

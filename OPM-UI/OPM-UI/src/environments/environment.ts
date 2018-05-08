@@ -6,7 +6,10 @@
 export const environment = {
   production: false,
 
-    serverUrl:"http://localhost:9000/"
+    serverUrl:"http://localhost:",
+    serverPort : "9000/",
+    tdmPrefix : "/tdm/",
+    dpPrefix : "/dpo/",
 
 
 };

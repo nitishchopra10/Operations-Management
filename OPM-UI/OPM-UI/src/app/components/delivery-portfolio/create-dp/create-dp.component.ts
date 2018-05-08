@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { DeliveryPortFolio } from '../../../models/delivery-portfolio';
 
 @Component({
   selector: 'app-create-dp',
@@ -11,6 +12,7 @@ export class CreateDpComponent implements OnInit {
   constructor() { }
   addDeliveryPortfolio;
   ngOnInit() {
+   
     this.addDeliveryPortfolio = new FormGroup({
       account: new FormControl(),
       status: new FormControl(),
@@ -19,14 +21,18 @@ export class CreateDpComponent implements OnInit {
       dbaSupport: new FormControl(),
       iaas: new FormControl(),
       enhancements: new FormControl(),
-      infra_monitoring: new FormControl(),
+      infraMonitoring: new FormControl(),
       testingService: new FormControl(),
       developmentService: new FormControl()
     });
   }
 
 
-  onSubmit(data){
+  onSubmit(data) {
+    let deliveryPortfolio: DeliveryPortFolio=data;
+    this.addDeliveryPortfolio.reset();
+    console.log(deliveryPortfolio);
+
 
   }
 }

@@ -33,7 +33,7 @@
   <div class="table-body">
     <table>
       <tbody>
-        <tr class="data-row" *ngFor="let data of employeeData">
+        <tr class="data-row" *ngFor="let data of employeeData" (click)="flagValue(true,data)">
           <td class="">{{data.empId}}</td>
           <td class="">{{data.name}}</td>
           <td class="">{{data.mCode}}</td>
@@ -52,3 +52,27 @@
   </div>
 
 </div>
+
+
+
+
+  
+<div class="modal-parent" *ngIf=flag >
+    <div class="modal-child">
+        <div class="close-icon" (click)="flagValue(false,null)">&times; </div><br/>
+        <div>Employee Details</div><br/>
+        <span class="label-style"> Employee Id    :</span><span><small> {{modalData.empId}}</small></span><br/>
+        <span class="label-style"> Employee Name  :</span><span><small>{{modalData.name}}</small></span><br/>
+        <span class="label-style"> M-Code         :</span><span><small> {{modalData.mCode}}</small></span><br/>
+        <span class="label-style"> Sub Level      :</span><span><small> {{modalData.subLevel}}</small></span><br/>
+        <span class="label-style"> Project        :</span><span><small> {{modalData.project}}</small></span><br/>
+        <span class="label-style"> N + 1          :</span><span><small>  {{modalData.n1}}</small></span><br/>
+        <span class="label-style"> N + 2          :</span><span><small> {{modalData.n2}}</small></span><br/>
+        <span class="label-style"> Contact Number :</span><span><small> {{modalData.contactNumber}}</small></span><br/>
+        <span class="label-style"> Address        :</span><span><small>  {{modalData.address}}</small></span><br/>
+        <span class="label-style"> Assets         :</span><span><small>Assets</small></span><br/>
+    
+    
+    
+    </div>
+    </div>

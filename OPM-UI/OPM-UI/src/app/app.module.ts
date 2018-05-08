@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './routing/app-routing.module';
@@ -18,7 +17,7 @@ import { TdmViewAllComponent } from './components/tdm/tdm-view-all/tdm-view-all.
 import { TdmAddTeamMembersComponent } from './components/tdm/tdm-add-team-members/tdm-add-team-members.component';
 import { TdmUpdateDetailsComponent } from './components/tdm/tdm-update-details/tdm-update-details.component';
 import { TdmSearchComponent } from './components/tdm/tdm-search/tdm-search.component';
-import { HttpServiceService } from './service/http-service.service';
+import { DataService } from './service/data-service.service';
 import { CreateDpComponent } from './components/delivery-portfolio/create-dp/create-dp.component';
 import { UpdateDpComponent } from './components/delivery-portfolio/update-dp/update-dp.component';
 
@@ -43,7 +42,7 @@ import { UpdateDpComponent } from './components/delivery-portfolio/update-dp/upd
   imports: [
     BrowserModule, AppRoutingModule, HttpModule, ReactiveFormsModule,FormsModule
   ],
-  providers: [HttpServiceService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
