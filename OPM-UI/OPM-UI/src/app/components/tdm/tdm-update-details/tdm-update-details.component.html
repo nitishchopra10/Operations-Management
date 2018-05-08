@@ -155,11 +155,8 @@
       <div class="div-style">
         Assest :
       </div>
-      <span class="tooltip">
-          <input type="button" class="assetButton" (click)="flagValue(true)" value="Update Assest" />
-        <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('assest').invalid && (updateTeamMemberForm.get('assest').touched || updateTeamMemberForm.get('assest').dirty )">
-          Provide Valid Assest</span>
-      </span>
+        <input type="button" class="assetButton" (click)="flagValue(true)" value="Update Assest" />
+        
     </div>
     <div class="button-column">
       <div>
@@ -188,11 +185,13 @@
           <option>hello</option>
           <option>hye</option>
         </select>
-        <input class="assetId-input" [(ngModel)]="field.assetId" name="assetType" type="text" placeholder="Asset Id" />
-        <button (click)="deleteFieldValue(index)">&times; </button>
+        <input class="asset-input" [(ngModel)]="field.assetId" name="assetType" type="text" placeholder="Asset Id" />
+        <input class="asset-input" [(ngModel)]="field.number" name="assetType" type="text" placeholder="Asset Id" />
+        <input class="asset-input-details" [(ngModel)]="field.details" name="assetType" type="text" placeholder="Asset details" />
+       <button style="background: rgba(0,0,0,0.6)" (click)="deleteFieldValue(index)">&times; </button>
         
       </div>
-      <button type="button" (click)="addFieldValue()">Add</button>
-      <button type="button" (click)="flagValue(false)">Save</button>
+      <button  style="background: rgba(0,0,0,0.6)" type="button" (click)="addFieldValue()">Add</button>
+      <button style="background: rgba(0,0,0,0.6)" type="button" (click)="flagValue(false)">Save</button>
     </div>
   </div>

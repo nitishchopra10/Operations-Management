@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { DataService } from '../../../service/data-service.service';
 
 @Component({
   selector: 'app-tdm-view-all',
@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 })
 export class TdmViewAllComponent implements OnInit {
 
-  constructor(private http:Http) { }
+  constructor(private http:DataService) { }
   employeeData;
   flag;
   modalData;
@@ -18,7 +18,7 @@ export class TdmViewAllComponent implements OnInit {
 
   
   setTable() {
-    this.http.get("http://localhost:9000/tdm/all").map(res => res.json()).subscribe(data => {
+    this.http.get("tdm/all").map(res => res.json()).subscribe(data => {
 
       this.employeeData = data;
       console.log(data);

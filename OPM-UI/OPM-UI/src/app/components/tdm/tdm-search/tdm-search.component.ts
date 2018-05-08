@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DataService } from '../../../service/data-service.service';
 
 @Component({
   selector: 'app-tdm-search',
@@ -9,9 +9,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class TdmSearchComponent implements OnInit {
 
-  constructor(private http: Http) { }
+  constructor(private http: DataService) { }
   employeeData;
   searchForm;
+  flag;
+  modalData;
   ngOnInit() {
 
     this.searchForm = new FormGroup({
@@ -25,7 +27,7 @@ export class TdmSearchComponent implements OnInit {
   onSubmit(data) {
     let keyword=data.keyword;
     let option=data.option;
-    this.http.get("http://localhost:9000/tdm/search/"+option+"/"+keyword).map(res => res.json()).subscribe(data => {
+    this.http.get("tdm/search/"+option+"/"+keyword).map(res => res.json()).subscribe(data => {
       this.employeeData = data;
      
     });
@@ -35,10 +37,18 @@ export class TdmSearchComponent implements OnInit {
     console.log("keyword : "+option);
   }
   setTable() {
-    this.http.get("http://localhost:9000/tdm/all").map(res => res.json()).subscribe(data => {
+    this.http.get("tdm/all").map(res => res.json()).subscribe(data => {
       this.employeeData = data;
 
     })
 
+  }
+
+  
+  
+  flagValue(flag,data)
+  {
+        this.flag=flag;
+        this.modalData=data;
   }
 }

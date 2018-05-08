@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Http } from '@angular/http';
 import { Employee } from '../../../models/employee';
+import { DataService } from '../../../service/data-service.service';
+import { Assets } from '../../../models/assets';
 @Component({
   selector: 'app-tdm-add-team-members',
   templateUrl: './tdm-add-team-members.component.html',
@@ -9,7 +11,7 @@ import { Employee } from '../../../models/employee';
 })
 export class TdmAddTeamMembersComponent implements OnInit {
 
-  constructor(private http:Http) { }
+  constructor(private http:DataService) { }
 
   addTeamMemberForm;
   flag=false;
@@ -23,7 +25,7 @@ export class TdmAddTeamMembersComponent implements OnInit {
       n1: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       n2: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       address: new FormControl(null,Validators.required),
-      assest: new FormControl(null),
+      asset: new FormControl(null),
       contactNumber: new FormControl(null,[Validators.required, Validators.pattern(/^\+?(0|[1-9]\d*)?$/)])
     });
   }
@@ -32,9 +34,9 @@ export class TdmAddTeamMembersComponent implements OnInit {
    let  employee:Employee=data;
    
    console.log(data);
-   this.http.post("http://localhost:9000/tdm/add",employee).subscribe(p => {
-      alert(p.status + p.statusText);
-    });
+   //this.http.post("/tdm/add",employee).subscribe(p => {
+    //  alert(p.status + p.statusText);
+    //});
     console.log("Employee : "+employee);
 
   }
@@ -43,17 +45,16 @@ export class TdmAddTeamMembersComponent implements OnInit {
   flagValue(flag)
   {
         this.flag=flag;
-        this.addTeamMemberForm.controls['assest'].setValue(this.fieldArray);  
+        this.addTeamMemberForm.controls['asset'].setValue(this.fieldArray);  
   }
 
 
-  private fieldArray: Array<any> = [];
-  private newAttribute: any = {};
+  private fieldArray: Array<Assets> = [];
+  private newAttribute: Assets;
 
   addFieldValue() {
       this.fieldArray.push(this.newAttribute)
-     
-      this.newAttribute = {};
+           //this.newAttribute = {};
      
   }
 

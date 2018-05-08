@@ -188,13 +188,13 @@ input.ng-valid{
 
 .modal-child{
     text-align: center;
-    background-color: #fefefe;
+    background-color: lightskyblue;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     padding: 1%;
-    border: 1px solid #888;
-    width: 50%;
+    border: 0.1vw solid #888;
+    width: 70%;
 }
 
 
@@ -212,12 +212,12 @@ input.ng-valid{
 select{
     border: none;
     background: white;
-    border: 0.1vw solid greenyellow;
+    border: 0.1vw solid transparent;
     border-radius: 0.3vw;
     padding: 0.5vw;
 
 }
-.assetId-input{
+.asset-input{
     border: none;
     height:1.3vw;
     width:14.5vw;
@@ -225,5 +225,31 @@ select{
     border-radius: 0.3vw;
     padding: 0.5vw;
 
+}
+
+
+.asset-input-details{
+    border: none;
+    height:1.3vw;
+    width:25vw;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+
+.asset-input.ng-invalid.ng-touched,.asset-input-details.ng-invalid.ng-touched{
+    border: 0.1vw solid transparent;
+   
+}
+
+.asset-input.ng-dirty ,.asset-input-details.ng-dirty{
+    border: 0.1vw solid transparent;
+   
+}
+
+.asset-input.ng-valid,.asset-input-details.ng-valid{
+    border: 0.1vw solid transparent;
+   
 }
 
