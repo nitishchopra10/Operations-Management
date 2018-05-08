@@ -46,7 +46,9 @@ td{
 }
 
 .modal-parent{
-  
+    
+    font-size: 1.7vw;
+
     height:92%;
     width: 100%;
     position: absolute;
@@ -60,12 +62,14 @@ td{
 
 .modal-child{
     background-color: #fefefe;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: auto;
-    margin-right: auto;
-    padding: 2%;
+    margin-right: auto;    
+   
     border: 1px solid #888;
-    width: 80%;
+    width: 35%;
+    text-align: center;
+
 }
 
 
@@ -81,15 +85,17 @@ td{
     cursor: pointer;
 }
 span{
-
-    background: deeppink;
-    margin-left: 20%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    display: inline-block;
+    width:40%;
+    white-space:inherit;
     font-size: 1.7vw;
 
 
 }
 .label-style{
-    background: dodgerblue;
-    margin-left: 10%;
     
 }
