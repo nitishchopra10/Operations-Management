@@ -31,7 +31,9 @@ export class CreateDpComponent implements OnInit {
 
   onSubmit(data) {
     let deliveryPortfolio: DeliveryPortFolio=data;
-
+    deliveryPortfolio.recordStatus="ACTIVE";
+    console.log(deliveryPortfolio);
+  
     this.http.post("http://localhost:8090/updateData",deliveryPortfolio).subscribe(res=>{
       alert(res.status +" "+res.statusText);
       this.addDeliveryPortfolio.reset();

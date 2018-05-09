@@ -37,7 +37,7 @@ public class DeliveryPortfolioDTO implements Serializable {
 
 	public DeliveryPortfolioDTO(Long id, String account, Boolean supportService, Boolean enhancements,
 			Boolean developmentService, Boolean testingService, Boolean dBASupport, Boolean iAAS,
-			Boolean infraMonitoring, String technologyStacks, String status, String record_status) {
+			Boolean infraMonitoring, String technologyStacks, String status, String recordStatus) {
 		super();
 		this.id = id;
 		this.account = account;
@@ -50,7 +50,7 @@ public class DeliveryPortfolioDTO implements Serializable {
 		this.infraMonitoring = infraMonitoring;
 		this.technologyStacks = technologyStacks;
 		this.status = status;
-		this.recordStatus = record_status;
+		this.recordStatus = recordStatus;
 	}
 
 	public Long getId() {
@@ -141,13 +141,14 @@ public class DeliveryPortfolioDTO implements Serializable {
 		this.status = status;
 	}
 
-	public String getRecord_status() {
+	public String getRecordStatus() {
 		return recordStatus;
 	}
 
-	public void setRecord_status(String record_status) {
-		this.recordStatus = record_status;
+	public void setRecordStatus(String recordStatus) {
+		this.recordStatus = recordStatus;
 	}
+
 	
 }
 
