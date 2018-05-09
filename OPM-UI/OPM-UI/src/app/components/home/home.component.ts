@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
     this.http.get("../../../assets/data/MENU_TILES_DATA.json").map(response => response.json()).subscribe(res=>{
       this.data=res;
-      console.log(res);
+    
     })
 
   

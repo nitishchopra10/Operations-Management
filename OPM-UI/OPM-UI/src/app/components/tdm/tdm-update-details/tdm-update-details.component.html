@@ -182,11 +182,15 @@
       Add Assest<br/>
       <div *ngFor="let field of fieldArray; let i = index">
         <select id="assetType" [(ngModel)]="field.assetType" name="assetType" >
-          <option>hello</option>
-          <option>hye</option>
+          <option *ngFor="let type of assetTypes">{{type}}</option>
+          
         </select>
-        <input class="asset-input" [(ngModel)]="field.assetId" name="assetType" type="text" placeholder="Asset Id" />
         <input class="asset-input" [(ngModel)]="field.number" name="assetType" type="text" placeholder="Asset Id" />
+       
+        <select id="assetType" [(ngModel)]="field.status" name="status" >
+            <option [ngValue]=true>Active</option>
+            <option [ngValue]=false>InActive</option>
+          </select>  
         <input class="asset-input-details" [(ngModel)]="field.details" name="assetType" type="text" placeholder="Asset details" />
        <button style="background: rgba(0,0,0,0.6)" (click)="deleteFieldValue(index)">&times; </button>
         

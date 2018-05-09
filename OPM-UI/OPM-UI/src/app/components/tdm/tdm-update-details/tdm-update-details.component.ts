@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from '../../../models/employee';
 import { DataService } from '../../../service/data-service.service';
+import { Assets } from '../../../models/assets';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-tdm-update-details',
@@ -10,13 +12,16 @@ import { DataService } from '../../../service/data-service.service';
 })
 export class TdmUpdateDetailsComponent implements OnInit {
 
-  constructor(private http: DataService) { }
+  constructor(private http: DataService,private localHttp:Http) { }
 
   employeeData;
   updateTeamMemberForm;
-
+  assetTypes;
   ngOnInit() {
-
+    this.localHttp.get("../../../assets/data/asset_List.json").map(response => response.json()).subscribe(res=>{
+      this.assetTypes=res;
+     
+    })
     this.setTable();
     this.updateTeamMemberForm = new FormGroup({
       empId: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
@@ -27,7 +32,7 @@ export class TdmUpdateDetailsComponent implements OnInit {
       n1: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       n2: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       address: new FormControl(null, Validators.required),
-      assest: new FormControl(null, Validators.required),
+      assetList: new FormControl(null, Validators.required),
       contactNumber: new FormControl(null, [Validators.required, Validators.pattern(/^\+?(0|[1-9]\d*)?$/)])
     });
   }
@@ -44,9 +49,9 @@ export class TdmUpdateDetailsComponent implements OnInit {
   onSubmit(data) {
     let employee: Employee
     employee = data;
-    /*
+    
    console.log(employee);
-*/
+
     this.http.post("tdm/update", employee).subscribe(res => {
       alert(res.status + "  " + res.statusText);
       this.setTable();
@@ -66,18 +71,19 @@ export class TdmUpdateDetailsComponent implements OnInit {
     this.updateTeamMemberForm.controls['n2'].setValue(data.n2);
     this.updateTeamMemberForm.controls['contactNumber'].setValue(data.contactNumber);
     this.updateTeamMemberForm.controls['address'].setValue(data.address);
-
+    this.fieldArray=data.assetList;
 
   }
 
 
-  private fieldArray: Array<any> = [];
+  private fieldArray: Array<Assets> = [];
   private newAttribute: any = {};
   private flag = false;
 
   flagValue(flag) {
     this.flag = flag;
-    this.updateTeamMemberForm.controls['assest'].setValue(this.fieldArray);
+    console.log("form data"+ this.updateTeamMemberForm.get())
+    this.updateTeamMemberForm.controls['assetList'].setValue(this.fieldArray);
   }
 
 
