@@ -7,5 +7,5 @@ export class Assets{
     private details:String;
     private status:String;
     private deleted:Boolean;
-    private employeee:Employee;
+ //   private employee:Employee;
 }

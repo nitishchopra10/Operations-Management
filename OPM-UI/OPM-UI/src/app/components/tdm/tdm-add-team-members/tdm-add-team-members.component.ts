@@ -11,11 +11,19 @@ import { Assets } from '../../../models/assets';
 })
 export class TdmAddTeamMembersComponent implements OnInit {
 
-  constructor(private http:DataService) { }
+  constructor(private http:DataService,private localHttp:Http) { }
 
   addTeamMemberForm;
   flag=false;
+  assetTypes;
   ngOnInit() {
+
+    this.localHttp.get("../../../assets/data/asset_List.json").map(response => response.json()).subscribe(res=>{
+      this.assetTypes=res;
+     
+    })
+
+
     this.addTeamMemberForm = new FormGroup({
       empId: new FormControl(null,[Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
       name: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
@@ -25,37 +33,37 @@ export class TdmAddTeamMembersComponent implements OnInit {
       n1: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       n2: new FormControl(null,[Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       address: new FormControl(null,Validators.required),
-      asset: new FormControl(null),
+      assetList: new FormControl(null),
       contactNumber: new FormControl(null,[Validators.required, Validators.pattern(/^\+?(0|[1-9]\d*)?$/)])
     });
   }
 
   onSubmit(data) {
    let  employee:Employee=data;
-   
-   console.log(data);
-   //this.http.post("/tdm/add",employee).subscribe(p => {
-    //  alert(p.status + p.statusText);
-    //});
-    console.log("Employee : "+employee);
-
+   employee.status=true;
+     this.http.post("/tdm/add",employee).subscribe(p => {
+     alert(p.status + p.statusText);
+     this.addTeamMemberForm.reset();
+    });
+  
   }
 
   
   flagValue(flag)
   {
         this.flag=flag;
-        this.addTeamMemberForm.controls['asset'].setValue(this.fieldArray);  
+        console.log(this.fieldArray)
+        this.addTeamMemberForm.controls['assetList'].setValue(this.fieldArray);  
   }
 
 
   private fieldArray: Array<Assets> = [];
-  private newAttribute: Assets;
+  private newAttribute:any={};
 
   addFieldValue() {
-      this.fieldArray.push(this.newAttribute)
-           //this.newAttribute = {};
-     
+      this.fieldArray.push(this.newAttribute);
+ 
+       
   }
 
   deleteFieldValue(index) {

@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,7 +36,7 @@ public class Employee {
 
 	private List<Assets> assetList;
 	
-	private boolean status;
+	private Boolean status;
 
 	public Employee() {
 		
@@ -136,7 +137,8 @@ public class Employee {
 		this.n2 = n2;
 	}
 	
-	@OneToMany(mappedBy="employee",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL,orphanRemoval= true)
+	@JoinTable(schema="sopra")
 	public List<Assets> getAssetList() {
 		return assetList;
 	}
@@ -144,11 +146,13 @@ public class Employee {
 		this.assetList = assetList;
 	}
 	@Column(name="status")
-	public boolean getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
+	
+	 
 	
 }

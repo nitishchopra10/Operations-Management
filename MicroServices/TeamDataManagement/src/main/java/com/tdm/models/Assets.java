@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -26,7 +27,6 @@ public class Assets {
 		
 		private boolean deleted;
 		
-		private Employee employee;
 
 		@Column(name = "DeviceType")
 		public String getAssetType() {
@@ -54,11 +54,7 @@ public class Assets {
 		public boolean isDeleted() {
 			return deleted;
 		}
-		@JsonIgnore
-		@ManyToOne()
-		public Employee getEmployee() {
-			return employee;
-		}
+		
 
 		public void setAssetType(String assetType) {
 			this.assetType = assetType;
@@ -84,7 +80,5 @@ public class Assets {
 			this.deleted = deleted;
 		}
 
-		public void setEmployee(Employee employee) {
-			this.employee = employee;
-		}
+		
 }

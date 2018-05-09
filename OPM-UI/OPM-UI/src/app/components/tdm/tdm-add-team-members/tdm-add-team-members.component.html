@@ -128,21 +128,25 @@
 
 
 <div class="modal-parent" *ngIf=flag>
-  <div class="modal-child">
-    <div class="close-icon" (click)="flagValue(false)">&times; </div><br/><br/>
-    Add Assest<br/>
-    <div *ngFor="let field of fieldArray; let i = index">
-      <select id="assetType" [(ngModel)]="field.assetType" name="assetType" >
-        <option>hello</option>
-        <option>hye</option>
-      </select>
-      <input class="asset-input" [(ngModel)]="field.assetId" name="assetType" type="text" placeholder="Asset Id" />
-      <input class="asset-input" [(ngModel)]="field.number" name="assetType" type="text" placeholder="Asset Id" />
-      <input class="asset-input-details" [(ngModel)]="field.details" name="assetType" type="text" placeholder="Asset details" />
-     <button style="background: rgba(0,0,0,0.6)" (click)="deleteFieldValue(index)">&times; </button>
-      
+    <div class="modal-child">
+      <div class="close-icon" (click)="flagValue(false)">&times; </div><br/><br/>
+      Add Assest<br/>
+      <div *ngFor="let field of fieldArray; let i = index">
+        <select id="assetType" [(ngModel)]="field.assetType" name="assetType" >
+          <option *ngFor="let type of assetTypes">{{type}}</option>
+          
+        </select>
+        <input class="asset-input" [(ngModel)]="field.number" name="assetType" type="text" placeholder="Asset Id" />
+       
+        <select id="assetType" [(ngModel)]="field.status" name="status" >
+          <option>ACTIVE</option>
+          <option>INACTIVE</option>
+          </select>  
+        <input class="asset-input-details" [(ngModel)]="field.details" name="assetType" type="text" placeholder="Asset details" />
+       <button style="background: rgba(0,0,0,0.6)" (click)="deleteFieldValue(index)">&times; </button>
+        
+      </div>
+      <button  style="background: rgba(0,0,0,0.6)" type="button" (click)="addFieldValue()">Add</button>
+      <button style="background: rgba(0,0,0,0.6)" type="button" (click)="flagValue(false)">Save</button>
     </div>
-    <button  style="background: rgba(0,0,0,0.6)" type="button" (click)="addFieldValue()">Add</button>
-    <button style="background: rgba(0,0,0,0.6)" type="button" (click)="flagValue(false)">Save</button>
   </div>
-</div>

@@ -5,7 +5,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class DataService {
 
-  private serverUrl=environment.serverUrl+environment.serverPort;
+  private serverUrl = environment.serverUrl+ environment.serverPort +environment.serverPrefix;
   constructor(private http:Http) { }
 
     get(url){

@@ -26,7 +26,7 @@ public class EmployeeDTO {
 
 	private List<Assets> assetList;
 
-	private boolean status;
+	private Boolean status;
 
 	public EmployeeDTO() {
 
@@ -122,16 +122,19 @@ public class EmployeeDTO {
 		return assetList;
 	}
 
-	public boolean isStatus() {
-		return status;
-	}
-
+	
+	
 	public void setAssetList(List<Assets> assetList) {
 		this.assetList = assetList;
 	}
+    
+	public Boolean getStatus() {
+		return status;
+	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 
+	
 }
