@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.ws.rs.PathParam;
 
 import com.delivery.portfolio.dto.DeliveryPortfolioDTO;
 import com.delivery.portfolio.models.DeliveryPortfolio;
@@ -38,7 +38,7 @@ public class DeliveryPortfolioController {
 	}
 	
 	@GetMapping("/searchData/{searchBy}/{search}")
-	public List<DeliveryPortfolio> searchData(@PathParam("searchBy")String searchBy, @PathParam("search")String search ) {
+	public List<DeliveryPortfolio> searchData(@PathVariable("searchBy")String searchBy, @PathVariable("search")String search ) {
 		return this.deliveryPortfolioService.searchBy(searchBy, search);
 	}
 	

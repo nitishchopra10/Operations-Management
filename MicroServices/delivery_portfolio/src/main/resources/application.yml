@@ -4,10 +4,11 @@ spring:
     username: postgres
     password: admin
     driver-class-name: org.postgresql.Driver
+  
   jpa:
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQL9Dialect     
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
     show-sql: true
   application:
     name: delivery-portfolio
@@ -15,4 +16,8 @@ spring:
     enabled: false
 server:
   port: 8090
-  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
