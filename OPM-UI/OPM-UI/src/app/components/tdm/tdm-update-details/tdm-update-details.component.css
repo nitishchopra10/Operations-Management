@@ -1,0 +1,255 @@
+/*view all css file start */
+
+.table-header{
+    position: relative;
+    text-align: center;
+    background: black;
+    margin-right:1.2%;
+}
+.table-body{
+    position: relative;
+    text-align: center;
+    overflow-y: scroll;
+    height: 13vw;;
+    background:  rgba(0,0,0,0.2);;
+}
+.header-row{
+    line-height:200%;
+    border-bottom: black;
+}
+
+th{
+    margin:0.2vw;
+    text-align: center;
+    color:white;
+    width:9vw;
+    font-weight: lighter;
+}
+.data-row{
+    width: 100vw;
+    line-height:150%;  
+}
+
+.data-row:hover{
+    background: salmon;
+}
+td{
+    text-align: center;
+    margin:0.07vw;
+    width:9vw;
+    font-weight: lighter;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    
+}
+
+/*view all css file end */
+
+/*update all css file start */
+.parent-div{
+    margin-top:0.5%;
+    background: rgba(0, 0, 0, 0.2);
+    color: black;
+    font-size: 1.3vw;
+    height:19vw;
+    text-align: center;
+    padding: 1vw;
+}
+
+.div-style{
+    width:15vw;
+    text-align: left;   
+    display: inline-block;
+    
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 30vw;
+    padding-top:1%;
+     /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+
+input{
+    border: none;
+    height:1.3vw;  
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+}
+
+input:focus{
+ outline: none;
+}
+
+.button-column {
+    float: left;
+    width: 70vw;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+     /* Should be removed. Only for demonstration */
+}
+
+button{
+    margin-top: 1.5vw;
+    height:2.5vw;
+    width: 5vw;
+    text-align: center;
+    border-radius: 0.3vw;
+    color: white;
+    font-size: 1vw;
+
+}
+
+/*update all css file end */
+
+
+input.ng-invalid.ng-touched{
+    border: 0.1vw solid red;
+   
+}
+
+
+input.ng-dirty{
+    border: 0.1vw solid red;
+   
+}
+
+input.ng-valid{
+    border: 0.1vw solid greenyellow;
+   
+}
+/*tooltip text*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+  
+}
+
+.tooltip .tooltiptext {
+    width: 10vw;
+    background-color: gainsboro;
+    font-size: 1vw;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    border-radius: 0.5vw;
+    padding: 0.5vw 0;
+    position: absolute;
+    z-index: 1;
+    top: -0.5vw;
+    left: 100%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -0.5vw;
+    border-width: 0.5vw;
+    border-style: solid;
+    border-color: transparent gainsboro transparent transparent;
+}
+
+
+.assetButton{
+    height:2.5vw;
+    width:13.5vw;
+    text-align: center;
+    border-radius: 0.3vw;
+    color: black;
+    background: white;
+    font-size: 1vw;
+ 
+}
+
+
+
+.modal-parent{
+  
+    height:92%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    left:0;
+    top:8%;
+    padding: 0 auto;
+    background: rgba(0,0,0,0.5);
+}
+
+
+.modal-child{
+    text-align: center;
+    background-color: lightskyblue;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    border: 0.1vw solid #888;
+    width: 70%;
+}
+
+
+.close-icon{
+    float: right;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.close-icon:hover{
+    color:red;
+    font-weight: bolder;
+    cursor: pointer;
+}
+select{
+    border: none;
+    background: white;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+.asset-input{
+    border: none;
+    height:1.3vw;
+    width:14.5vw;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+
+
+.asset-input-details{
+    border: none;
+    height:1.3vw;
+    width:25vw;
+    border: 0.1vw solid transparent;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+
+}
+
+.asset-input.ng-invalid.ng-touched,.asset-input-details.ng-invalid.ng-touched{
+    border: 0.1vw solid transparent;
+   
+}
+
+.asset-input.ng-dirty ,.asset-input-details.ng-dirty{
+    border: 0.1vw solid transparent;
+   
+}
+
+.asset-input.ng-valid,.asset-input-details.ng-valid{
+    border: 0.1vw solid transparent;
+   
+}
+

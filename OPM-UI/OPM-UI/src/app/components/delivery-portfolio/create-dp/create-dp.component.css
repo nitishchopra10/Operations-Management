@@ -1,0 +1,102 @@
+
+
+.parent-div{
+    margin-top:1%;
+    margin-right:8%;
+    margin-left:8%;
+    background: rgba(0, 0, 0, 0.2);
+    color: black;
+    font-size: 1.3vw;
+    height: 32vw;
+    text-align: center;
+    padding: 1vw;
+}
+
+.div-style{
+    width:35%;
+    text-align: left;
+    margin-right: 3vw;
+    display: inline-block;
+    
+}
+
+.div-style-radio-button{
+   
+    width:35%;
+    text-align: left;
+    margin-right: 3vw;
+    display: inline-block;
+    
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 30vw;
+    padding-top:2%;
+    padding-left: 5.5%;
+    padding-right: 4.5%;
+     /* Should be removed. Only for demonstration */
+}
+
+
+
+input[type='text']{
+    border: none;
+    height:1.5vw;
+    width:15vw;
+    border-radius: 0.3vw;
+    padding: 0.5vw;
+}
+
+
+
+
+.div-style-radio-button{
+  
+    width:35%;
+    text-align: left;
+    margin-right: 3vw;
+    display: inline-block;
+    
+}
+
+.column-radio {
+ 
+    height:2.5vw;
+ 
+    float: left;
+    width: 30vw;
+    padding-top:2%; 
+    padding-right: 10%;
+     /* Should be removed. Only for demonstration */
+}
+
+input[type='radio']{
+    cursor:pointer;
+    border: none;
+    height:1.5vw;
+    border-radius: 0.3vw;
+   
+}
+.button-column {
+    float: left;
+    width: 70vw;
+    padding-top:2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+     /* Should be removed. Only for demonstration */
+}
+
+button{
+    margin-top: 1.5vw;
+    height:2.5vw;
+    width: 5vw;
+    text-align: center;
+    border-radius: 0.3vw;
+    color: white;
+    font-size: 1vw;
+
+}

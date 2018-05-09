@@ -1,44 +1,41 @@
 package com.tdm.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="employee"/*,schema="sopra"*/)
+@Table(name="employee",schema="sopra")
 public class Employee {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "EmpID")
+	
 	private Long empId;
 	
-	@Column(name="Employee_Name",nullable=false)
 	private String name;
 	
-	@Column()
 	private int mCode;
 	
-	@Column(name= "Phone_Number",nullable = false)
 	private Long contactNumber;
 	
-	@Column(name = "Project")
 	private String project;
 	
-	@Column(name = "Address",nullable = false)
 	private String address;
 	
-	@Column(name = "Sub_Level")
 	private String subLevel;
 	
-	@Column(name = "N_1")
 	private String n1;
 	
-	@Column(name = "N_2" )
 	private String n2;
+
+	private List<Assets> assetList;
+	
+	private boolean status;
 
 	public Employee() {
 		
@@ -56,7 +53,9 @@ public class Employee {
 		this.n1 = n1;
 		this.n2 = n2;
 	}
-
+	
+	@Id
+	@Column(name = "EmpID")
 	public Long getEmpId() {
 		return empId;
 	}
@@ -65,6 +64,7 @@ public class Employee {
 		this.empId = empId;
 	}
 
+	@Column(name="Employee_Name",nullable=false)
 	public String getName() {
 		return name;
 	}
@@ -73,6 +73,7 @@ public class Employee {
 		this.name = name;
 	}
 
+	@Column()
 	public int getmCode() {
 		return mCode;
 	}
@@ -80,7 +81,8 @@ public class Employee {
 	public void setmCode(int mCode) {
 		this.mCode = mCode;
 	}
-
+	
+	@Column(name= "Phone_Number",nullable = false)
 	public Long getContactNumber() {
 		return contactNumber;
 	}
@@ -89,6 +91,7 @@ public class Employee {
 		this.contactNumber = contactNumber;
 	}
 
+	@Column(name = "Project")
 	public String getProject() {
 		return project;
 	}
@@ -97,6 +100,7 @@ public class Employee {
 		this.project = project;
 	}
 
+	@Column(name = "Address",nullable = false)
 	public String getAddress() {
 		return address;
 	}
@@ -104,7 +108,8 @@ public class Employee {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
+	@Column(name = "Sub_Level")
 	public String getSubLevel() {
 		return subLevel;
 	}
@@ -113,6 +118,7 @@ public class Employee {
 		this.subLevel = subLevel;
 	}
 
+	@Column(name = "N_1")
 	public String getN1() {
 		return n1;
 	}
@@ -121,12 +127,28 @@ public class Employee {
 		this.n1 = n1;
 	}
 
+	@Column(name = "N_2" )
 	public String getN2() {
 		return n2;
 	}
 
 	public void setN2(String n2) {
 		this.n2 = n2;
+	}
+	
+	@OneToMany(mappedBy="employee",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+	public List<Assets> getAssetList() {
+		return assetList;
+	}
+	public void setAssetList(List<Assets> assetList) {
+		this.assetList = assetList;
+	}
+	@Column(name="status")
+	public boolean getStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	
 }

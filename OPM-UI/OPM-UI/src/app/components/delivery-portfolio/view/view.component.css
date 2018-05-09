@@ -1,0 +1,43 @@
+
+
+.table-header{
+    position: relative;
+    text-align: center;
+    background: black;
+    margin-right:1.2%;
+}
+.table-body{
+    position: relative;
+    text-align: center;
+     overflow-y: scroll;
+    height: 30vw;;
+   background: rgba(0, 0, 0, 0.2);;
+}
+.data-row{
+    line-height:200%;    
+    border-bottom: 0.1vw solid red;
+}
+.data-row:hover{
+    background: salmon;
+
+}
+.header-row{
+    line-height:200%;
+    border-bottom: black;
+}
+
+th{
+    margin:0.2vw;
+    text-align: center;
+   
+    color:white;
+    width:5%;
+    font-weight: lighter;
+}
+
+td{
+    text-align: center;
+    margin:0.2vw;
+    width:5%;
+    font-weight: lighter;
+}

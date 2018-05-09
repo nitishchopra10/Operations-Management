@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   data : any;
   ngOnInit() {
 
-    this.http.get("../../../assets/mock-data/MOCK_DATA.json").map(response => response.json()).subscribe(res=>{
+    this.http.get("../../../assets/data/MENU_TILES_DATA.json").map(response => response.json()).subscribe(res=>{
       this.data=res;
       console.log(res);
     })

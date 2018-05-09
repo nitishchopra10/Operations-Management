@@ -1,5 +1,6 @@
 package com.tdm.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tdm.dto.EmployeeDTO;
 import com.tdm.serviceImpl.EmployeeServiceImpl;
 
-@RequestMapping("/tdm")
-@RestController()
+
+@RestController("/tdm")
 public class EmployeeController {
 
 	@Autowired
@@ -49,23 +50,30 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/search/id/{id}")
-	public ResponseEntity<EmployeeDTO> searchEmployee(@PathVariable Long id){
-		EmployeeDTO emp = service.searchById(id);
-		if(emp != null) {
-			return new ResponseEntity<EmployeeDTO>(emp,HttpStatus.FOUND);
-		}
-		else 
-			return new ResponseEntity<EmployeeDTO>(HttpStatus.NO_CONTENT);
+	public List<EmployeeDTO> searchEmployee(@PathVariable Long id){
+		List<EmployeeDTO> emp = new ArrayList<EmployeeDTO>();
+		emp.add(service.searchById(id));
+		return emp;
 	}
 	
 	@GetMapping("/search/name/{name}")
-	public ResponseEntity<List<EmployeeDTO>> searchEmployeeByName(@PathVariable String name){
+	public List<EmployeeDTO> searchEmployeeByName(@PathVariable String name){
 		List<EmployeeDTO> emp = service.searchByName(name);
 		if(emp != null) {
-			return new ResponseEntity<List<EmployeeDTO>>(emp,HttpStatus.FOUND);
+			return emp;
 		}
 		else 
-			return new ResponseEntity<List<EmployeeDTO>>(HttpStatus.NO_CONTENT);
+			return  null;
 	}
+	
+	@PostMapping("/delete")
+	public ResponseEntity<Boolean> deleteEmployees(@RequestBody Long id[]){
+		if(service.softDelete(id)) {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<Boolean>(false, HttpStatus.EXPECTATION_FAILED);
+	} 
+	
 	
 }
