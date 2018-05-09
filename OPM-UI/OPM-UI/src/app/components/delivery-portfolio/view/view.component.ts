@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-view',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private http:Http) { }
+  portFolioData;
   ngOnInit() {
+    this.http.get("http://localhost:8090/getData").map(res=>res.json()).subscribe(data=>
+    {
+    this.portFolioData=data
+      
+  });
   }
 
 }

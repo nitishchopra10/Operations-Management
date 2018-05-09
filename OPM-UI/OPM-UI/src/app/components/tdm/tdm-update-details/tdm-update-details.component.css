@@ -22,7 +22,7 @@ th{
     margin:0.2vw;
     text-align: center;
     color:white;
-    width:9vw;
+    width:9.3vw;
     font-weight: lighter;
 }
 .data-row{
@@ -36,7 +36,7 @@ th{
 td{
     text-align: center;
     margin:0.07vw;
-    width:9vw;
+    width:9.3vw;
     font-weight: lighter;
     overflow: hidden;
     white-space: nowrap;

@@ -82,16 +82,19 @@ export class TdmUpdateDetailsComponent implements OnInit {
 
   flagValue(flag) {
     this.flag = flag;
-    console.log("form data"+ this.updateTeamMemberForm.get())
+    
+  }
+  saveAssetList(flag){
+    this.flag = flag;
     this.updateTeamMemberForm.controls['assetList'].setValue(this.fieldArray);
   }
 
 
-
   addFieldValue() {
+    
+    this.newAttribute = {};
     this.fieldArray.push(this.newAttribute)
 
-    this.newAttribute = {};
 
   }
 
@@ -99,5 +102,7 @@ export class TdmUpdateDetailsComponent implements OnInit {
     this.fieldArray.splice(index, 1);
 
   }
+
+  
 
 }

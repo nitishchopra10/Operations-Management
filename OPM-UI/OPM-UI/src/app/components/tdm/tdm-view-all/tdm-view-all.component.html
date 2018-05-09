@@ -12,7 +12,7 @@
             <th class="">N+2</th>
             <th class="">Contact Number</th>
             <th class="">Address</th>
-            <th class=""> Assets</th>
+            <th class=""> View Assets</th>
   
           </tr>
         </thead>
@@ -32,7 +32,7 @@
             <td class="">{{data.n2}}</td>
             <td class="">{{data.contactNumber}}</td>
             <td class="">{{data.address}}</td>
-            <td class="">Assets</td>
+            <td class="">View Assest</td>
             
            
           </tr>
@@ -56,9 +56,21 @@
         <span class="label-style"> N + 1          :</span><span><small>  {{modalData.n1}}</small></span><br/>
         <span class="label-style"> N + 2          :</span><span><small> {{modalData.n2}}</small></span><br/>
         <span class="label-style"> Contact Number :</span><span><small> {{modalData.contactNumber}}</small></span><br/>
+        <hr/>
         <span class="label-style"> Address        :</span><span><small>  {{modalData.address}}</small></span><br/>
-        <span class="label-style"> Assets         :</span><span><small>Assets</small></span><br/>
-    
+        <hr/>
+        
+        <span class="label-style">Assets       :</span>
+        <span>
+          <small *ngFor="let data of modalData.assetList">
+            <label><b>Asset Type : </b> {{data.assetType}}</label><br/>
+            <label><b>Asset Id :</b> {{data.number}}</label><br/>
+            <label><b>Asset Details :</b> {{data.details}}</label><br/>
+            <label><b>Asset Status :</b> {{data.status}}</label><br/>
+            <hr/>
+
+          </small></span><br/>
+       
     
     
     </div>

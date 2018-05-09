@@ -1,15 +1,23 @@
 export class DeliveryPortFolio{
 
-    private  id;
-	private  Account;
-	private  SupportService;
-    private  Enhancements;
-	private  DevelopmentService;
-	private  TestingService;
-	private  DBASupport;
-	private  IAAS;
-	private  InfraMonitoring;
-	private  TechnologyStacks;
-	private  Status;
+	private  account:String;
+
+	private  supportService:Boolean;
+
+	private  enhancements:Boolean;
+
+	private  developmentService:Boolean;
+
+	private  testingService:Boolean;
+
+	private  dBASupport:Boolean;
+
+	private  iAAS:Boolean;
+
+	private  infraMonitoring:Boolean;
+
+	private  technologyStacks:String;
+
+	private  status:String;
     
 }
