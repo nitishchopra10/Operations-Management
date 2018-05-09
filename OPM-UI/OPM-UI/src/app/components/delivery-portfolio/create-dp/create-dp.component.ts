@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { DeliveryPortFolio } from '../../../models/delivery-portfolio';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-create-dp',
@@ -9,7 +10,7 @@ import { DeliveryPortFolio } from '../../../models/delivery-portfolio';
 })
 export class CreateDpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:Http) { }
   addDeliveryPortfolio;
   ngOnInit() {
    
@@ -18,8 +19,8 @@ export class CreateDpComponent implements OnInit {
       status: new FormControl(),
       technologyStacks: new FormControl(),
       supportService: new FormControl(),
-      dbaSupport: new FormControl(),
-      iaas: new FormControl(),
+      dBASupport: new FormControl(),
+      iAAS: new FormControl(),
       enhancements: new FormControl(),
       infraMonitoring: new FormControl(),
       testingService: new FormControl(),
@@ -30,9 +31,12 @@ export class CreateDpComponent implements OnInit {
 
   onSubmit(data) {
     let deliveryPortfolio: DeliveryPortFolio=data;
-    this.addDeliveryPortfolio.reset();
-    console.log(deliveryPortfolio);
 
+    this.http.post("http://localhost:8090/updateData",deliveryPortfolio).subscribe(res=>{
+      alert(res.status +" "+res.statusText);
+      this.addDeliveryPortfolio.reset();
+    });
+  
 
   }
 }

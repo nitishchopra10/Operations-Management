@@ -22,320 +22,37 @@
   <div class="table-body">
     <table>
       <tbody>
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
+        <tr class="data-row" *ngFor="let data of portFolioData">
+          <td class="">{{data.account}}</td>
+          <td class="">{{data.technologyStacks}}</td>
+          <td class="">{{data.status}}</td>
+         
+         
+          <td class="" *ngIf="data.dBASupport==true">&#10004;</td>
+         <b> <td class="" *ngIf="data.dBASupport==false">&#x2718;</td></b>
+
+          <td class="" *ngIf="data.iAAS==true">&#10004;</td>
+          <b><td class="" *ngIf="data.iAAS==false">&#x2718;</td></b>
+
+          <td class="" *ngIf="data.developmentService==true">&#10004;</td>
+          <b><td class="" *ngIf="data.developmentService==false">&#x2718;</td></b>
+
+          <td class="" *ngIf="data.enhancements==true">&#10004;</td>
+          <b><td class="" *ngIf="data.enhancements==false">&#x2718;</td></b>
+
+          <td class="" *ngIf="data.infraMonitoring==true">&#10004;</td>
+          <b><td class="" *ngIf="data.infraMonitoring==false">&#x2718;</td></b>
+
+          <td class="" *ngIf="data.supportService==true">&#10004;</td>
+          <b><td class="" *ngIf="data.supportService==false">&#x2718;</td></b>
+
+          <td class="" *ngIf="data.testingService==true">&#10004;</td>
+          <b><td class="" *ngIf="data.testingService==false">&#x2718;</td></b>
+         
+         
         </tr>
 
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
-
-        <tr class="data-row">
-          <td class="">Account</td>
-          <td class="">Technology Status</td>
-          <td class="">Status</td>
-          <td class="">DBA Support</td>
-          <td class="">IAAS</td>
-          <td class="">Development Service</td>
-          <td class="">Enhancements</td>
-          <td class="">Infra-Monitoring</td>
-          <td class="">Support Status</td>
-          <td class="">Testing Service</td>
-        </tr>
+       
       </tbody>
     </table>
   </div>

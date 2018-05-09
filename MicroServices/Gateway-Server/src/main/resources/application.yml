@@ -9,9 +9,9 @@ zuul:
     tdm:
       path: /tdm/**
       service-id: team-data-management
-  #  delivery-portfolio:
-  #    path: /dpo/**
-  #    service-id: delivery-portfolio
+    delivery-portfolio:
+      path: /dpo/**
+      service-id: delivery-portfolio
 
 eureka:
   client:
