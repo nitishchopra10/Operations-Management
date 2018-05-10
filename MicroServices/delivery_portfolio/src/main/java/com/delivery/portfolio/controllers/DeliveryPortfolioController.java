@@ -27,7 +27,7 @@ public class DeliveryPortfolioController {
 	}
 	
 	@PostMapping("/updateData")
-	public ResponseEntity<DeliveryPortfolioDTO> updateDeliveryPortfolioData(@RequestBody final DeliveryPortfolioDTO deliveryPortfolioDto) {
+	public ResponseEntity<DeliveryPortfolioDTO> updateDeliveryPortfolioData(@RequestBody  DeliveryPortfolioDTO deliveryPortfolioDto) {
 		return this.deliveryPortfolioService.updateData(deliveryPortfolioDto);
 	}
 	
