@@ -166,15 +166,19 @@ public class DeliveryPortfolio implements Serializable{
 		this.status = status;
 	}
 
+
 	@Column(name = "record_status")
-	public String getRecord_status() {
+	public String getRecordStatus() {
 		return recordStatus;
 	}
 
-	public void setRecord_status(String record_status) {
-		this.recordStatus = record_status;
+
+
+	public void setRecordStatus(String recordStatus) {
+		this.recordStatus = recordStatus;
 	}
 
+	
 	
 
 	

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TdmComponent implements OnInit {
 
   constructor() { }
-  colorFlag:number=1;
+  colorFlag:number=0;
   ngOnInit() {
   }
 

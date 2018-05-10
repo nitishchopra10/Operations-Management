@@ -47,10 +47,8 @@ export class TdmUpdateDetailsComponent implements OnInit {
   }
 
   onSubmit(data) {
-    let employee: Employee
-    employee = data;
+    let employee: Employee= data;
     
-   console.log(employee);
 
     this.http.post("tdm/update", employee).subscribe(res => {
       alert(res.status + "  " + res.statusText);

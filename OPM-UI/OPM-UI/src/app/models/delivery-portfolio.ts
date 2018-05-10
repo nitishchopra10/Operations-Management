@@ -19,5 +19,14 @@ export class DeliveryPortFolio{
 	private  technologyStacks:String;
 
 	private  status:String;
+	   recordStatus:String;
+
+	setStatus(value:String):void{
+		this.recordStatus=value;
+}
+
+getStatus(){
+	return this.recordStatus;
+}
     
 }

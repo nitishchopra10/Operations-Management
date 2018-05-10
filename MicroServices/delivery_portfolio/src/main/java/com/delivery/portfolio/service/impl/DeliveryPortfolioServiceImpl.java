@@ -50,7 +50,7 @@ public class DeliveryPortfolioServiceImpl implements IDeliveryPortfolioService {
 		final List<DeliveryPortfolio> deliveryPortfolioList = new ArrayList<>();
 		for (int i = 0; i <= recordIds.length - 1; i++) {
 			final Optional<DeliveryPortfolio> record = this.deliveryPortfolioRepository.findById(Long.parseLong(recordIds[i].toString()));
-			record.get().setRecord_status(STATUS_INACTIVE);
+			record.get().setRecordStatus(STATUS_INACTIVE);
 			deliveryPortfolioList.add(record.get());			
 		}
 

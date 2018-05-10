@@ -1,0 +1,62 @@
+<div>
+    <div class="table-header">
+      <table>
+        <thead>
+          <tr class="header-row">
+            <th class="">Account</th>
+            <th class="">Technology Stacks</th>
+            <th class="">Status</th>
+            <th class="">DBA Support</th>
+            <th class="">IAAS</th>
+            <th class="">Development Service</th>
+            <th class="">Enhancements</th>
+            <th class="">Infra-Monitoring</th>
+            <th class="">Support Status</th>
+            <th class="">Testing Service</th>
+  
+          </tr>
+        </thead>
+      </table>
+    </div>
+  
+    <div class="table-body">
+      <table>
+        <tbody>
+          <tr class="data-row" *ngFor="let data of portFolioData" >
+
+            <td class=""><input type="text" disabled placeholder="account" [(ngModel)]="data.account"></td>
+            <td class=""><input type="text" disabled placeholder="Technology Stacks"  [(ngModel)]="data.technologyStacks"></td>
+            <td class=""><input type="text" disabled placeholder="status"  [(ngModel)]="data.status"></td>
+           
+          <td class="" *ngIf="data.dBASupport==true">&#10004;</td>
+          <b> <td class=""  *ngIf="data.dBASupport==false">&#x2718;</td></b>
+ 
+           <td class="" *ngIf="data.iAAS==true">&#10004;</td>
+           <b><td class="" *ngIf="data.iAAS==false">&#x2718;</td></b>
+ 
+           <td class="" *ngIf="data.developmentService==true">&#10004;</td>
+           <b><td class="" *ngIf="data.developmentService==false">&#x2718;</td></b>
+ 
+           <td class="" *ngIf="data.enhancements==true">&#10004;</td>
+           <b><td class="" *ngIf="data.enhancements==false">&#x2718;</td></b>
+ 
+           <td class="" *ngIf="data.infraMonitoring==true">&#10004;</td>
+           <b><td class="" *ngIf="data.infraMonitoring==false">&#x2718;</td></b>
+ 
+           <td class="" *ngIf="data.supportService==true">&#10004;</td>
+           <b><td class="" *ngIf="data.supportService==false">&#x2718;</td></b>
+ 
+           <td class="" *ngIf="data.testingService==true">&#10004;</td>
+           <b><td class="" *ngIf="data.testingService==false">&#x2718;</td></b>
+
+           <td  (click)="delete(data)" class="noBackGround"><Button >Delete</Button></td>
+        </tr>
+  
+         
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+
+  

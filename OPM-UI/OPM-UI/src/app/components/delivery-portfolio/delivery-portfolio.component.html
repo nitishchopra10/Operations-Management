@@ -9,16 +9,17 @@
   <div class="menu-link" [routerLink]="['./view']" (click)="colorFlagChanger(1)" [ngStyle]="getMyStyles(1)">
     View
   </div>
-  <div class="menu-link"    [routerLink]="['./create-delivery-portfolio']" (click)="colorFlagChanger(2)" [ngStyle]="getMyStyles(2)">
+  <div class="menu-link" [routerLink]="['./create-delivery-portfolio']" (click)="colorFlagChanger(2)" [ngStyle]="getMyStyles(2)">
    Create
   </div>
   <div class="menu-link" [routerLink]="['./update-delivery-portfolio']" (click)="colorFlagChanger(3)" [ngStyle]="getMyStyles(3)">
     Update
   </div>
-  <div class="menu-link"  (click)="colorFlagChanger(4)" [ngStyle]="getMyStyles(4)">
+  <div class="menu-link" [routerLink]="['./delete-delivery-portfolio']" (click)="colorFlagChanger(4)" [ngStyle]="getMyStyles(4)">
     Delete
   </div>
 
 </div>
+<br/>
 
   <router-outlet></router-outlet>
