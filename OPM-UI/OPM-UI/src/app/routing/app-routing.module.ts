@@ -11,21 +11,14 @@ import { TdmUpdateDetailsComponent } from '../components/tdm/tdm-update-details/
 import { TdmSearchComponent } from '../components/tdm/tdm-search/tdm-search.component';
 import { CreateDpComponent } from '../components/delivery-portfolio/create-dp/create-dp.component';
 import { UpdateDpComponent } from '../components/delivery-portfolio/update-dp/update-dp.component';
+import { DeleteDpComponent } from '../components/delivery-portfolio/delete-dp/delete-dp.component';
 
 const appRoutes: Routes = [
-  /* {path:'admin',component:AdminComponent,
-       children: [
-     { path: 'addUser',component:AddVendorComponent, outlet:'admin'},
-     { path: 'modifyProduct',component:UpdateProductComponent, outlet:'admin'},
-     { path: 'delete',component:DeleteComponent, outlet:'admin'},
-     { path: 'order',component:OrderDetailComponent, outlet:'admin'},
-     { path: 'addProduct',component:AddProductComponent, outlet:'admin'},
-     { path: 'exportdatabase',component:ExportDataBaseComponent, outlet:'admin'}
- 
-   ]},*/
+  
   {
     path: 'team-data-management', component: TdmComponent,
     children: [
+     // { path: '', redirectTo: 'tdm-view-members',  pathMatch: 'full' },
       {path: '', component: TdmViewAllComponent},
       { path: 'tdm-view-members', component: TdmViewAllComponent },
       { path: 'tdm-update-details', component: TdmUpdateDetailsComponent },
@@ -33,18 +26,18 @@ const appRoutes: Routes = [
      
       { path: 'tdm-add-members', component: TdmAddTeamMembersComponent }
     ]},
-  { path: 'delivery-portfolio', component: DeliveryPortfolioComponent },
-
+  
   {
     path: 'delivery-portfolio', component: DeliveryPortfolioComponent,
     children: [
-      { path:'', component: ViewComponent},
-      { path: 'view', component: ViewComponent },
+     // { path: '', redirectTo: 'view',  pathMatch: 'full' },
+     {path: '', component: ViewComponent}, 
+     { path: 'view', component: ViewComponent },
       { path: 'update-delivery-portfolio', component: UpdateDpComponent },
       { path: 'create-delivery-portfolio', component: CreateDpComponent },
+      { path: 'delete-delivery-portfolio', component: DeleteDpComponent },
     
-    ]
-  },
+    ]},
   { path: '**', component: HomeComponent }
 
 ];

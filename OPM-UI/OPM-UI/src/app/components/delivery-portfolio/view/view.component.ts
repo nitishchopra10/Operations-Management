@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { DataService } from '../../../service/data-service.service';
 
 @Component({
   selector: 'app-view',
@@ -8,10 +9,10 @@ import { Http } from '@angular/http';
 })
 export class ViewComponent implements OnInit {
 
-  constructor(private http:Http) { }
+  constructor(private dataService:DataService) { }
   portFolioData;
   ngOnInit() {
-    this.http.get("http://localhost:8090/getData").map(res=>res.json()).subscribe(data=>
+    this.dataService.get("dpo/getData").map(res=>res.json()).subscribe(data=>
     {
     this.portFolioData=data
       

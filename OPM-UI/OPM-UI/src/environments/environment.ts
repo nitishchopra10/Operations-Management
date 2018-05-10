@@ -8,7 +8,7 @@ export const environment = {
 
     serverUrl:"http://localhost:",
     serverPort : "8765/",
-    serverPrefix : "/oprmgmt/",
+    serverPrefix : "oprmgmt/",
     tdmPrefix : "/tdm/",
     dpPrefix : "/dpo/",
 
