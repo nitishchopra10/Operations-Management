@@ -21,6 +21,7 @@ import { DataService } from './service/data-service.service';
 import { CreateDpComponent } from './components/delivery-portfolio/create-dp/create-dp.component';
 import { UpdateDpComponent } from './components/delivery-portfolio/update-dp/update-dp.component';
 import { DeleteDpComponent } from './components/delivery-portfolio/delete-dp/delete-dp.component';
+import { TdmDeleteComponent } from './components/tdm/tdm-delete/tdm-delete.component';
 
 
 
@@ -39,7 +40,8 @@ import { DeleteDpComponent } from './components/delivery-portfolio/delete-dp/del
     TdmSearchComponent,
     CreateDpComponent,
     UpdateDpComponent,
-    DeleteDpComponent
+    DeleteDpComponent,
+    TdmDeleteComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpModule, ReactiveFormsModule,FormsModule

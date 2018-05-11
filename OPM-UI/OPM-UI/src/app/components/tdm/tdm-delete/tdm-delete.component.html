@@ -1,0 +1,91 @@
+<div class="search-div">
+
+    <form [formGroup]="searchForm"  (ngSubmit)="onSubmit(searchForm.value)">
+      Search By :
+      <input type="radio" name="option" formControlName="option"   value="name" />Name
+      <input type="radio" name="option" formControlName="option"  value="id" />Id
+      <input type="text"  formControlName="keyword" name="keyword" />
+      <button type="submit" class="search-button">Search</button>
+    </form>
+  </div>
+  
+  <div>
+    <div class="table-header">
+      <table>
+        <thead>
+          <tr class="header-row">
+            <th class="">Employee Id</th>
+            <th class="">Employee Name</th>
+            <th class="">mCode</th>
+            <th class="">Sub Level</th>
+            <th class="">Project</th>
+            <th class="">N+1</th>
+            <th class="">N+2</th>
+            <th class="">Contact Number</th>
+            <th class="">Address</th>
+            <th class=""> Assets</th>
+  
+          </tr>
+        </thead>
+      </table>
+    </div>
+  
+    <div class="table-body">
+      <table>
+        <tbody>
+          <tr class="data-row" *ngFor="let data of employeeData" >
+            <td class="" (click)="flagValue(true,data)">{{data.empId}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.name}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.mCode}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.subLevel}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.project}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.n1}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.n2}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.contactNumber}}</td>
+            <td class="" (click)="flagValue(true,data)">{{data.address}}</td>
+            <td class="" (click)="flagValue(true,data)">Assets</td>
+            <td class=""><button (click)="delete(data)">Delete</button></td>
+  
+  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+  
+  
+  
+  
+    
+  <div class="modal-parent" *ngIf=flag >
+      <div class="modal-child">
+          <div class="close-icon" (click)="flagValue(false,null)">&times; </div><br/>
+          <div>Employee Details</div><hr/>
+          <span class="label-style"> Employee Id    :</span><span><small> {{modalData.empId}}</small></span><br/>
+          <span class="label-style"> Employee Name  :</span><span><small>{{modalData.name}}</small></span><br/>
+          <span class="label-style"> M-Code         :</span><span><small> {{modalData.mCode}}</small></span><br/>
+          <span class="label-style"> Sub Level      :</span><span><small> {{modalData.subLevel}}</small></span><br/>
+          <span class="label-style"> Project        :</span><span><small> {{modalData.project}}</small></span><br/>
+          <span class="label-style"> N + 1          :</span><span><small>  {{modalData.n1}}</small></span><br/>
+          <span class="label-style"> N + 2          :</span><span><small> {{modalData.n2}}</small></span><br/>
+          <span class="label-style"> Contact Number :</span><span><small> {{modalData.contactNumber}}</small></span><br/>
+          <hr/>
+          <span class="label-style"> Address        :</span><span><small>  {{modalData.address}}</small></span><br/>
+          <hr/>
+          
+          <span class="label-style">Assets       :</span>
+          <span>
+            <small *ngFor="let data of modalData.assetList">
+              <label><b>Asset Type : </b> {{data.assetType}}</label><br/>
+              <label><b>Asset Id :</b> {{data.number}}</label><br/>
+              <label><b>Asset Details :</b> {{data.details}}</label><br/>
+              <label><b>Asset Status :</b> {{data.status}}</label><br/>
+            
+  
+            </small></span><br/>
+         
+      
+      
+      </div>
+      </div>

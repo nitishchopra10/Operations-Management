@@ -21,10 +21,11 @@ th{
     margin:0.2vw;
     text-align: center;
     color:white;
-    width:9.4vw;
+    width:8.55vw;
     font-weight: lighter;
 }
 .data-row{
+  
     width: 100vw;
     line-height:150%;  
 }
@@ -36,7 +37,7 @@ th{
 td{
     text-align: center;
     margin:0.07vw;
-    width:9.4vw;
+    width:8.55vw;
     font-weight: lighter;
     overflow: hidden;
     white-space: nowrap;
@@ -123,6 +124,7 @@ span{
 
 
 }
+
 .label-style{
     
 }

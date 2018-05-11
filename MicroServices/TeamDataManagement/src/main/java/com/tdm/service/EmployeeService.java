@@ -18,5 +18,6 @@ public interface EmployeeService {
 
 	public boolean softDelete(Long id[]);
 
+	public List<EmployeeDTO> getAllActiveEmployees();
 
 }

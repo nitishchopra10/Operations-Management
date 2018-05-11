@@ -12,6 +12,7 @@ import { TdmSearchComponent } from '../components/tdm/tdm-search/tdm-search.comp
 import { CreateDpComponent } from '../components/delivery-portfolio/create-dp/create-dp.component';
 import { UpdateDpComponent } from '../components/delivery-portfolio/update-dp/update-dp.component';
 import { DeleteDpComponent } from '../components/delivery-portfolio/delete-dp/delete-dp.component';
+import { TdmDeleteComponent } from '../components/tdm/tdm-delete/tdm-delete.component';
 
 const appRoutes: Routes = [
   
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
       { path: 'tdm-view-members', component: TdmViewAllComponent },
       { path: 'tdm-update-details', component: TdmUpdateDetailsComponent },
       { path: 'tdm-search', component: TdmSearchComponent },
-     
+      { path: 'tdm-delete', component: TdmDeleteComponent },
       { path: 'tdm-add-members', component: TdmAddTeamMembersComponent }
     ]},
   

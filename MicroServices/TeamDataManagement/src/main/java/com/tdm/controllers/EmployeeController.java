@@ -29,6 +29,12 @@ public class EmployeeController {
 		return service.getAllEmployees();
 	
 	}
+	@GetMapping("/allactive")
+	public List<EmployeeDTO> showAllActive(){
+		
+		return service.getAllActiveEmployees();
+	
+	}
 	
 	@PostMapping("/add")
 	public ResponseEntity<EmployeeDTO> addEmployee(@RequestBody EmployeeDTO emp){
@@ -58,12 +64,17 @@ public class EmployeeController {
 	
 	@GetMapping("/search/name/{name}")
 	public List<EmployeeDTO> searchEmployeeByName(@PathVariable String name){
+		if(name != null) {
 		List<EmployeeDTO> emp = service.searchByName(name);
 		if(emp != null) {
 			return emp;
 		}
 		else 
 			return  null;
+	}
+		else
+		    return service.getAllActiveEmployees();
+		
 	}
 	
 	@PostMapping("/delete")

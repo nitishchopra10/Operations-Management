@@ -22,7 +22,7 @@ th{
     margin:0.2vw;
     text-align: center;
     color:white;
-    width:9.3vw;
+    width:9.4vw;
     font-weight: lighter;
 }
 .data-row{
@@ -36,7 +36,7 @@ th{
 td{
     text-align: center;
     margin:0.07vw;
-    width:9.3vw;
+    width:9.4vw;
     font-weight: lighter;
     overflow: hidden;
     white-space: nowrap;
@@ -105,6 +105,7 @@ button{
     border-radius: 0.3vw;
     color: white;
     font-size: 1vw;
+    background: rgba(0,0,0,0.6)
 
 }
 
@@ -175,12 +176,13 @@ input.ng-valid{
 
 .modal-parent{
   
-    height:92%;
+    min-height: 100%;
+    height:auto;
     width: 100%;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     left:0;
-    top:8%;
+    top:0%;
     padding: 0 auto;
     background: rgba(0,0,0,0.5);
 }
@@ -253,3 +255,33 @@ select{
    
 }
 
+
+.search-div{
+  
+    text-align: center;
+    height:4vw;
+    width: auto;
+    font-size: 1.3vw;
+   
+  
+}
+
+.search-input{
+    height: 1.7vw;
+    padding: 0.2vw;
+    width: 15vw;
+    border-radius: 0.5vw;
+}
+
+.search-button{
+  
+    height: auto;
+    color:white;
+    padding: 0.6vw;
+    font-size: 1vw;
+    margin: unset;    
+    background: rgba(0,0,0,0.6);
+    
+    
+    
+}

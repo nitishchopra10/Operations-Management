@@ -1,6 +1,5 @@
 package com.tdm.serviceImpl;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,11 +17,20 @@ import com.tdm.service.EmployeeService;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
+	private static final Boolean STATUS_INVALID = false;
 	@Autowired
 	private EmployeeRepository repository;
 
 	public List<EmployeeDTO> getAllEmployees() {
 		final List<EmployeeDTO> empList = EmployeeMapper.INSTANCE.employeeListToEmployeeDTOList(repository.findAll());
+		if (empList != null) {
+			return empList;
+		} else
+			return null;
+	}
+	
+	public List<EmployeeDTO> getAllActiveEmployees(){
+		final List<EmployeeDTO> empList = EmployeeMapper.INSTANCE.employeeListToEmployeeDTOList(repository.findByStatusNot(STATUS_INVALID));
 		if (empList != null) {
 			return empList;
 		} else
