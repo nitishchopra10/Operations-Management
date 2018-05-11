@@ -48,13 +48,13 @@ td{
 .modal-parent{
     
     font-size: 1.7vw;
-
-    height:92%;
+    min-height: 100%;
+    height:auto;
     width: 100%;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     left:0;
-    top:8%;
+    top:0%;
     padding: 0 auto;
     background: rgba(0,0,0,0.5);
 }

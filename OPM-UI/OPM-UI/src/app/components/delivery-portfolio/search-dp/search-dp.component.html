@@ -1,0 +1,72 @@
+<div class="search-div">
+
+    <form [formGroup]="searchForm"  (ngSubmit)="onSubmit(searchForm.value)">
+      Search By :
+      <input type="radio" name="option" formControlName="option"   value="account" />Account
+      <input type="radio" name="option" formControlName="option"  value="technologyStacks" />Technology Stacks
+     <!-- <input type="radio" name="option" formControlName="option"  value="status" />Status-->
+      <input type="text"  formControlName="keyword" name="keyword" />
+      <button type="submit" class="search-button" [disabled]=searchForm.invalid>Search</button>
+    </form>
+  </div>
+
+  <div>
+      <div class="table-header">
+        <table>
+          <thead>
+            <tr class="header-row">
+              <th class="">Account</th>
+              <th class="">Technology Stacks</th>
+              <th class="">Status</th>
+              <th class="">DBA Support</th>
+              <th class="">IAAS</th>
+              <th class="">Development Service</th>
+              <th class="">Enhancements</th>
+              <th class="">Infra-Monitoring</th>
+              <th class="">Support Status</th>
+              <th class="">Testing Service</th>
+    
+            </tr>
+          </thead>
+        </table>
+      </div>
+    
+      <div class="table-body">
+        <table>
+          <tbody>
+            <tr class="data-row" *ngFor="let data of portFolioData">
+              <td class="">{{data.account}}</td>
+              <td class="">{{data.technologyStacks}}</td>
+              <td class="">{{data.status}}</td>
+             
+             
+              <td class="" *ngIf="data.dBASupport==true">&#10004;</td>
+             <b> <td class="" *ngIf="data.dBASupport==false">&#x2718;</td></b>
+    
+              <td class="" *ngIf="data.iAAS==true">&#10004;</td>
+              <b><td class="" *ngIf="data.iAAS==false">&#x2718;</td></b>
+    
+              <td class="" *ngIf="data.developmentService==true">&#10004;</td>
+              <b><td class="" *ngIf="data.developmentService==false">&#x2718;</td></b>
+    
+              <td class="" *ngIf="data.enhancements==true">&#10004;</td>
+              <b><td class="" *ngIf="data.enhancements==false">&#x2718;</td></b>
+    
+              <td class="" *ngIf="data.infraMonitoring==true">&#10004;</td>
+              <b><td class="" *ngIf="data.infraMonitoring==false">&#x2718;</td></b>
+    
+              <td class="" *ngIf="data.supportService==true">&#10004;</td>
+              <b><td class="" *ngIf="data.supportService==false">&#x2718;</td></b>
+    
+              <td class="" *ngIf="data.testingService==true">&#10004;</td>
+              <b><td class="" *ngIf="data.testingService==false">&#x2718;</td></b>
+             
+             
+            </tr>
+    
+           
+          </tbody>
+        </table>
+      </div>
+    
+    </div>

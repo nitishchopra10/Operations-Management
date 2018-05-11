@@ -5,7 +5,7 @@
     <input type="radio" name="option" formControlName="option"   value="name" />Name
     <input type="radio" name="option" formControlName="option"  value="id" />Id
     <input type="text"  formControlName="keyword" name="keyword" />
-    <button type="submit" class="search-button">Search</button>
+    <button type="submit" class="search-button" [disabled]=searchForm.invalid>Search</button>
   </form>
 </div>
 

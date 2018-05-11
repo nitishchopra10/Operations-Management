@@ -1,4 +1,15 @@
+
+<div class="search-div">
+    <form [formGroup]="searchForm"  (ngSubmit)="onSubmitSearch(searchForm.value)">
+      Search By :
+      <input type="radio"name="option" formControlName="option"   value="name" />Name
+      <input type="radio" name="option" formControlName="option"  value="id" />Id
+      <input type="text"  class="search-input" formControlName="keyword" name="keyword" />
+      <button type="submit" class="search-button">Search</button>
+    </form>
+</div>
 <div>
+  
   <div class="table-header">
     <table>
       <thead>
@@ -12,7 +23,7 @@
           <th class="">N+2</th>
           <th class="">Contact Number</th>
           <th class="">Address</th>
-          <th class="">Assets List</th>
+          <th class="">Status</th>
 
         </tr>
       </thead>
@@ -32,8 +43,8 @@
           <td class="">{{data.n2}}</td>
           <td class="">{{data.contactNumber}}</td>
           <td class="">{{data.address}}</td>
-          <td class="">View Assets</td>
-
+          <td class="" *ngIf="data.status==true">ACTIVE</td>
+          <td class="" *ngIf="data.status==false">INACTIVE</td>
 
         </tr>
 
@@ -158,10 +169,25 @@
         <input type="button" class="assetButton" (click)="flagValue(true)" value="Update Assest" />
         
     </div>
+
+    <div class="column">
+        <div class="div-style">
+          Employee Status :
+        </div>
+        <span class="tooltip">
+           <select required formControlName="status">
+              <option>ACTIVE</option>
+              <option>INACTIVE</option>           
+            </select>
+            <span class="tooltiptext" *ngIf="updateTeamMemberForm.get('address').invalid && (updateTeamMemberForm.get('address').touched || updateTeamMemberForm.get('address').dirty)">
+              Provide Valid Address</span>
+          </span>
+      </div>
+
     <div class="button-column">
       <div>
-        <button type="reset" style="background: rgba(0,0,0,0.6)">Reset</button>
-        <button type="submit" style="background: rgba(0,0,0,0.6)" [disabled]="updateTeamMemberForm.invalid">Submit</button>
+        <button type="reset">Reset</button>
+        <button type="submit" [disabled]="updateTeamMemberForm.invalid">Submit</button>
       </div>
 
     </div>

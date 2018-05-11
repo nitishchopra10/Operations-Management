@@ -18,7 +18,7 @@ export class TdmViewAllComponent implements OnInit {
 
   
   setTable() {
-    this.http.get("tdm/all").map(res => res.json()).subscribe(data => {
+    this.http.get("tdm/allactive").map(res => res.json()).subscribe(data => {
 
       this.employeeData = data;
       console.log(data);
