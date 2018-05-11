@@ -12,17 +12,23 @@ import { Http } from '@angular/http';
 })
 export class TdmUpdateDetailsComponent implements OnInit {
 
-  constructor(private http: DataService,private localHttp:Http) { }
+  constructor(private dataService: DataService,private localHttp:Http) { }
 
   employeeData;
   updateTeamMemberForm;
   assetTypes;
+  searchForm;
   ngOnInit() {
     this.localHttp.get("../../../assets/data/asset_List.json").map(response => response.json()).subscribe(res=>{
       this.assetTypes=res;
      
     })
     this.setTable();
+    this.searchForm = new FormGroup({
+      option: new FormControl('name', Validators.required),
+      keyword: new FormControl(null, Validators.required),
+
+    });
     this.updateTeamMemberForm = new FormGroup({
       empId: new FormControl(null, [Validators.required, Validators.pattern(/^(0|[0-9])+$/)]),
       name: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
@@ -32,13 +38,30 @@ export class TdmUpdateDetailsComponent implements OnInit {
       n1: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       n2: new FormControl(null, [Validators.required, Validators.pattern(/^[a-z  A-Z,.'-]+$/)]),
       address: new FormControl(null, Validators.required),
-      assetList: new FormControl(null, Validators.required),
-      contactNumber: new FormControl(null, [Validators.required, Validators.pattern(/^\+?(0|[1-9]\d*)?$/)])
+      assetList: new FormControl(),
+      contactNumber: new FormControl(null, [Validators.required, Validators.pattern(/^\+?(0|[1-9]\d*)?$/)]),
+      status: new FormControl(null, Validators.required)
     });
+  }
+  onSubmitSearch(data) {
+    
+    let keyword = data.keyword;
+    let option = data.option;
+
+    if (!(option == 'id' && isNaN(keyword)))
+      this.dataService.get("tdm/search/" + option + "/" + keyword+"/type/UPDATE").map(res => res.json()).subscribe(data => {
+
+        if (data[0] != null && data.length != 0) { this.employeeData = data; }
+        else { alert("No Data Found"); }
+
+      });
+
+    else
+      alert("Enter Valid Employee ID !!!");
   }
 
   setTable() {
-    this.http.get("tdm/all").map(res => res.json()).subscribe(data => {
+    this.dataService.get("tdm/all").map(res => res.json()).subscribe(data => {
 
       this.employeeData = data;
       console.log(data);
@@ -47,14 +70,20 @@ export class TdmUpdateDetailsComponent implements OnInit {
   }
 
   onSubmit(data) {
-    let employee: Employee= data;
     
-
-    this.http.post("tdm/update", employee).subscribe(res => {
+    if(data.status=='ACTIVE')
+          data.status=true;
+    else
+        data.status=false;
+        
+        data.assetList=this.fieldArray;
+    let employee: Employee= data;
+    console.log(employee);
+    this.dataService.post("tdm/update", employee).subscribe(res => {
       alert(res.status + "  " + res.statusText);
       this.setTable();
       this.updateTeamMemberForm.reset();
-    })
+    });
 
   }
 
@@ -69,6 +98,11 @@ export class TdmUpdateDetailsComponent implements OnInit {
     this.updateTeamMemberForm.controls['n2'].setValue(data.n2);
     this.updateTeamMemberForm.controls['contactNumber'].setValue(data.contactNumber);
     this.updateTeamMemberForm.controls['address'].setValue(data.address);
+    if(data.status==true)
+    this.updateTeamMemberForm.controls['status'].setValue("ACTIVE");
+    else
+    this.updateTeamMemberForm.controls['status'].setValue("INACTIVE");
+
     this.fieldArray=data.assetList;
 
   }

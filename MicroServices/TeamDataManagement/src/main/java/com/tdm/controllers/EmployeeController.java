@@ -16,64 +16,66 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tdm.dto.EmployeeDTO;
 import com.tdm.serviceImpl.EmployeeServiceImpl;
 
-
 @RestController("/tdm")
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeServiceImpl service;
-	
+
 	@GetMapping("/all")
-	public List<EmployeeDTO> showAll(){
-		
+	public List<EmployeeDTO> showAll() {
+
 		return service.getAllEmployees();
-	
+
 	}
-	
+
+	@GetMapping("/allactive")
+	public List<EmployeeDTO> showAllActive() {
+
+		return service.getAllActiveEmployees();
+
+	}
+
 	@PostMapping("/add")
-	public ResponseEntity<EmployeeDTO> addEmployee(@RequestBody EmployeeDTO emp){
-		
-		if(service.add(emp)) {
+	public ResponseEntity<EmployeeDTO> addEmployee(@RequestBody EmployeeDTO emp) {
+
+		if (service.add(emp)) {
 			return new ResponseEntity<>(HttpStatus.CREATED);
-		}
-		else
-		return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED) ;		
+		} else
+			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
 	}
-	
+
 	@PostMapping("/update")
-	public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO emp){
-		if(service.update(emp)) {
-			return new ResponseEntity<EmployeeDTO>(emp,HttpStatus.OK);
-		}
-		else
+	public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO emp) {
+		if (service.update(emp)) {
+			return new ResponseEntity<EmployeeDTO>(emp, HttpStatus.OK);
+		} else
 			return new ResponseEntity<EmployeeDTO>(HttpStatus.EXPECTATION_FAILED);
 	}
-	
-	@GetMapping("/search/id/{id}")
-	public List<EmployeeDTO> searchEmployee(@PathVariable Long id){
+
+	@GetMapping("/search/id/{id}/type/{type}")
+	public List<EmployeeDTO> searchEmployee(@PathVariable Long id,@PathVariable String type) {
 		List<EmployeeDTO> emp = new ArrayList<EmployeeDTO>();
-		emp.add(service.searchById(id));
+		emp.add(service.searchById(id,type));
 		return emp;
 	}
-	
-	@GetMapping("/search/name/{name}")
-	public List<EmployeeDTO> searchEmployeeByName(@PathVariable String name){
-		List<EmployeeDTO> emp = service.searchByName(name);
-		if(emp != null) {
+
+	@GetMapping("/search/name/{name}/type/{type}")
+	public List<EmployeeDTO> searchEmployeeByName(@PathVariable String name,@PathVariable String type) {
+
+		List<EmployeeDTO> emp = service.searchByName(name,type);
+		if (emp != null) {
 			return emp;
-		}
-		else 
-			return  null;
+		} else
+			return null;
 	}
-	
+
 	@PostMapping("/delete")
-	public ResponseEntity<Boolean> deleteEmployees(@RequestBody Long id[]){
-		if(service.softDelete(id)) {
+	public ResponseEntity<Boolean> deleteEmployees(@RequestBody Long id[]) {
+		if (service.softDelete(id)) {
 			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
-		}
-		else
+		} else
 			return new ResponseEntity<Boolean>(false, HttpStatus.EXPECTATION_FAILED);
-	} 
-	
-	
+	}
+
 }
