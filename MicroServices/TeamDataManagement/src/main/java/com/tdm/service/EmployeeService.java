@@ -12,9 +12,9 @@ public interface EmployeeService {
 
 	public boolean update(EmployeeDTO emp);
 
-	public EmployeeDTO searchById(Long id);
+	public EmployeeDTO searchById(Long id, String type);
 
-	public List<EmployeeDTO> searchByName(String name);
+	public List<EmployeeDTO> searchByName(String name, String type);
 
 	public boolean softDelete(Long id[]);
 

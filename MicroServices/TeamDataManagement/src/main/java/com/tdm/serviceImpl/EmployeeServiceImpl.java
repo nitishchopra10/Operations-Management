@@ -18,6 +18,8 @@ import com.tdm.service.EmployeeService;
 public class EmployeeServiceImpl implements EmployeeService {
 
 	private static final Boolean STATUS_INVALID = false;
+	private static final String CASE_UPDATE = "UPDATE";
+	private static final String CASE_VIEWVALID = "ALL";
 	@Autowired
 	private EmployeeRepository repository;
 
@@ -28,9 +30,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		} else
 			return null;
 	}
-	
-	public List<EmployeeDTO> getAllActiveEmployees(){
-		final List<EmployeeDTO> empList = EmployeeMapper.INSTANCE.employeeListToEmployeeDTOList(repository.findByStatusNot(STATUS_INVALID));
+
+	public List<EmployeeDTO> getAllActiveEmployees() {
+		final List<EmployeeDTO> empList = EmployeeMapper.INSTANCE
+				.employeeListToEmployeeDTOList(repository.findByStatusNot(STATUS_INVALID));
 		if (empList != null) {
 			return empList;
 		} else
@@ -54,19 +57,36 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	}
 
-	public EmployeeDTO searchById(Long id) {
+	public EmployeeDTO searchById(Long id, String type) {
+
 		Optional<Employee> emp = repository.findById(id);
+
 		if (emp.isPresent()) {
-			return EmployeeMapper.INSTANCE.employeeToEmployeeDTO(emp.get());
-		} else
-			return null;
+			if (type.equalsIgnoreCase(CASE_VIEWVALID)) {
+				if (emp.get().getStatus()) {
+					return EmployeeMapper.INSTANCE.employeeToEmployeeDTO(emp.get());
+				}
+
+			} else if (type.equalsIgnoreCase(CASE_UPDATE)) {
+				return EmployeeMapper.INSTANCE.employeeToEmployeeDTO(emp.get());
+			}
+		}
+		return null;
+
 	}
 
-	public List<EmployeeDTO> searchByName(String name) {
-		List<EmployeeDTO> empList = EmployeeMapper.INSTANCE.employeeListToEmployeeDTOList(repository.findAll());
-		List<EmployeeDTO> matches = empList.stream().filter(
-				emp -> emp.getName().toUpperCase().contains(name.toUpperCase()) || emp.getName().equalsIgnoreCase(name))
-				.collect(Collectors.toList());
+	public List<EmployeeDTO> searchByName(String name, String type) {
+		List<EmployeeDTO> matches = null;
+		if (type.equalsIgnoreCase(CASE_VIEWVALID)) {
+			List<EmployeeDTO> empList = EmployeeMapper.INSTANCE
+					.employeeListToEmployeeDTOList(repository.findByStatusNot(STATUS_INVALID));
+			matches = empList.stream().filter(emp -> emp.getName().toUpperCase().contains(name.toUpperCase())
+					|| emp.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
+		} else if (type.equalsIgnoreCase(CASE_UPDATE)) {
+			List<EmployeeDTO> empList = EmployeeMapper.INSTANCE.employeeListToEmployeeDTOList(repository.findAll());
+			matches = empList.stream().filter(emp -> emp.getName().toUpperCase().contains(name.toUpperCase())
+					|| emp.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
+		}
 		if (matches != null) {
 			return matches;
 		} else

@@ -12,7 +12,7 @@ import { Http } from '@angular/http';
 })
 export class TdmUpdateDetailsComponent implements OnInit {
 
-  constructor(private http: DataService,private localHttp:Http) { }
+  constructor(private dataService: DataService,private localHttp:Http) { }
 
   employeeData;
   updateTeamMemberForm;
@@ -45,26 +45,23 @@ export class TdmUpdateDetailsComponent implements OnInit {
   }
   onSubmitSearch(data) {
     
-      let keyword = data.keyword;
-      let option = data.option;
-  
-      if (!(option == 'id' && isNaN(keyword)))
-      this.http.get("tdm/search/" + option + "/" + keyword).map(res => res.json()).subscribe(data => {
-          if (data[0] !== null || data== '') { this.employeeData = data;  }
-          else
-            {alert("No Data Found");}
-  
-        });
-  
-        else
-          alert("Enter Valid Employee ID !!!");
-  
-   
+    let keyword = data.keyword;
+    let option = data.option;
 
+    if (!(option == 'id' && isNaN(keyword)))
+      this.dataService.get("tdm/search/" + option + "/" + keyword+"/type/UPDATE").map(res => res.json()).subscribe(data => {
+
+        if (data[0] != null && data.length != 0) { this.employeeData = data; }
+        else { alert("No Data Found"); }
+
+      });
+
+    else
+      alert("Enter Valid Employee ID !!!");
   }
 
   setTable() {
-    this.http.get("tdm/all").map(res => res.json()).subscribe(data => {
+    this.dataService.get("tdm/all").map(res => res.json()).subscribe(data => {
 
       this.employeeData = data;
       console.log(data);
@@ -82,7 +79,7 @@ export class TdmUpdateDetailsComponent implements OnInit {
         data.assetList=this.fieldArray;
     let employee: Employee= data;
     console.log(employee);
-    this.http.post("tdm/update", employee).subscribe(res => {
+    this.dataService.post("tdm/update", employee).subscribe(res => {
       alert(res.status + "  " + res.statusText);
       this.setTable();
       this.updateTeamMemberForm.reset();

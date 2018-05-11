@@ -13,6 +13,7 @@ import { CreateDpComponent } from '../components/delivery-portfolio/create-dp/cr
 import { UpdateDpComponent } from '../components/delivery-portfolio/update-dp/update-dp.component';
 import { DeleteDpComponent } from '../components/delivery-portfolio/delete-dp/delete-dp.component';
 import { TdmDeleteComponent } from '../components/tdm/tdm-delete/tdm-delete.component';
+import { SearchDpComponent } from '../components/delivery-portfolio/search-dp/search-dp.component';
 
 const appRoutes: Routes = [
   
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
       { path: 'update-delivery-portfolio', component: UpdateDpComponent },
       { path: 'create-delivery-portfolio', component: CreateDpComponent },
       { path: 'delete-delivery-portfolio', component: DeleteDpComponent },
+      { path: 'search-delivery-portfolio', component: SearchDpComponent },
     
     ]},
   { path: '**', component: HomeComponent }
