@@ -25,16 +25,21 @@ export class TdmSearchComponent implements OnInit {
   }
 
   onSubmit(data) {
-    let keyword=data.keyword;
-    let option=data.option;
+    let keyword = data.keyword;
+    let option = data.option;
 
-    this.http.get("tdm/search/"+option+"/"+keyword).map(res => res.json()).subscribe(data => {
-      this.employeeData = data;
-      
-    });
+    if (!(option == 'id' && isNaN(keyword)))
+    this.http.get("tdm/search/" + option + "/" + keyword).map(res => res.json()).subscribe(data => {
+        if (data[0] !== null || data== '') { this.employeeData = data;  }
+        else
+          {alert("No Data Found");}
 
-   
-  } 
+      });
+
+      else
+        alert("Enter Valid Employee ID !!!");
+
+  }
 
   setTable() {
     this.http.get("tdm/allactive").map(res => res.json()).subscribe(data => {
@@ -44,11 +49,10 @@ export class TdmSearchComponent implements OnInit {
 
   }
 
-  
-  
-  flagValue(flag,data)
-  {
-        this.flag=flag;
-        this.modalData=data;
+
+
+  flagValue(flag, data) {
+    this.flag = flag;
+    this.modalData = data;
   }
 }

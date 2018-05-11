@@ -25,12 +25,20 @@ export class TdmDeleteComponent implements OnInit {
   }
 
   onSubmit(data) {
-    let keyword=data.keyword;
-    let option=data.option;
-    this.dataService.get("tdm/search/"+option+"/"+keyword).map(res => res.json()).subscribe(data => {
-      this.employeeData = data;
-     
-    });
+    let keyword = data.keyword;
+    let option = data.option;
+
+    if (!(option == 'id' && isNaN(keyword)))
+    this.dataService.get("tdm/search/" + option + "/" + keyword).map(res => res.json()).subscribe(data => {
+        if (data[0] !== null || data== '') { this.employeeData = data;  }
+        else
+          {alert("No Data Found");}
+
+      });
+
+      else
+        alert("Enter Valid Employee ID !!!");
+
   }
   setTable() {
     this.dataService.get("tdm/allactive").map(res => res.json()).subscribe(data => {
