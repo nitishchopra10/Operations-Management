@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../service/data-service.service';
 import { DeliveryPortFolio } from '../../../models/delivery-portfolio';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-update-dp',
@@ -12,8 +13,13 @@ export class UpdateDpComponent implements OnInit {
   constructor(private dataService: DataService) { }
   portFolioData: DeliveryPortFolio;
   buttonFlag: number = -1;
- 
+  searchForm;
   ngOnInit() {
+    this.searchForm = new FormGroup({
+      option: new FormControl('', Validators.required),
+      keyword: new FormControl(null, Validators.required),
+
+    });
     this.setTable();
   }
 
@@ -24,6 +30,19 @@ export class UpdateDpComponent implements OnInit {
     });
 
   }
+  onSubmit(data) {
+    let keyword = data.keyword;
+    let option = data.option;
+
+   
+    this.dataService.get("dpo/searchData/" + option + "/" + keyword).map(res => res.json()).subscribe(data => {
+        if (data[0] !== null || data== '') { this.portFolioData = data;  }
+        else
+          {alert("No Data Found");}
+
+      });
+  }
+
 
   changeValue(data, type) {
 
