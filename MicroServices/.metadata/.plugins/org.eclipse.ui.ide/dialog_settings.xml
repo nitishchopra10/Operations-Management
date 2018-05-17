@@ -4,7 +4,15 @@
 		<item value="D:\WorkSpace\Operations-Management\MicroServices\TeamDataManagement"/>
 	</list>
 	<list key="installedFeatures">
+		<item value="com.basistech.m2e.code.quality.checkstyle.feature:1.0.0.201705301746"/>
+		<item value="com.basistech.m2e.code.quality.findbugs.feature:1.0.0.201705301746"/>
+		<item value="com.basistech.m2e.code.quality.pmd.feature:1.0.0.201705301746"/>
+		<item value="com.github.spotbugs.plugin.eclipse:3.1.2.r201802250230-59118d9"/>
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
+		<item value="edu.umd.cs.findbugs.plugin.eclipse:3.0.1.20150306-5afe4d1"/>
+		<item value="net.sf.eclipsecs:8.8.0.201802200627"/>
+		<item value="net.sf.jautodoc.feature:1.14.0"/>
+		<item value="net.sourceforge.pmd.eclipse:4.0.15.v20170624-2134"/>
 		<item value="org.aspectj:1.8.13.201710301818"/>
 		<item value="org.eclipse.ajdt:2.2.4.201710301818"/>
 		<item value="org.eclipse.cft.server.core.feature:1.2.3.v201709130027"/>
