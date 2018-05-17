@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,14 +39,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		} else
 			return null;
 	}
-	@Transactional
+
 	public boolean add(EmployeeDTO emp) {
 		if (repository.save(EmployeeMapper.INSTANCE.employeeDTOToEmployee(emp)) != null) {
 			return true;
 		} else
 			return false;
 	}
-	@Transactional
+
 	public boolean update(EmployeeDTO emp) {
 		final Optional<Employee> employee = repository.findById(emp.getEmpId());
 		if (employee.isPresent()) {
@@ -94,7 +92,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		} else
 			return null;
 	}
-	@Transactional
+
 	public boolean softDelete(Long id[]) {
 		final List<Employee> empList = new ArrayList<>();
 		for (int i = 0; i < id.length; i++) {

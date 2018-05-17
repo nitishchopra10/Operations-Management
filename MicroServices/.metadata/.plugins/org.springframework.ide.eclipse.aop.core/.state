@@ -1,7 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aop-reference-model>
-<aop-project name="TeamDataManagement"/>
-<aop-project name="Gateway-Server"/>
-<aop-project name="Discovery-Service"/>
-<aop-project name="delivery_portfolio"/>
-</aop-reference-model>
+<aop-reference-model/>

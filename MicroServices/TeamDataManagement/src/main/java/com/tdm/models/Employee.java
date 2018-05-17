@@ -1,6 +1,5 @@
 package com.tdm.models;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,19 +13,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="employee",schema="sopra")
-public class Employee implements Serializable{
+public class Employee {
 
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4435256009995728861L;
-
 	private Long empId;
 	
 	private String name;
 	
-	private Long mCode;
+	private int mCode;
 	
 	private Long contactNumber;
 	
@@ -39,8 +33,6 @@ public class Employee implements Serializable{
 	private String n1;
 	
 	private String n2;
-	
-	private String seat_no;
 
 	private List<Assets> assetList;
 	
@@ -49,7 +41,7 @@ public class Employee implements Serializable{
 	public Employee() {
 		
 	}
-	public Employee(Long empId, String name, Long mCode, Long contactNumber, String project, String address,
+	public Employee(Long empId, String name, int mCode, Long contactNumber, String project, String address,
 			String subLevel, String n1, String n2) {
 		super();
 		this.empId = empId;
@@ -83,15 +75,15 @@ public class Employee implements Serializable{
 	}
 
 	@Column()
-	public Long getmCode() {
+	public int getmCode() {
 		return mCode;
 	}
 
-	public void setmCode(Long mCode) {
+	public void setmCode(int mCode) {
 		this.mCode = mCode;
 	}
 	
-	@Column(name= "Phone_Number",nullable = true)
+	@Column(name= "Phone_Number",nullable = false)
 	public Long getContactNumber() {
 		return contactNumber;
 	}
@@ -109,7 +101,7 @@ public class Employee implements Serializable{
 		this.project = project;
 	}
 
-	@Column(name = "Address",nullable = true)
+	@Column(name = "Address",nullable = false)
 	public String getAddress() {
 		return address;
 	}
@@ -159,13 +151,6 @@ public class Employee implements Serializable{
 	}
 	public void setStatus(Boolean status) {
 		this.status = status;
-	}
-	@Column(name = "seat_no")
-	public String getSeat_no() {
-		return seat_no;
-	}
-	public void setSeat_no(String seat_no) {
-		this.seat_no = seat_no;
 	}
 	
 	 
