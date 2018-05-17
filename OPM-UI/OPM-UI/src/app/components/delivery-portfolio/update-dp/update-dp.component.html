@@ -1,3 +1,15 @@
+<div class="search-div">
+
+    <form [formGroup]="searchForm"  (ngSubmit)="onSubmit(searchForm.value)">
+      Search By :
+      <input type="radio" name="option" formControlName="option"   value="account" />Account
+      <input type="radio" name="option" formControlName="option"  value="technologyStacks" />Technology Stacks
+     <!-- <input type="radio" name="option" formControlName="option"  value="status" />Status-->
+      <input type="text"  formControlName="keyword" name="keyword" />
+      <button type="submit" class="search-button" [disabled]=searchForm.invalid>Search</button>
+    </form>
+  </div>
+
 <div>
     <div class="table-header">
       <table>
