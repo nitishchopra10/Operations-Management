@@ -12,12 +12,15 @@ import com.delivery.portfolio.models.DeliveryPortfolio;
 @Repository
 public interface DeliveryPortfolioRepository extends JpaRepository<DeliveryPortfolio, Long> {
 	
-	List<DeliveryPortfolio> findByAccount(String code);
 	
-	List<DeliveryPortfolio> findByTechnologyStacks(String code);
+	List<DeliveryPortfolio> findByAccountContainsIgnoreCase(String code);
+	
+	List<DeliveryPortfolio> findByTechnologyStacksContainsIgnoreCase(String code);
 	
 												
 	public static final String RECORD_STATUS ="SELECT * FROM sopra.delivery_portfolio p WHERE NOT p.record_status =:status";
 	@Query(value = RECORD_STATUS, nativeQuery = true)
 	List<DeliveryPortfolio> findByRecordStatusNot(@Param("status") String status);
+
+	 
 }

@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sopra</groupId>
-	<artifactId>TeamDataManagement</artifactId>
+	<artifactId>DeliveryPortfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>TeamDataManagement</name>
+	<name>DeliveryPortfolio</name>
 	<description></description>
 
 	<parent>
