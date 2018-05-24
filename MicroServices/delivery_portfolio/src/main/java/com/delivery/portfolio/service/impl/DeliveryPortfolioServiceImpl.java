@@ -61,11 +61,14 @@ public class DeliveryPortfolioServiceImpl implements IDeliveryPortfolioService {
 
 	@Override
 	public List<DeliveryPortfolio> searchBy(String searchBy, String search) {
+		
+		List<DeliveryPortfolio> list = new ArrayList();
 		if("account".equals(searchBy)){
-			return this.deliveryPortfolioRepository.findByAccount(search);
+			list = this.deliveryPortfolioRepository.findByAccountContainsIgnoreCase(search);
+			return list;
 		}
 		else {
-			return this.deliveryPortfolioRepository.findByTechnologyStacks(search);
+			return this.deliveryPortfolioRepository.findByTechnologyStacksContainsIgnoreCase(search);
 		}
 	}
 	

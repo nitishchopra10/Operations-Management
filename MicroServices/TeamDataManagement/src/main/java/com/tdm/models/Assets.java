@@ -1,5 +1,7 @@
 package com.tdm.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="assets",schema="sopra")
-public class Assets {
+public class Assets implements Serializable {
+
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4141687123148161674L;
 
 		private String assetType;
 		
