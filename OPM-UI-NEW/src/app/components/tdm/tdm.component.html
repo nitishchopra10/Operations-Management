@@ -7,5 +7,9 @@
  [rowData]="employeeData"
  [columnDefs]="columnDefs"
  [onGridReady]="onGridReady"
+ [defaultColDef]="defaultColDef"
+[enableColResize]="true"
+[enableCellChangeFlash]="true"
+(cellValueChanged)="onCellValueChanged($event)"
  >
  </ag-grid-angular>
