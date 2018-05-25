@@ -1,0 +1,21 @@
+<!--
+  ~ Copyright (c) 2016 VMware, Inc. All Rights Reserved.
+  ~ This software is released under MIT license.
+  ~ The full license information can be found in LICENSE in the root directory of this project.
+  -->
+
+  <div class="row">
+    <div *ngFor="let data of data" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <a [routerLink] = "['/'+data.url]" class="card clickable">
+            <div class="card-img">
+              <img src="../../../assets/icon/{{data.heading}}.png"  class="tile-icon" 
+              onerror="this.src='../../../assets/icon/../../../assets/icon/Alt.png'" />
+            </div>
+            <div class="card-block">
+                <p class="card-text">
+                  {{data.heading}}
+                </p>
+            </div>
+        </a>
+    </div>
+  </div>
