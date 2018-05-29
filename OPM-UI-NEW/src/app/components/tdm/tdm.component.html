@@ -1,0 +1,15 @@
+
+ <ag-grid-angular
+ style="width:1200px; height:500px"
+ class="ag-theme-balham centering"
+ [enableSorting]= "true"
+ [enableFilter]="true"
+ [rowData]="employeeData"
+ [columnDefs]="columnDefs"
+ [onGridReady]="onGridReady"
+ [defaultColDef]="defaultColDef"
+[enableColResize]="true"
+[enableCellChangeFlash]="true"
+(cellValueChanged)="onCellValueChanged($event)"
+ >
+ </ag-grid-angular>

@@ -30,7 +30,7 @@ public class Employee implements Serializable{
 	
 	private Long contactNumber;
 	
-	private String project;
+	private String account;
 	
 	private String address;
 	
@@ -49,14 +49,14 @@ public class Employee implements Serializable{
 	public Employee() {
 		
 	}
-	public Employee(Long empId, String name, Long mCode, Long contactNumber, String project, String address,
+	public Employee(Long empId, String name, Long mCode, Long contactNumber, String account, String address,
 			String subLevel, String n1, String n2) {
 		super();
 		this.empId = empId;
 		this.name = name;
 		this.mCode = mCode;
 		this.contactNumber = contactNumber;
-		this.project = project;
+		this.account = account;
 		this.address = address;
 		this.subLevel = subLevel;
 		this.n1 = n1;
@@ -100,13 +100,13 @@ public class Employee implements Serializable{
 		this.contactNumber = contactNumber;
 	}
 
-	@Column(name = "Project")
-	public String getProject() {
-		return project;
+	@Column(name = "account")
+	public String getAccount() {
+		return account;
 	}
 
-	public void setProject(String project) {
-		this.project = project;
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
 	@Column(name = "Address",nullable = true)

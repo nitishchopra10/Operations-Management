@@ -10,10 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.delivery.portfolio.dto.DeliveryPortfolioDTO;
+import com.delivery.portfolio.intercommunication.EmployeeClient;
 import com.delivery.portfolio.mapper.DeliveryPortfolioMapper;
 import com.delivery.portfolio.models.DeliveryPortfolio;
 import com.delivery.portfolio.repository.DeliveryPortfolioRepository;
 import com.delivery.portfolio.service.api.IDeliveryPortfolioService;
+import com.sopra.utility.dtos.EmployeeDTO;
 
 @Service
 public class DeliveryPortfolioServiceImpl implements IDeliveryPortfolioService {
@@ -25,6 +27,8 @@ public class DeliveryPortfolioServiceImpl implements IDeliveryPortfolioService {
 
 	@Autowired
 	private DeliveryPortfolioMapper deliveryPortfolioMapper;
+	@Autowired
+	private EmployeeClient employeeProxy;
 
 	@Override
 	public List<DeliveryPortfolioDTO> getData() {
@@ -72,7 +76,14 @@ public class DeliveryPortfolioServiceImpl implements IDeliveryPortfolioService {
 		}
 	}
 	
-	
+	public List<EmployeeDTO> getEmployeeByAccount(String account){
+		List<EmployeeDTO> empList = employeeProxy.searchEmployeeByDepartment(account);
+		if(empList != null) {
+			return empList;
+		}
+		else 
+			return null;
+	}
 	
 	
 
