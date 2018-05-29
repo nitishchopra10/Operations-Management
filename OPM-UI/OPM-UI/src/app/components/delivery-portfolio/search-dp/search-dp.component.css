@@ -36,7 +36,8 @@ th{
 td{
     text-align: center;
     margin:0.07vw;
-    width:9.4vw;
+    width:9.2vw;
+    vertical-align: middle;
     font-weight: lighter;
     overflow: hidden;
     white-space: nowrap;
