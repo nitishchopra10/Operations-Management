@@ -69,6 +69,14 @@ public class EmployeeController {
 		} else
 			return null;
 	}
+	
+	@GetMapping("/department/{department}")
+	public List<EmployeeDTO> searchEmployeeByDepartment(@PathVariable String department){
+		
+		List<EmployeeDTO> emp = service.searchByAccount(department);
+		return emp;
+		
+	}
 
 	@PostMapping("/delete")
 	public ResponseEntity<Boolean> deleteEmployees(@RequestBody Long id[]) {

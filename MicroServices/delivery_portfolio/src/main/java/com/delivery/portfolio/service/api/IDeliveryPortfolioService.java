@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.delivery.portfolio.dto.DeliveryPortfolioDTO;
 import com.delivery.portfolio.models.DeliveryPortfolio;
+import com.sopra.utility.dtos.EmployeeDTO;
 
 public interface IDeliveryPortfolioService {
 
@@ -16,6 +17,8 @@ public interface IDeliveryPortfolioService {
 	Boolean softDelete(Object[] recordIds);
 
 	List<DeliveryPortfolio> searchBy(String searchBy, String search);
+	
+	public List<EmployeeDTO> getEmployeeByAccount(String account);
 	
 	
 

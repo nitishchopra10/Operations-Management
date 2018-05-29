@@ -11,4 +11,6 @@ import com.tdm.models.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
 	 List<Employee> findByStatusNot(Boolean status);
+	 
+	 List<Employee> findByAccountIgnoreCase(String account);
 }

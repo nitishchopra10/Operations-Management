@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.delivery.portfolio.dto.DeliveryPortfolioDTO;
 import com.delivery.portfolio.models.DeliveryPortfolio;
 import com.delivery.portfolio.service.api.IDeliveryPortfolioService;
+import com.sopra.utility.dtos.EmployeeDTO;
 
 @RestController("/dpo")
 public class DeliveryPortfolioController {
@@ -23,6 +24,7 @@ public class DeliveryPortfolioController {
 
 	@GetMapping("/getData")
 	public List<DeliveryPortfolioDTO> getDeliveryPortfolioData() {
+
 		return this.deliveryPortfolioService.getData();
 	}
 	
@@ -42,7 +44,10 @@ public class DeliveryPortfolioController {
 		return this.deliveryPortfolioService.searchBy(searchBy, search);
 	}
 	
-	
+	@GetMapping("/accountEmployee/{account}")
+	public List<EmployeeDTO> getAccountEmployee(@PathVariable String account){
+		return this.deliveryPortfolioService.getEmployeeByAccount(account);
+	}
     
 	
 }
