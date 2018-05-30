@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { TdmComponent } from './components/tdm/tdm.component';
 import { DeliveryPortfolioComponent } from './components/delivery-portfolio/delivery-portfolio.component';
+import { AdminModuleComponent } from './components/admin-module/admin-module.component';
 
 
 export const ROUTES: Routes = [
@@ -18,6 +19,7 @@ export const ROUTES: Routes = [
     {path: 'tdm', component: TdmComponent},
     {path: 'about', component: AboutComponent},
     {path: 'delivery-portfolio', component: DeliveryPortfolioComponent},
+    {path: 'admin', component: AdminModuleComponent},
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);

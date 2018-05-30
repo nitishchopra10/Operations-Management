@@ -1,0 +1,75 @@
+
+
+<form>
+  <section class="form-block">
+   <div class="center"> <label>Add / Modify Projects </label></div>
+    <div class="form-group">
+      <label class="required">Country Name</label>
+      <!-- <label for="validInput1" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation valid tooltip-sm">
+            <input type="text" id="validInput1">
+            <span class="tooltip-content">
+                This field cannot be empty!
+            </span>
+        </label>-->
+      <div class="select">
+        <select id="exampleSelect1" class="">
+          <option>India</option>
+          <option>Australia</option>
+          <option>America</option>
+          <option>Italy</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="required">Delivery Unit</label>
+
+      <div class="select">
+        <select id="exampleSelect1">
+          <option>CE</option>
+          <option>UK-IT</option>
+          <option>France</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="required">Projects</label>
+      <div class="select">
+        <select id="exampleSelect1">
+          <option>CE</option>
+          <option>UK-IT</option>
+          <option>France</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="required">Employees</label>
+
+      <div class="">
+          <button (click)="showTable()">  Add Employee</button>
+       
+      </div>
+    </div>
+  </section>
+</form>
+
+
+<ag-grid-angular *ngIf="flag"
+style="width:100%; height:40%"
+class="ag-theme-balham centering"
+[enableSorting]= "true"
+[enableFilter]="true"
+[rowData]="employeeData"
+[columnDefs]="columnDefs"
+[rowSelection]="rowSelection"
+[onGridReady]="onGridReady"
+[rowMultiSelectWithClick]="true"
+(rowClicked)="print($event)"
+
+(selectionChanged) = 'onSelectionChanged($event)'
+>
+</ag-grid-angular>

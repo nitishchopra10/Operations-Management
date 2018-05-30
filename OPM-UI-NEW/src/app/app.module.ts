@@ -12,6 +12,7 @@ import { TdmComponent } from './components/tdm/tdm.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { DeliveryPortfolioComponent } from './components/delivery-portfolio/delivery-portfolio.component';
 import { DataService } from "./service/data-service.service";
+import { AdminModuleComponent } from './components/admin-module/admin-module.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { DataService } from "./service/data-service.service";
         AboutComponent,
         HomeComponent,
         TdmComponent,
-        DeliveryPortfolioComponent
+        DeliveryPortfolioComponent,
+        AdminModuleComponent
     ],
     imports: [
         BrowserAnimationsModule,
