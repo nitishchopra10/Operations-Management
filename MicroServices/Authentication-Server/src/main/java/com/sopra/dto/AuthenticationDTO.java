@@ -1,5 +1,9 @@
 package com.sopra.dto;
 
+/**
+ * @author tsharma
+ *
+ */
 public class AuthenticationDTO {
 
 	String username;

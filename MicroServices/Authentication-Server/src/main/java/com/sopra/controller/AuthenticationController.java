@@ -1,31 +1,43 @@
 package com.sopra.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sopra.dto.AuthTokenDTO;
 import com.sopra.dto.AuthenticationDTO;
-import com.sopra.dto.UserDTO;
-import com.sopra.repositories.UserRepository;
+import com.sopra.serviceImpl.UserServiceImpl;
 
-@RestController
+/**
+ * @author tsharma
+ *
+ */
+@RestController("/authenticate")
 public class AuthenticationController {
-	
+
 	@Autowired
-	private  UserRepository userRepository;
-	
+	private UserServiceImpl userService;
+
+	@PostMapping("/login")
+	public ResponseEntity<String> loginUser(@RequestBody AuthenticationDTO user) {
+		String token = userService.authenticateUser(user);
+		return new ResponseEntity<String>(token, HttpStatus.OK);
+
+	}
+
 	@PostMapping("/register")
-	public RequestEntity<String> registerUser(@RequestBody AuthenticationDTO user){
-		List<UserDTO> userList = userRepository.findAll();
-		
-		
+	public ResponseEntity<String> addUser(@RequestBody AuthenticationDTO user) {
+		userService.addUser(user);
 		return null;
-		
-		
+
+	}
+	@PostMapping("/getToken")
+	public AuthTokenDTO getParsedToken(@RequestBody String token){
+		return userService.getValidatedToken(token);
 	}
 
 }

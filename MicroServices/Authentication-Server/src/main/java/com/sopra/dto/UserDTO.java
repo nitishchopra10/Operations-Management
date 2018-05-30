@@ -2,6 +2,10 @@ package com.sopra.dto;
 
 import java.util.Set;
 
+/**
+ * @author tsharma
+ *
+ */
 public class UserDTO {
 	String username;
 	String password;
