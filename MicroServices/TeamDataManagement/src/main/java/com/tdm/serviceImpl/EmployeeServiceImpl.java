@@ -110,4 +110,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 			return false;
 	}
 
+	public List<EmployeeDTO> searchByAccount(String department) {
+		final List<Employee> empList = repository.findByAccountIgnoreCase(department);
+		if(empList != null) {
+			return EmployeeMapper.INSTANCE.employeeListToEmployeeDTOList(empList);
+		}
+		else
+		return null;
+	}
+
 }

@@ -2,8 +2,6 @@ package com.tdm.dto;
 
 import java.util.List;
 
-import com.tdm.models.Assets;
-
 public class EmployeeDTO {
 
 	private Long empId;
@@ -14,7 +12,7 @@ public class EmployeeDTO {
 
 	private Long contactNumber;
 
-	private String project;
+	private String account;
 
 	private String address;
 
@@ -24,7 +22,7 @@ public class EmployeeDTO {
 
 	private String n2;
 
-	private List<Assets> assetList;
+	private List<AssetsDTO> assetList;
 
 	private Boolean status;
 
@@ -32,14 +30,14 @@ public class EmployeeDTO {
 
 	}
 
-	public EmployeeDTO(Long empId, String name, int mCode, Long contactNumber, String project, String address,
+	public EmployeeDTO(Long empId, String name, int mCode, Long contactNumber, String account, String address,
 			String subLevel, String n1, String n2) {
 		super();
 		this.empId = empId;
 		this.name = name;
 		this.mCode = mCode;
 		this.contactNumber = contactNumber;
-		this.project = project;
+		this.account = account;
 		this.address = address;
 		this.subLevel = subLevel;
 		this.n1 = n1;
@@ -78,12 +76,12 @@ public class EmployeeDTO {
 		this.contactNumber = contactNumber;
 	}
 
-	public String getProject() {
-		return project;
+	public String getAccount() {
+		return account;
 	}
 
-	public void setProject(String project) {
-		this.project = project;
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
 	public String getAddress() {
@@ -118,13 +116,13 @@ public class EmployeeDTO {
 		this.n2 = n2;
 	}
 
-	public List<Assets> getAssetList() {
+	public List<AssetsDTO> getAssetList() {
 		return assetList;
 	}
 
 	
 	
-	public void setAssetList(List<Assets> assetList) {
+	public void setAssetList(List<AssetsDTO> assetList) {
 		this.assetList = assetList;
 	}
     
