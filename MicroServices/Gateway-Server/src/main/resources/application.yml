@@ -1,7 +1,23 @@
 spring:
   application:
     name: gateway-server
-     
+  datasource:
+    url: jdbc:postgresql://localhost:5432/opr_mgmt
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver  
+  jpa:
+   properties:
+     hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation : true  
+   hibernate:
+      ddl-auto: update    
+   database-platform: org.hibernate.dialect.PostgreSQL9Dialect 
+   show-sql: true  
+
+
 zuul:
   prefix: /oprmgmt
   retryable: true
@@ -12,13 +28,16 @@ zuul:
     delivery-portfolio:
       path: /dpo/**
       service-id: delivery-portfolio
-
+    authorization:
+      path: /authenticate/**
+      service-id: authentication-server
+ 
+ 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
     register-with-eureka: false
-    fetch-registry: true
-    
+     
 server:
   port: 8765 

@@ -3,18 +3,22 @@ package com.sopra.models;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
 
+/**
+ * @author tsharma
+ *
+ */
 @Entity
-@Table(name="users",schema = "sopra")
+@Table(name="users",schema="sopra")
 public class User implements Serializable {
 
 	/**
@@ -22,9 +26,9 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	String username;
-	String password;
-	int id;
+	private String username;
+	private String password;
+	private int id;
 	Set<Roles> roles;
 	
 	@Column(name="username")
@@ -37,13 +41,13 @@ public class User implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
 	
-	@ManyToMany
-	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+	@OneToMany(cascade = CascadeType.ALL,orphanRemoval= true)
+	@JoinTable(schema="sopra")
 	public Set<Roles> getRoles() {
 		return roles;
 	}
