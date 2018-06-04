@@ -12,26 +12,28 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="roles",schema="sopra")
+@Table(name = "roles", schema = "sopra")
 public class Roles {
-   int id;
-   String name;
-   
-@Id
-@GeneratedValue(strategy=GenerationType.IDENTITY)
-public int getId() {
-	return id;
-}
+	private int id;
+	private String name;
 
-@Column(name="role_name")
-public String getName() {
-	return name;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public void setName(String name) {
-	this.name = name;
-}
-   
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public int getId() {
+		return id;
+	}
+
+	@Column(name = "role_name")
+	public String getName() {
+		return name;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }

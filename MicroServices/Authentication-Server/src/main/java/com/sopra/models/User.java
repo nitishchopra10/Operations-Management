@@ -26,9 +26,9 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	String username;
-	String password;
-	int id;
+	private String username;
+	private String password;
+	private int id;
 	Set<Roles> roles;
 	
 	@Column(name="username")

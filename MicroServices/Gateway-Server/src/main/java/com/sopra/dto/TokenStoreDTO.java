@@ -11,14 +11,16 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
  */
 public class TokenStoreDTO {
 
-	public TokenStoreDTO() {
-	}
+	
 
 	private String token;
 	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
 	private Date expiration;
 	private int id;
 
+	public TokenStoreDTO() {
+	}
+	
 	public TokenStoreDTO(String token, int id) {
 		super();
 		this.token = token;

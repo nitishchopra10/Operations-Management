@@ -5,17 +5,21 @@ package com.sopra.dto;
  *
  */
 public class RolesDTO {
-	 int id;
-	 String name;
+	private int id;
+	private String name;
+
 	public int getId() {
 		return id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

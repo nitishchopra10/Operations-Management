@@ -12,6 +12,6 @@ public interface UserService {
 	
 	public String authenticateUser(AuthenticationDTO authUser);
 	
-	public AuthTokenDTO getValidatedToken(String token);
+	public AuthTokenDTO getParsedToken(String token);
 
 }

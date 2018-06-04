@@ -2,6 +2,8 @@ package com.sopra.filters;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.netflix.zuul.ZuulFilter;
@@ -16,62 +18,68 @@ import com.sopra.repository.TokenStoreRepository;
  *
  */
 public class AuthenticationFilter extends ZuulFilter {
+	private static Logger logger = LoggerFactory.getLogger(AuthenticationFilter.class);
 	@Autowired
 	private TokenStoreRepository tokenStoreRepository;
 
 	@Override
 	public boolean shouldFilter() {
-		// TODO Auto-generated method stub
+		RequestContext ctx = RequestContext.getCurrentContext();
+		HttpServletRequest request = ctx.getRequest();
+		// Check for Pre-Flight call and let it pass without filtering
+		if ("OPTIONS".equals(request.getMethod())) {
+			logger.info("Options " + request.getRequestURI() + "PreFlight!");
+			return false;
+		}
+		// run otherwise
 		return true;
 	}
 
 	@Override
 	public Object run() throws ZuulException {
-    	System.out.println("Running PRE FILTER");
+		logger.info("Running PRE FILTER");
 
-		 RequestContext ctx = RequestContext.getCurrentContext();
-		    HttpServletRequest request = ctx.getRequest();
-		    String header = request.getHeader("Authorization");
-		    if(request.getRequestURI().toUpperCase().contains("AUTHENTICATE")) {
-		    	System.out.println("Request Forwarded to Authorization");
-		    	return null;
-		    }
-		    else if (header == null || header.isEmpty()) {
-		    	System.out.println("Request going to :" + request.getRequestURL());
-		       ctx.setResponseStatusCode(401);
-		       ctx.setSendZuulResponse(false);
-		    }
-		    /*else {
-		    	 ctx.setResponseStatusCode(401);
-			     ctx.setSendZuulResponse(false);
-			 }*/
-		   
-		    
-		    else {
-		    	TokenStoreDTO tokenData = TokenMapper.INSTANCE.tokenStoreToTokenStoreDTO(tokenStoreRepository.findByToken(header));
-		    	if(tokenData!= null) {
-		    	
-		    	if(tokenData.getExpiration().getTime() < System.currentTimeMillis()) {
-			    	 ctx.setResponseStatusCode(401);
-				     ctx.setSendZuulResponse(false);
-		    		}
-		    	else {
-		    		return null;
-		    	}
-		    	}
-		    }
+		RequestContext ctx = RequestContext.getCurrentContext();
+		HttpServletRequest request = ctx.getRequest();
+		String header = request.getHeader("Authorization");
+		// if request is going to AUTHENTICATE service (gateway prefix) let it pass
+		if (request.getRequestURI().toUpperCase().contains("AUTHENTICATE")) {
+			logger.info("Request Forwarded to Authorization");
+			return null;
+		}
+		// otherwise if it doesn't have a Authorization header stop it!!
+		else if (header == null || header.isEmpty()) {
+			logger.info("Request going to :" + request.getRequestURL());
+			ctx.setResponseStatusCode(401); // Set Response status to 401 Unathorized
+			ctx.setSendZuulResponse(false);
+		}
+
+		else {
+			// Contains Token in Authorization header the find token from token store(i.e
+			// valid token)
+			TokenStoreDTO tokenData = TokenMapper.INSTANCE
+					.tokenStoreToTokenStoreDTO(tokenStoreRepository.findByToken(header));
+			if (tokenData != null) {
+				// check if token has expired or not
+				if (tokenData.getExpiration().getTime() < System.currentTimeMillis()) {
+					logger.info("token expired!");
+					ctx.setResponseStatusCode(401);
+					ctx.setSendZuulResponse(false);
+				} else {
+					return null;
+				}
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public String filterType() {
-		// TODO Auto-generated method stub
 		return "pre";
 	}
 
 	@Override
 	public int filterOrder() {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 

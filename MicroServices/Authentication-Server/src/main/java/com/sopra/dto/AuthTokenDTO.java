@@ -15,10 +15,10 @@ import com.sopra.models.Roles;
  */
 public class AuthTokenDTO {
 
-	public String username;
-	public List<String> roles;
+	private String username;
+	private List<String> roles;
 	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-	public Date expirationDate;
+	private Date expirationDate;
 	
 	public AuthTokenDTO() {};
 	

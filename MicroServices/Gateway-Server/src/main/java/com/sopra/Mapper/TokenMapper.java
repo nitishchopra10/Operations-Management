@@ -10,12 +10,12 @@ import com.sopra.models.TokenStore;
  * @author tsharma
  *
  */
-@Mapper(componentModel="spring")
+@Mapper(componentModel = "spring")
 public interface TokenMapper {
 	TokenMapper INSTANCE = Mappers.getMapper(TokenMapper.class);
-	
-	TokenStore tokenStoreDTOToTokenStore(TokenStoreDTO tokenDTO); 
 
-	TokenStoreDTO tokenStoreToTokenStoreDTO(TokenStore token); 
+	TokenStore tokenStoreDTOToTokenStore(TokenStoreDTO tokenDTO);
+
+	TokenStoreDTO tokenStoreToTokenStoreDTO(TokenStore token);
 
 }
