@@ -33,7 +33,8 @@ export class DeliveryPortfolioComponent implements OnInit {
       { headerName: 'Enhancements', field: 'enhancements', valueFormatter: this.booleanFormatter },
       { headerName: 'Infra-Monitoring', field: 'infraMonitoring', valueFormatter: this.booleanFormatter },
       { headerName: 'Support Status', field: 'supportService', valueFormatter: this.booleanFormatter },
-      { headerName: 'Testing Service', field: 'testingService', valueFormatter: this.booleanFormatter }
+      { headerName: 'Testing Service', field: 'testingService', valueFormatter: this.booleanFormatter },
+      { headerName: 'Modify', field: 'testingService', valueFormatter: this.booleanFormatter }
     ];
     
     this.defaultColDef = { editable: this.editFlag };
