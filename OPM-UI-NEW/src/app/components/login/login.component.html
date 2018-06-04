@@ -1,0 +1,24 @@
+<div class="login-wrapper">
+  <form class="login" [formGroup]="LoginForm" (ngSubmit)="onLogin(LoginForm.value)">
+    <label class="title">
+      <h3 class="welcome">Welcome to</h3>
+      Operations Management
+      <h2 class="hint">Use your given ID to sign in or create one now</h2>
+    </label>
+    <div class="login-group">
+      <div class="auth-source select">
+        <select id="login-auth-source-1">
+          <option>Employee</option>
+          <option>Administrator</option>
+        </select>
+      </div>
+      <input class="username" type="text" formControlName="username" placeholder="Username" (focus)="changeValid()">
+      <input class="password" type="password" formControlName="password" placeholder="Password" (focus)="changeValid()">
+      <div class="error active" *ngIf="invalid_login">
+        Invalid user name or password
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <a routerLink="/register" class="signup">Sign up for a Company ID</a>
+    </div>
+  </form>
+</div>
