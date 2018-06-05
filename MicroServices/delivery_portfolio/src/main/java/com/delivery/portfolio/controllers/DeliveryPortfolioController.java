@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.delivery.portfolio.dto.DeliveryPortfolioDTO;
 import com.delivery.portfolio.models.DeliveryPortfolio;
 import com.delivery.portfolio.service.api.IDeliveryPortfolioService;
-import com.sopra.utility.dtos.EmployeeDTO;
+import com.opm.utility.dtos.EmployeeDTO;
 
 @RestController("/dpo")
 public class DeliveryPortfolioController {
