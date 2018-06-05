@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="employee",schema="sopra")
+@Table(name="employee",schema="opm")
 public class Employee implements Serializable{
 
 	
