@@ -14,6 +14,7 @@ import { DeliveryPortfolioComponent } from './components/delivery-portfolio/deli
 import { DataService } from "./service/data-service.service";
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { EditButton } from "./components/delivery-portfolio/editButton";
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { RegisterComponent } from './components/register/register.component';
         TdmComponent,
         DeliveryPortfolioComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        EditButton
     ],
     imports: [
         BrowserAnimationsModule,

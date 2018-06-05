@@ -4,4 +4,5 @@
 <aop-project name="Gateway-Server"/>
 <aop-project name="Discovery-Service"/>
 <aop-project name="delivery_portfolio"/>
+<aop-project name="Admin-Module"/>
 </aop-reference-model>
