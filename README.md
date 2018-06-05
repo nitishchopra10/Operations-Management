@@ -31,6 +31,10 @@
   * [Ag-grid](https://www.ag-grid.com/about.php)
   
  ***
+ ## Basic Project Architecture
+ ![Basic Architecture](https://tusharsharma118.github.io/Hosted-Images/OPM.png)
+ ***
+
  
 ### To run the project:
   (Project runs on Angular CLI version 1.6.1)
