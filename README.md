@@ -1,6 +1,6 @@
 # Operations-Management
 ***
-#### This is an ongoing attempt at making a full microservices based system for handling day to day operations at an organization.
+#### This is an ongoing attempt at making a full microservices based system for handling day to day operations at any organization.
 ***
 ## Working Modules Backend
 - [x] Authentication
@@ -31,6 +31,10 @@
   * [Ag-grid](https://www.ag-grid.com/about.php)
   
  ***
+ ## Basic Project Architecture
+ ![Basic Architecture](https://tusharsharma118.github.io/Hosted-Images/OPM.png)
+ ***
+
  
 ### To run the project:
   (Project runs on Angular CLI version 1.6.1)
@@ -52,3 +56,6 @@
  ***
  
  ### About
+ * The project offers a simple Token based authentication system, utilizing zuul filters and an authentication service for Token         generation.
+ * The Team Data Management service does as the name states and manages the data of the employees.
+ 
