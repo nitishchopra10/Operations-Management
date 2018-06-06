@@ -38,9 +38,9 @@ export class DeliveryPortfolioComponent implements OnInit {
   setTable() {
 
     this.columnDefs = [
-      { headerName: 'Account', field: 'account', width: 150 },
-      { headerName: 'Technology Stacks', field: 'technologyStacks', width: 200 },
-      { headerName: 'Status', field: 'status', width: 150 },
+      { headerName: 'Account', field: 'account', width: 100 },
+      { headerName: 'Technology Stacks', field: 'technologyStacks', width: 100 },
+      { headerName: 'Status', field: 'status', width: 100 },
      // { headerName: 'DBA Support', field: 'dBASupport', valueFormatter: this.booleanFormatter, width: 100 },
       { headerName: 'DBA Support', field: 'dBASupport', width: 100 },
       { headerName: 'IAAS', field: 'iAAS', width: 100 },
