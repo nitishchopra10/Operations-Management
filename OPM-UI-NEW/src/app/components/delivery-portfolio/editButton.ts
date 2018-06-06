@@ -3,22 +3,36 @@ import {ICellRendererAngularComp} from "ag-grid-angular";
 
 @Component({
     selector: 'child-cell',
-    template: `<span><button style="height: 20px" (click)="invokeParentMethod()" class="btn btn-info">Invoke Parent</button></span>`,
+    template: `<button style="height: 100%;width:100%" (click)="invokeParentMethod()" class="btn btn-info">{{btnText}}</button>`,
     styles: [
         `.btn {
-            line-height: 0.5
+            line-height: 0.5;
+            margin-top:0;
+            
+            vertical-align:center
+
         }`
     ]
 })
 export class EditButton implements ICellRendererAngularComp {
     public params: any;
-
+    public btnText="Edit";
     agInit(params: any): void {
         this.params = params;
     }
 
     public invokeParentMethod() {
-        this.params.context.componentParent.methodFromParent(`Row: ${this.params.node.rowIndex}, Col: ${this.params.colDef.headerName}`)
+        if(this.btnText=='Edit'){
+            this.btnText="Save"
+         this.params.context.componentParent.editMethodFromParent(this.params)
+        }
+        
+        else{
+            this.btnText='Edit'
+            this.params.context.componentParent.saveEditRow(this.params)
+        }
+   
+   
     }
 
     refresh(): boolean {

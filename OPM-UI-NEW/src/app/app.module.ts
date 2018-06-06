@@ -35,7 +35,7 @@ import { EditButton } from "./components/delivery-portfolio/editButton";
         HttpModule,
         ClarityModule,
         ROUTING,
-        AgGridModule.withComponents([])
+        AgGridModule.withComponents([EditButton])
     ],
     providers: [DataService],
     bootstrap: [AppComponent]
