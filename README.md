@@ -54,7 +54,15 @@
  2. Launch services in order
   > Discovery -> followed by rest of the services as required -> lastly Gateway
  
- 
+ ***
+ Hit the url
+ >  http://localhost:8765/oprmgmt/authenticate/register
+ #### With the json object
+ > {
+        "username": "test1",
+        "password": "test1"   }
+   
+ #### this creates a user to use the ui and backend. This will be linked to the UI in the next iteration
  ***
  
  ### About
