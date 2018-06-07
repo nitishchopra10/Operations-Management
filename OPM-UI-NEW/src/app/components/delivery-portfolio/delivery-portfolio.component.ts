@@ -26,7 +26,7 @@ export class DeliveryPortfolioComponent implements OnInit {
 
   oldRowData;
   rowIndex:Number=-1;
-  editFlag = true;
+ 
   btnEdit = 'Edit';
   private checkFlag = false;
   constructor(private http: DataService) {
@@ -38,22 +38,22 @@ export class DeliveryPortfolioComponent implements OnInit {
   setTable() {
 
     this.columnDefs = [
-      { headerName: 'Account', field: 'account', width: 100 },
-      { headerName: 'Technology Stacks', field: 'technologyStacks', width: 100 },
-      { headerName: 'Status', field: 'status', width: 100 },
+      { headerName: 'Account', field: 'account' },
+      { headerName: 'Technology Stacks', field: 'technologyStacks'},
+      { headerName: 'Status', field: 'status' },
      // { headerName: 'DBA Support', field: 'dBASupport', valueFormatter: this.booleanFormatter, width: 100 },
-      { headerName: 'DBA Support', field: 'dBASupport', width: 100 },
-      { headerName: 'IAAS', field: 'iAAS', width: 100 },
-      { headerName: 'Development Service', field: 'developmentService', width: 100 },
-      { headerName: 'Enhancements', field: 'enhancements', width: 100 },
-      { headerName: 'Infra-Monitoring', field: 'infraMonitoring', width: 100 },
-      { headerName: 'Support Status', field: 'supportService', width: 100 },
-      { headerName: 'Testing Service', field: 'testingService', width: 100 },
+      { headerName: 'DBA Support', field: 'dBASupport' },
+      { headerName: 'IAAS', field: 'iAAS' },
+      { headerName: 'Development Service', field: 'developmentService' },
+      { headerName: 'Enhancements', field: 'enhancements' },
+      { headerName: 'Infra-Monitoring', field: 'infraMonitoring' },
+      { headerName: 'Support Status', field: 'supportService' },
+      { headerName: 'Testing Service', field: 'testingService' },
       {
         headerName: "Edit",
         editable: false,
         cellRenderer: "editButton",
-        width: 100
+      
       }
     ];
     this.defaultColDef = { 
@@ -70,10 +70,8 @@ export class DeliveryPortfolioComponent implements OnInit {
     this.suppressClickEdit=true;
     this.context = { componentParent: this }
     this.frameworkComponents = { editButton: EditButton }
-    if (this.checkFlag == true)
-      this.onGridReady(this.param)
-  }
- 
+   
+    } 
 
 
   //isForceRefreshSelected() {
@@ -97,14 +95,21 @@ export class DeliveryPortfolioComponent implements OnInit {
 
       this.btnEdit = 'Cancel'
     }
-  }*/
+  }
+  
+  booleanFormatter(params) {
+    if (params.value == true)
+      return "YES";
+    else if (params.value == false)
+      return "NO";
+  }
+  
+  */
   onRowValueChanged(param) {
-    //console.log(param);
-    
+      
     if(param.rowIndex!=this.rowIndex)
      {
       this.ngOnInit()
-
      }  
 
   }
@@ -113,15 +118,10 @@ export class DeliveryPortfolioComponent implements OnInit {
     this.param = params;
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
+    this.gridApi.sizeColumnsToFit();
   }
 
-  booleanFormatter(params) {
-    if (params.value == true)
-      return "YES";
-    else if (params.value == false)
-      return "NO";
-  }
+  
   ngOnInit() {
 
     this.http.get("dpo/getData").map(res => res.json()).subscribe(data => {
@@ -132,9 +132,10 @@ export class DeliveryPortfolioComponent implements OnInit {
   }
 
   editMethodFromParent(params) {
-    //console.log(params)
-    this.editFlag=true;
+    console.log("edit block");console.log(params)
+   
     this.rowIndex=params.rowIndex;
+   
     this.oldRowData=params.data;
     this.gridApi.setFocusedCell(params.rowIndex, 'account');
     this.gridApi.startEditingCell({
@@ -145,22 +146,39 @@ export class DeliveryPortfolioComponent implements OnInit {
   }
 
   saveEditRow(param) {
-   this.editFlag = false;
-  
+    //const data;
+    //console.log("save block ");console.log(this.portFolioData)
+    this.gridApi.stopEditing();
+     
+  /*  var rowNode = this.gridApi.getDisplayedRowAtIndex(this.rowIndex);
+
+        getDisplayedRowAtIndex(index) method is used for get the row by row index
+      console.log("save block ");console.log(rowNode.data)
+    
+    
+    */
+    
+      
+
     if (confirm("Update Data? ")) {
-      this.http.post('dpo/updateData', param.data).subscribe(res => {
-        console.log(res.statusText);
-        this.setTable();
+        this.http.post('dpo/updateData', param.data).subscribe(res => {
+      //  this.setTable();
+      debugger;
+        
         alert("Sucessfully Updated !!! " +res.statusText)
+        this.rowIndex=-1
 
       }, (error: Error) => { alert(error.message) });
     }
     else
-      {
-       this.setTable();
-      }
-      this.gridApi.stopEditing();
+    {
+      // this.setTable();
       this.rowIndex=-1
+      
+    }
+      
+     
     }
     
+   
   }

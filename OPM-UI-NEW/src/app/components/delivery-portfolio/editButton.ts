@@ -24,11 +24,13 @@ export class EditButton implements ICellRendererAngularComp {
     public invokeParentMethod() {
         if(this.btnText=='Edit'){
             this.btnText="Save"
+                   
          this.params.context.componentParent.editMethodFromParent(this.params)
         }
         
         else{
             this.btnText='Edit'
+                  
             this.params.context.componentParent.saveEditRow(this.params)
         }
    
