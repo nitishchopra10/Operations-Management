@@ -152,7 +152,7 @@ public class Employee implements Serializable{
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL,orphanRemoval= true)
-	@JoinTable(schema="sopra")
+	@JoinTable(schema="opm")
 	public List<Assets> getAssetList() {
 		return assetList;
 	}

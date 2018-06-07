@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sopra</groupId>
+	<groupId>com.opm</groupId>
 	<artifactId>DeliveryPortfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -48,7 +48,7 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.sopra</groupId>
+			<groupId>com.opm</groupId>
 			<artifactId>Utility</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

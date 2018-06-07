@@ -25,22 +25,17 @@ public class TokenServiceImpl implements TokenService {
 
 	private static Logger logger = LoggerFactory.getLogger(TokenServiceImpl.class);
 	private SignatureAlgorithm signatureAlgorithm;
+	//Get secret key from config file
 	@Value("${signinKey}")
 	private String secretKey;
 
 	public TokenServiceImpl() {
-
-		// THIS IS NOT A SECURE PRACTICE!
 		signatureAlgorithm = SignatureAlgorithm.HS512;
-		// TRY TO GET THIS KEY FROM THE CONFIG/PROPERTIES FILE
-		// secretKey =
-		// "L7A/6zARSkK1j7Vd5SDD9pSSqZlqF7mAhiOgRbgv9Smce6tf4cJnvKOjtKPxNNnWQj+2lQEScm3XIUjhW+YVZg==";
 	}
 
 	public String createJsonWebToken(AuthTokenDTO authTokenDetailsDTO) {
 		String token = Jwts.builder().setSubject(authTokenDetailsDTO.getUsername())
-				
-				
+
 				.claim("username", authTokenDetailsDTO.getUsername()).claim("roles", authTokenDetailsDTO.getRoles())
 				.setExpiration(authTokenDetailsDTO.getExpirationDate())
 				.signWith(getSignatureAlgorithm(), getSecretKey()).compact();
