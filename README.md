@@ -37,6 +37,7 @@
 
  
 ### To run the project:
+  #### Must Create the DB(opr_mgmt) and schema(opm) inside postgresql first before running the services!!!
   (Project runs on Angular CLI version 1.6.1)
   For the UI, to install node modules(from inside the directory)
   > npm install
