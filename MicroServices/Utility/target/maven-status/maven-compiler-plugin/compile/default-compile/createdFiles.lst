@@ -1,3 +1,3 @@
-com\sopra\utility\dtos\AssetsDTO.class
-com\sopra\utility\dtos\EmployeeDTO.class
-com\sopra\utility\dtos\DeliveryPortfolioDTO.class
+com\opm\utility\dtos\AssetsDTO.class
+com\opm\utility\dtos\DeliveryPortfolioDTO.class
+com\opm\utility\dtos\EmployeeDTO.class

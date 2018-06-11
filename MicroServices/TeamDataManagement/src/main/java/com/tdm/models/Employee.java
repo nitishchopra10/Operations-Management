@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="employee",schema="sopra")
+@Table(name="employee",schema="opm")
 public class Employee implements Serializable{
 
 	
@@ -152,7 +152,7 @@ public class Employee implements Serializable{
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL,orphanRemoval= true)
-	@JoinTable(schema="sopra")
+	@JoinTable(schema="opm")
 	public List<Assets> getAssetList() {
 		return assetList;
 	}
