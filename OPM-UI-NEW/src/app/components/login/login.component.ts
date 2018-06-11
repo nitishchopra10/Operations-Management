@@ -3,6 +3,7 @@ import { DataService } from '../../service/data-service.service';
 import { Credentials } from '../models/credentials';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms'
 import { INVALID } from '@angular/forms/src/model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   invalid_login: boolean= false;
   LoginForm;
   token: string;
-  constructor(private http: DataService) { }
+  constructor(private http: DataService,private router:Router) { }
 
   changeValid(){
     this.invalid_login = false;
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
         this.invalid_login = false;
         console.log(this.token);
         sessionStorage.setItem("token", this.token);
-  
+        this.router.navigate(['/home']);
       }
     })
 
