@@ -48,7 +48,7 @@
 ## For Microservices
   
 #### In Eclipse
- ## To load dummy data change file name in TDM resources to data.sql from DummyData.sql
+ ## To load dummy data change file name in TDM resources to import.sql from DummyData.sql and change the hibernate-ddl to create-drop.
  1. Maven -> build (to generate target files and Mapper)[Skip tests if they cause the buid to fail] 
   > clean install 
  2. Launch services in order
