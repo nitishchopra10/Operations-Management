@@ -34,9 +34,8 @@ export class AdminModuleComponent implements OnInit {
   ];
   ngOnInit() {
     this.http.get("tdm/allactive").map(res => res.json()).subscribe(data => {
-
       this.employeeData = data;
-      console.log(data);
+     
     })
   }
  

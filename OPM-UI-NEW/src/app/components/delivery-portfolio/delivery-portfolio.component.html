@@ -17,9 +17,10 @@ class="ag-theme-balham centering"
 [suppressClickEdit]="suppressClickEdit"
 
 [defaultColDef]="defaultColDef"
-
 (gridReady)="onGridReady($event)"
 (rowValueChanged)="onRowValueChanged($event)"
+(cellFocused)="cellFocused($event)"
+(sortChanged)="updateRowData($event)"
 
 
 >

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { DataService } from '../../service/data-service.service';
 import { error } from 'util';
-import { EditButton } from './editButton';
+import { EditButtonRenderer } from '../renderers/editButtonRenderer';
 
 @Component({
   selector: 'app-delivery-portfolio',
@@ -22,11 +22,11 @@ export class DeliveryPortfolioComponent implements OnInit {
   private editType;
   private param;
   private suppressClickEdit;
- 
+
 
   oldRowData;
-  rowIndex:Number=-1;
- 
+  rowIndex: Number = -1;
+
   btnEdit = 'Edit';
   private checkFlag = false;
   constructor(private http: DataService) {
@@ -39,9 +39,9 @@ export class DeliveryPortfolioComponent implements OnInit {
 
     this.columnDefs = [
       { headerName: 'Account', field: 'account' },
-      { headerName: 'Technology Stacks', field: 'technologyStacks'},
+      { headerName: 'Technology Stacks', field: 'technologyStacks' },
       { headerName: 'Status', field: 'status' },
-     // { headerName: 'DBA Support', field: 'dBASupport', valueFormatter: this.booleanFormatter, width: 100 },
+      // { headerName: 'DBA Support', field: 'dBASupport', valueFormatter: this.booleanFormatter, width: 100 },
       { headerName: 'DBA Support', field: 'dBASupport' },
       { headerName: 'IAAS', field: 'iAAS' },
       { headerName: 'Development Service', field: 'developmentService' },
@@ -53,75 +53,85 @@ export class DeliveryPortfolioComponent implements OnInit {
         headerName: "Edit",
         editable: false,
         cellRenderer: "editButton",
-      
+        suppressSorting: true,
+        suppressMenu: true
       }
     ];
-    this.defaultColDef = { 
-      editable:true,
-    /*
-      suppressKeyboardEvent: function(event) {
-        console.log("suppressing event");
-        console.log(event);
-        if (event.editing) return false;
-      }*/
-    
+    this.defaultColDef = {
+      editable: false,
+      /*
+        suppressKeyboardEvent: function(event) {
+          console.log("suppressing event");
+          console.log(event);
+          if (event.editing) return false;
+        }*/
+
     };
     this.editType = "fullRow";
-    this.suppressClickEdit=true;
-    this.context = { componentParent: this }
-    this.frameworkComponents = { editButton: EditButton }
+    this.suppressClickEdit = true;
    
-    } 
+    this.context = { componentParent: this }
+    this.frameworkComponents = { editButton : EditButtonRenderer}
+
+  }
+
+
 
 
   //isForceRefreshSelected() {
   // return document.querySelector("#forceRefresh");
   // }
- /* editable() {
-    if (this.editFlag == true) {
-      this.editFlag = false;
-      //  console.log(this.editFlag);
-      this.setTable();
-      this.gridApi.sizeColumnsToFit();
-      this.btnEdit = 'Edit'
-    }
-    else {
-
-      this.editFlag = true;
-      // console.log(this.editFlag);
-      this.setTable();
-
-      this.gridApi.sizeColumnsToFit();
-
-      this.btnEdit = 'Cancel'
-    }
-  }
-  
-  booleanFormatter(params) {
-    if (params.value == true)
-      return "YES";
-    else if (params.value == false)
-      return "NO";
-  }
-  
-  */
+  /* editable() {
+     if (this.editFlag == true) {
+       this.editFlag = false;
+       //  console.log(this.editFlag);
+       this.setTable();
+       this.gridApi.sizeColumnsToFit();
+       this.btnEdit = 'Edit'
+     }
+     else {
+ 
+       this.editFlag = true;
+       // console.log(this.editFlag);
+       this.setTable();
+ 
+       this.gridApi.sizeColumnsToFit();
+ 
+       this.btnEdit = 'Cancel'
+     }
+   }
+   
+   booleanFormatter(params) {
+     if (params.value == true)
+       return "YES";
+     else if (params.value == false)
+       return "NO";
+   }
+   
+   */
   onRowValueChanged(param) {
-      
-    if(param.rowIndex!=this.rowIndex)
-     {
+
+    /*
+    if (param.rowIndex != this.rowIndex) {
       this.ngOnInit()
-     }  
+    }
+    */
 
   }
-
+  updateRowData(event) {
+    this.ngOnInit();
+    console.log("hye");
+    console.log(event);
+  }
   onGridReady(params) {
     this.param = params;
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    // this.gridApi.addEventListener("columnRowGroupChanged", this.updateRowData());
     this.gridApi.sizeColumnsToFit();
   }
 
-  
+
   ngOnInit() {
 
     this.http.get("dpo/getData").map(res => res.json()).subscribe(data => {
@@ -131,54 +141,103 @@ export class DeliveryPortfolioComponent implements OnInit {
 
   }
 
-  editMethodFromParent(params) {
-    console.log("edit block");console.log(params)
-   
-    this.rowIndex=params.rowIndex;
-   
-    this.oldRowData=params.data;
-    this.gridApi.setFocusedCell(params.rowIndex, 'account');
-    this.gridApi.startEditingCell({
-      rowIndex: params.rowIndex,
-      colKey: "account",
+  colDefProperty(flag: Boolean) {
+
+    this.param.api.columnController.allDisplayedColumns.forEach(element => {
+      // console.log(element.colId)
+      if (element.colId != 0) {
+        var col = this.param.columnApi.getColumn(element.colId);
+        // obtain the column definition from the column
+        var colDef = col.getColDef();
+        // update the header name
+        colDef.editable = flag;
+      }
     });
-  
+
+    // the column is now updated. to reflect the header change, get the grid refresh the header
+    this.gridApi.refreshHeader();//  refreshHeader();
+  }
+
+  cellFocused(event){
+   
+    if (this.rowIndex>-1 && this.rowIndex !=event.rowIndex) {
+      console.log(event)
+     
+      this.gridApi.setFocusedCell(this.rowIndex, 'account');
+      this.gridApi.startEditingCell({
+        rowIndex: this.rowIndex,
+        colKey: "account",
+      });
+     
+    }
+  }
+
+  editMethodFromParent(params,child) {
+
+    if (this.rowIndex != -1) {
+     
+      child.invoke();  
+     
+      this.gridApi.setFocusedCell(this.rowIndex, 'account');
+      this.gridApi.startEditingCell({
+        rowIndex: this.rowIndex,
+        colKey: "account",
+      });
+     
+    }
+    else {
+      this.colDefProperty(true);
+
+      this.rowIndex = params.rowIndex;
+
+      this.oldRowData = params.data;
+      this.gridApi.setFocusedCell(params.rowIndex, 'account');
+      this.gridApi.startEditingCell({
+        rowIndex: params.rowIndex,
+        colKey: "account",
+      });
+    }
   }
 
   saveEditRow(param) {
     //const data;
     //console.log("save block ");console.log(this.portFolioData)
     this.gridApi.stopEditing();
-     
-  /*  var rowNode = this.gridApi.getDisplayedRowAtIndex(this.rowIndex);
+    this.colDefProperty(false);
 
-        getDisplayedRowAtIndex(index) method is used for get the row by row index
-      console.log("save block ");console.log(rowNode.data)
-    
-    
-    */
-    
+    /*  var rowNode = this.gridApi.getDisplayedRowAtIndex(this.rowIndex);
+  
+          getDisplayedRowAtIndex(index) method is used for get the row by row index
+        console.log("save block ");console.log(rowNode.data)
       
+      
+      */
+
+
 
     if (confirm("Update Data? ")) {
-        this.http.post('dpo/updateData', param.data).subscribe(res => {
-      //  this.setTable();
-      debugger;
-        
-        alert("Sucessfully Updated !!! " +res.statusText)
-        this.rowIndex=-1
+      this.http.post('dpo/updateData', param.data).subscribe(res => {
+        //  this.setTable();
 
-      }, (error: Error) => { alert(error.message) });
+
+        alert("Sucessfully Updated !!! " + res.statusText)
+        this.rowIndex = -1
+
+      }, (error: Error) => {
+        alert(error.message);
+
+        this.ngOnInit();
+      });
     }
-    else
-    {
+    else {
       // this.setTable();
-      this.rowIndex=-1
-      
+      this.rowIndex = -1
+      this.ngOnInit();
+
     }
-      
-     
-    }
-    
-   
+
+
   }
+
+
+}
