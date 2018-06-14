@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { DataService } from '../../service/data-service.service';
 import { error } from 'util';
 import { EditButtonRenderer } from '../renderers/editButtonRenderer';
+import { DeliveryPortFolio } from '../../models/delivery-portfolio';
 
 @Component({
   selector: 'app-delivery-portfolio',
@@ -22,13 +23,14 @@ export class DeliveryPortfolioComponent implements OnInit {
   private editType;
   private param;
   private suppressClickEdit;
-
+  private rowSelection;
 
   oldRowData;
   rowIndex: Number = -1;
 
   btnEdit = 'Edit';
   private checkFlag = false;
+  newRowFlag = false;
   constructor(private http: DataService) {
     this.setTable();
     this.checkFlag = true;
@@ -69,9 +71,10 @@ export class DeliveryPortfolioComponent implements OnInit {
     };
     this.editType = "fullRow";
     this.suppressClickEdit = true;
-   
+
+    this.rowSelection = "multiple"
     this.context = { componentParent: this }
-    this.frameworkComponents = { editButton : EditButtonRenderer}
+    this.frameworkComponents = { editButton: EditButtonRenderer }
 
   }
 
@@ -158,32 +161,32 @@ export class DeliveryPortfolioComponent implements OnInit {
     this.gridApi.refreshHeader();//  refreshHeader();
   }
 
-  cellFocused(event){
-   
-    if (this.rowIndex>-1 && this.rowIndex !=event.rowIndex) {
+  cellFocused(event) {
+
+    if (this.rowIndex > -1 && this.rowIndex != event.rowIndex) {
       console.log(event)
-     
+
       this.gridApi.setFocusedCell(this.rowIndex, 'account');
       this.gridApi.startEditingCell({
         rowIndex: this.rowIndex,
         colKey: "account",
       });
-     
+
     }
   }
 
-  editMethodFromParent(params,child) {
+  editMethodFromParent(params, child) {
 
     if (this.rowIndex != -1) {
-     
-      child.invoke();  
-     
+
+      child.invoke();
+
       this.gridApi.setFocusedCell(this.rowIndex, 'account');
       this.gridApi.startEditingCell({
         rowIndex: this.rowIndex,
         colKey: "account",
       });
-     
+
     }
     else {
       this.colDefProperty(true);
@@ -206,38 +209,64 @@ export class DeliveryPortfolioComponent implements OnInit {
     this.colDefProperty(false);
 
     /*  var rowNode = this.gridApi.getDisplayedRowAtIndex(this.rowIndex);
-  
-          getDisplayedRowAtIndex(index) method is used for get the row by row index
+            getDisplayedRowAtIndex(index) method is used for get the row by row index
         console.log("save block ");console.log(rowNode.data)
-      
-      
       */
-
-
-
     if (confirm("Update Data? ")) {
       this.http.post('dpo/updateData', param.data).subscribe(res => {
         //  this.setTable();
-
-
         alert("Sucessfully Updated !!! " + res.statusText)
         this.rowIndex = -1
-
+        this.newRowFlag=true;
       }, (error: Error) => {
         alert(error.message);
-
         this.ngOnInit();
       });
     }
     else {
       // this.setTable();
+      if (this.newRowFlag == false) {
+        
+        this.ngOnInit();
+      }
       this.rowIndex = -1
-      this.ngOnInit();
-
     }
-
-
   }
 
 
+  onAddRow() {
+    var newItem = new DeliveryPortFolio();
+    var res = this.gridApi.updateRowData({ add: [newItem] });
+    this.newRowFlag=true;
+  }
+
+  onRemoveSelected() {
+    let selectedData = this.gridApi.getSelectedRows();
+   
+    let rowIds:Array<number>=[];
+    let count=0
+    selectedData.forEach(element => {
+     if(element.id!=null)
+      rowIds[count]=element.id;
+      count++;
+    });
+
+    console.log(rowIds);
+    if(selectedData.length==0)
+      alert("No Row Selected !!!")
+      
+    else{  
+   
+     
+     if(confirm("Are You Want Delete ???")){
+      var res = this.gridApi.updateRowData({ remove: selectedData });
+   
+      this.http.post("dpo/delData",rowIds).subscribe(res=>{
+        alert("Sucessfully Deleted ."+ res.statusText);
+        this.ngOnInit();
+      })
+    }
+   
+    }
+  }
 }

@@ -19,11 +19,37 @@ export class DeliveryPortFolio{
 	private  technologyStacks:String;
 
 	private  status:String;
-	   recordStatus:String;
+	public   recordStatus:String;
 
-	setStatus(value:String):void{
+
+	constructor(){
+
+		this.account="String";
+
+		this.supportService=false;
+
+		this.enhancements=false;
+
+		this.developmentService=false;
+
+		this.testingService=false;
+
+		this.dBASupport=false;
+
+		this.iAAS=false;
+
+		this.infraMonitoring=false;
+
+		this.technologyStacks="String";
+
+		this.status="String";
+		this.recordStatus="String";
+	}
+setStatus(value:String):void{
 		this.recordStatus=value;
 }
+
+
 
 getStatus(){
 	return this.recordStatus;

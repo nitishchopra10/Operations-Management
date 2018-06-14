@@ -14,8 +14,8 @@ class="ag-theme-balham centering"
 [context]="context"
 [editType]="editType"
 [frameworkComponents]="frameworkComponents"
-[suppressClickEdit]="suppressClickEdit"
 
+[rowSelection]="rowSelection"
 [defaultColDef]="defaultColDef"
 (gridReady)="onGridReady($event)"
 (rowValueChanged)="onRowValueChanged($event)"
@@ -26,7 +26,8 @@ class="ag-theme-balham centering"
 >
 </ag-grid-angular>
 
-
+<button (click)="onAddRow()">Add New Row</button>
+<button (click)="onRemoveSelected()">Remove Selected</button>
 <!-- (gridReady)="onGridReady($event)" used instead [onGridReady]="onGridReady"
       (cellValueChanged) gets called for each column
 but   (rowValueChanged) gets called once for row   
