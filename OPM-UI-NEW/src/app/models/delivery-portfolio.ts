@@ -24,7 +24,7 @@ export class DeliveryPortFolio{
 
 	constructor(){
 
-		this.account="String";
+		this.account="Enter Account Name";
 
 		this.supportService=false;
 
@@ -40,10 +40,10 @@ export class DeliveryPortFolio{
 
 		this.infraMonitoring=false;
 
-		this.technologyStacks="String";
+		this.technologyStacks="Enter Technologies";
 
-		this.status="String";
-		this.recordStatus="String";
+		this.status="Enter PortFolio Status";
+		this.recordStatus="ACTIVE";
 	}
 setStatus(value:String):void{
 		this.recordStatus=value;

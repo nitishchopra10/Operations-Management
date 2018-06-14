@@ -1,7 +1,7 @@
 <!--<button (click)="editable()">{{btnEdit}}</button>-->
 <br/><br/> 
 <ag-grid-angular
-style="width:100%; height:50vh"
+style="width:100%; height:75vh"
 class="ag-theme-balham centering"
 [enableSorting]= "true"
 [enableFilter]="true"
@@ -15,6 +15,7 @@ class="ag-theme-balham centering"
 [editType]="editType"
 [frameworkComponents]="frameworkComponents"
 
+[suppressClickEdit]="suppressClickEdit"
 [rowSelection]="rowSelection"
 [defaultColDef]="defaultColDef"
 (gridReady)="onGridReady($event)"
@@ -26,9 +27,9 @@ class="ag-theme-balham centering"
 >
 </ag-grid-angular>
 
-<button (click)="onAddRow()">Add New Row</button>
-<button (click)="onRemoveSelected()">Remove Selected</button>
+<button class="btn btn-success" (click)="onAddRow()">Add Row</button>
+<button class="btn btn-danger" (click)="onRemoveSelected()">Remove Selected</button>
 <!-- (gridReady)="onGridReady($event)" used instead [onGridReady]="onGridReady"
       (cellValueChanged) gets called for each column
-but   (rowValueChanged) gets called once for row   
+but   (rowValueChanged) gets called once for row
 -->
