@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data-service.service';
-import { Credentials } from '../models/credentials';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms'
 import { INVALID } from '@angular/forms/src/model';
 import { Router } from '@angular/router';
+import { Credentials } from '../../models/credentials';
 
 @Component({
   selector: 'app-login',

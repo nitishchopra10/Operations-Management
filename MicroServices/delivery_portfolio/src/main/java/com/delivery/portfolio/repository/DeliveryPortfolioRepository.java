@@ -18,7 +18,7 @@ public interface DeliveryPortfolioRepository extends JpaRepository<DeliveryPortf
 	List<DeliveryPortfolio> findByTechnologyStacksContainsIgnoreCase(String code);
 	
 												
-	public static final String RECORD_STATUS ="SELECT * FROM sopra.delivery_portfolio p WHERE NOT p.record_status =:status";
+	public static final String RECORD_STATUS ="SELECT * FROM opm.delivery_portfolio p WHERE NOT p.record_status =:status ORDER BY p.id";
 	@Query(value = RECORD_STATUS, nativeQuery = true)
 	List<DeliveryPortfolio> findByRecordStatusNot(@Param("status") String status);
 
