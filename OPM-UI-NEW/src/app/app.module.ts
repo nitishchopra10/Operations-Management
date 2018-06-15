@@ -14,7 +14,8 @@ import { DeliveryPortfolioComponent } from './components/delivery-portfolio/deli
 import { DataService } from "./service/data-service.service";
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { EditButton } from "./components/delivery-portfolio/editButton";
+import { EditButtonRenderer } from "./components/renderers/editButtonRenderer";
+import { CheckRenderer } from "./components/renderers/CheckRenderer";
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { EditButton } from "./components/delivery-portfolio/editButton";
         DeliveryPortfolioComponent,
         LoginComponent,
         RegisterComponent,
-        EditButton
+        EditButtonRenderer,
+        CheckRenderer
     ],
     imports: [
         BrowserAnimationsModule,
@@ -35,7 +37,7 @@ import { EditButton } from "./components/delivery-portfolio/editButton";
         HttpModule,
         ClarityModule,
         ROUTING,
-        AgGridModule.withComponents([EditButton])
+        AgGridModule.withComponents([EditButtonRenderer,CheckRenderer])
     ],
     providers: [DataService],
     bootstrap: [AppComponent]

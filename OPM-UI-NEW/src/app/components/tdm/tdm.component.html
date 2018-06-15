@@ -6,10 +6,19 @@
  [enableFilter]="true"
  [rowData]="employeeData"
  [columnDefs]="columnDefs"
- [onGridReady]="onGridReady"
  [defaultColDef]="defaultColDef"
-[enableColResize]="true"
-[enableCellChangeFlash]="true"
-(cellValueChanged)="onCellValueChanged($event)"
+ [enableColResize]="true"
+ [enableCellChangeFlash]="true"
+ [context]="context"
+ [frameworkComponents]="frameworkComponents" 
+ [editType]="editType" 
+ [suppressClickEdit]="suppressClickEdit"
+
+ 
+ (gridReady)="onGridReady($event)"
+ (rowValueChanged)="onRowValueChanged($event)"
  >
  </ag-grid-angular>
+
+ <!-- 
+ //(cellValueChanged)="onCellValueChanged($event)" -->
