@@ -4,6 +4,7 @@ import { DataService } from '../../service/data-service.service';
 import { error } from 'util';
 import { EditButtonRenderer } from '../renderers/editButtonRenderer';
 import { DeliveryPortFolio } from '../../models/delivery-portfolio';
+import { CheckRenderer } from '../renderers/CheckRenderer';
 
 @Component({
   selector: 'app-delivery-portfolio',
@@ -26,7 +27,7 @@ export class DeliveryPortfolioComponent implements OnInit {
   private rowSelection;
 
   oldRowData;
-  rowIndex: Number = -1;
+  rowIndex: number = -1;
 
   btnEdit = 'Edit';
   private checkFlag = false;
@@ -40,24 +41,104 @@ export class DeliveryPortfolioComponent implements OnInit {
   setTable() {
 
     this.columnDefs = [
-      { headerName: 'Account', field: 'account' },
-      { headerName: 'Technology Stacks', field: 'technologyStacks' },
-      { headerName: 'Status', field: 'status' },
+     {
+      checkboxSelection: true,
+      width:70,
+      pinned: 'left'
+     },
+     { 
+       marryChildren: true,
+        children: [
+          { headerName: 'Account', field: 'account', },
+          { headerName: 'Technology Stacks', field: 'technologyStacks',width:500 },
+          { headerName: 'Status', field: 'status' }
+        ]
+     
+      },
+     
+  
       // { headerName: 'DBA Support', field: 'dBASupport', valueFormatter: this.booleanFormatter, width: 100 },
-      { headerName: 'DBA Support', field: 'dBASupport' },
-      { headerName: 'IAAS', field: 'iAAS' },
-      { headerName: 'Development Service', field: 'developmentService' },
-      { headerName: 'Enhancements', field: 'enhancements' },
-      { headerName: 'Infra-Monitoring', field: 'infraMonitoring' },
-      { headerName: 'Support Status', field: 'supportService' },
-      { headerName: 'Testing Service', field: 'testingService' },
+     
+      { headerName: "Services",
+       marryChildren: true,
+        children: [
       {
-        headerName: "Edit",
+        headerName: 'DBA Support', field: 'dBASupport',
+        cellRenderer: "checkRenderer",
+        cellEditor: 'agSelectCellEditor',
+        cellEditorParams: {
+          values: [true, false],
+          //  cellRenderer: "checkRenderer"
+        },
+
+
+      },
+      {
+        headerName: 'IAAS', field: 'iAAS',
+        cellRenderer: "checkRenderer",
+
+        cellEditor: 'agSelectCellEditor', cellEditorParams: {
+          values: ["true", "false"]
+        },
+      },
+      {
+        headerName: 'Development Service', field: 'developmentService',
+        cellRenderer: "checkRenderer",
+
+        cellEditor: 'agSelectCellEditor', cellEditorParams: {
+          values: ["true", "false"]
+        },
+      },
+      {
+        headerName: 'Enhancements', field: 'enhancements',
+        cellRenderer: "checkRenderer",
+
+        cellEditor: 'agSelectCellEditor', cellEditorParams: {
+          values: ["true", "false"]
+        },
+      },
+      {
+        headerName: 'Infra-Monitoring', field: 'infraMonitoring',
+        cellRenderer: "checkRenderer",
+
+        cellEditor: 'agSelectCellEditor', cellEditorParams: {
+          values: ["true", "false"]
+        },
+      },
+      {
+        headerName: 'Support Status', field: 'supportService',
+        cellRenderer: "checkRenderer",
+
+        cellEditor: 'agSelectCellEditor', cellEditorParams: {
+          values: ["true", "false"]
+        },
+      },
+      {
+        headerName: 'Testing Service', field: 'testingService',
+        cellRenderer: "checkRenderer",
+
+        cellEditor: 'agSelectCellEditor', cellEditorParams: {
+          values: ["true", "false"]
+        },
+      }
+    ]
+     
+  },
+      
+  { 
+    marryChildren: true,
+     children: [{
+        headerName: "edit",
         editable: false,
         cellRenderer: "editButton",
         suppressSorting: true,
-        suppressMenu: true
+        suppressMenu: true,
+        pinned: 'right'
       }
+    ]
+     
+  },
+     
     ];
     this.defaultColDef = {
       editable: false,
@@ -74,7 +155,7 @@ export class DeliveryPortfolioComponent implements OnInit {
 
     this.rowSelection = "multiple"
     this.context = { componentParent: this }
-    this.frameworkComponents = { editButton: EditButtonRenderer }
+    this.frameworkComponents = { editButton: EditButtonRenderer, checkRenderer: CheckRenderer }
 
   }
 
@@ -119,6 +200,10 @@ export class DeliveryPortfolioComponent implements OnInit {
       this.ngOnInit()
     }
     */
+    // console.log(param);
+
+  }
+  onCellValueChanged(param) {
 
   }
   updateRowData(event) {
@@ -146,13 +231,16 @@ export class DeliveryPortfolioComponent implements OnInit {
 
   colDefProperty(flag: Boolean) {
 
+
     this.param.api.columnController.allDisplayedColumns.forEach(element => {
       // console.log(element.colId)
-      if (element.colId != 0) {
+      if (element.colId != 4) {
         var col = this.param.columnApi.getColumn(element.colId);
         // obtain the column definition from the column
+         
         var colDef = col.getColDef();
         // update the header name
+    
         colDef.editable = flag;
       }
     });
@@ -177,8 +265,11 @@ export class DeliveryPortfolioComponent implements OnInit {
 
   editMethodFromParent(params, child) {
 
+    console.log(params)
     if (this.rowIndex != -1) {
 
+      const msg = this.rowIndex + 1;
+      alert("First Save  Row "+msg+" !!!")
       child.invoke();
 
       this.gridApi.setFocusedCell(this.rowIndex, 'account');
@@ -215,10 +306,13 @@ export class DeliveryPortfolioComponent implements OnInit {
     if (confirm("Update Data? ")) {
       this.http.post('dpo/updateData', param.data).subscribe(res => {
         //  this.setTable();
-        alert("Sucessfully Updated !!! " + res.statusText)
-        this.rowIndex = -1
-        this.newRowFlag=true;
-      }, (error: Error) => {
+        this.ngOnInit();
+        this.gridApi.setFocusedCell(this.rowIndex, 'account');
+       //alert("Sucessfully Updated !!! " + res.statusText)
+       this.rowIndex = -1
+        this.newRowFlag = true;
+
+      },(error: Error) => {
         alert(error.message);
         this.ngOnInit();
       });
@@ -226,7 +320,7 @@ export class DeliveryPortfolioComponent implements OnInit {
     else {
       // this.setTable();
       if (this.newRowFlag == false) {
-        
+
         this.ngOnInit();
       }
       this.rowIndex = -1
@@ -237,36 +331,36 @@ export class DeliveryPortfolioComponent implements OnInit {
   onAddRow() {
     var newItem = new DeliveryPortFolio();
     var res = this.gridApi.updateRowData({ add: [newItem] });
-    this.newRowFlag=true;
+    this.newRowFlag = true;
   }
 
   onRemoveSelected() {
     let selectedData = this.gridApi.getSelectedRows();
-   
-    let rowIds:Array<number>=[];
-    let count=0
+
+    let rowIds: Array<number> = [];
+    let count = 0
     selectedData.forEach(element => {
-     if(element.id!=null)
-      rowIds[count]=element.id;
+      if (element.id != null)
+        rowIds[count] = element.id;
       count++;
     });
 
     console.log(rowIds);
-    if(selectedData.length==0)
+    if (selectedData.length == 0)
       alert("No Row Selected !!!")
-      
-    else{  
-   
-     
-     if(confirm("Are You Want Delete ???")){
-      var res = this.gridApi.updateRowData({ remove: selectedData });
-   
-      this.http.post("dpo/delData",rowIds).subscribe(res=>{
-        alert("Sucessfully Deleted ."+ res.statusText);
-        this.ngOnInit();
-      })
-    }
-   
+
+    else {
+
+
+      if (confirm("Are You Want Delete ???")) {
+        var res = this.gridApi.updateRowData({ remove: selectedData });
+
+        this.http.post("dpo/delData", rowIds).subscribe(res => {
+          alert("Sucessfully Deleted ." + res.statusText);
+          this.ngOnInit();
+        })
+      }
+
     }
   }
 }

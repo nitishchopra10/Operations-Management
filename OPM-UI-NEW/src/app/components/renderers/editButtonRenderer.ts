@@ -8,7 +8,7 @@ import {ICellRendererAngularComp} from "ag-grid-angular";
         `.btn {
             line-height: 0.5;
             margin-top:0;
-            
+            color:"red"
             vertical-align:center
 
         }`
@@ -42,8 +42,7 @@ export class EditButtonRenderer implements ICellRendererAngularComp {
     public invoke(){
         if(this.btnText=='Edit'){
             this.btnText="Save"
-                   
-            
+                  
         }
         
         else{

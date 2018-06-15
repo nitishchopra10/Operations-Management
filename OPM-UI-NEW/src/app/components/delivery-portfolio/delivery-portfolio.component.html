@@ -19,6 +19,9 @@ class="ag-theme-balham centering"
 [rowSelection]="rowSelection"
 [defaultColDef]="defaultColDef"
 (gridReady)="onGridReady($event)"
+
+(cellValueChanged)="onCellValueChanged($event)"
+
 (rowValueChanged)="onRowValueChanged($event)"
 (cellFocused)="cellFocused($event)"
 (sortChanged)="updateRowData($event)"
@@ -29,6 +32,10 @@ class="ag-theme-balham centering"
 
 <button class="btn btn-success" (click)="onAddRow()">Add Row</button>
 <button class="btn btn-danger" (click)="onRemoveSelected()">Remove Selected</button>
+<a  role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg">
+      <clr-icon shape="info-circle" size="24"></clr-icon>
+      <span class="tooltip-content">ctrl + click to select multiple rows</span>
+  </a>
 <!-- (gridReady)="onGridReady($event)" used instead [onGridReady]="onGridReady"
       (cellValueChanged) gets called for each column
 but   (rowValueChanged) gets called once for row
