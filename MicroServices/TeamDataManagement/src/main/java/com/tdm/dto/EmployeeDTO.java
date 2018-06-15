@@ -2,6 +2,10 @@ package com.tdm.dto;
 
 import java.util.List;
 
+/**
+ * @author tsharma
+ *
+ */
 public class EmployeeDTO {
 
 	private Long empId;

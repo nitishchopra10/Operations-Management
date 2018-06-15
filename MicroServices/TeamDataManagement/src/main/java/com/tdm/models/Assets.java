@@ -1,3 +1,9 @@
+/*
+
+
+@author: tsharma
+
+*/
 package com.tdm.models;
 
 import java.io.Serializable;
@@ -14,7 +20,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="assets",schema="sopra")
+@Table(name="assets",schema="opm")
 public class Assets implements Serializable {
 
 		/**

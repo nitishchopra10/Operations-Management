@@ -3,20 +3,17 @@
 // The full license information can be found in LICENSE in the root directory of this project.
 .clr-icon {
   &.clr-clarity-logo {
-      background-image: url(../assets/icon/logo.png);
+      background-image: url(../assets/icon/favicon.png);
       height: 36px;
       width: 36px;
       margin-right: 11px;
   }
 }
 
-.content-container{
+.content-area-margin{
   margin-left:3%;
   margin-right: 2%;
  
-}
-::-webkit-scrollbar{
-  visibility: hidden;
 }
 .title{
   overflow: hidden;

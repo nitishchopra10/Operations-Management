@@ -15,7 +15,7 @@ import com.delivery.portfolio.mapper.DeliveryPortfolioMapper;
 import com.delivery.portfolio.models.DeliveryPortfolio;
 import com.delivery.portfolio.repository.DeliveryPortfolioRepository;
 import com.delivery.portfolio.service.api.IDeliveryPortfolioService;
-import com.sopra.utility.dtos.EmployeeDTO;
+import com.opm.utility.dtos.EmployeeDTO;
 
 @Service
 public class DeliveryPortfolioServiceImpl implements IDeliveryPortfolioService {

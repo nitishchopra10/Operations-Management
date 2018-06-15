@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs';
-import { Employee } from '../models/employee';
+
 import { DataService } from '../../service/data-service.service';
+import { Employee } from '../../models/employee';
 
 @Component({
   selector: 'app-tdm',

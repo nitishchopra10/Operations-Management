@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,FormGroup, FormControl, Validators,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from '@clr/angular';
 import { AppComponent } from './app.component';
@@ -12,6 +12,9 @@ import { TdmComponent } from './components/tdm/tdm.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { DeliveryPortfolioComponent } from './components/delivery-portfolio/delivery-portfolio.component';
 import { DataService } from "./service/data-service.service";
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { EditButton } from "./components/delivery-portfolio/editButton";
 
 @NgModule({
     declarations: [
@@ -19,16 +22,20 @@ import { DataService } from "./service/data-service.service";
         AboutComponent,
         HomeComponent,
         TdmComponent,
-        DeliveryPortfolioComponent
+        DeliveryPortfolioComponent,
+        LoginComponent,
+        RegisterComponent,
+        EditButton
     ],
     imports: [
         BrowserAnimationsModule,
+        ReactiveFormsModule,
         BrowserModule,
         FormsModule,
         HttpModule,
         ClarityModule,
         ROUTING,
-        AgGridModule.withComponents([])
+        AgGridModule.withComponents([EditButton])
     ],
     providers: [DataService],
     bootstrap: [AppComponent]
